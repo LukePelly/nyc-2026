@@ -202,7 +202,7 @@ footer a{color:var(--ink-2)}
     <h1>New York,<br>Halloween e maratona</h1>
     <p class="sub">Dal 28 ottobre al 4 novembre 2026, con un bimbo di 9 mesi in marsupio, la Village Halloween Parade sabato sera e tuo fratello alla TCS NYC Marathon domenica.</p>
     <div class="facts">
-      <a class="fact" href="#budget" id="heroBudgetLink" style="text-decoration:none;color:inherit"><b>Budget stimato</b><span id="heroBudget">circa $2200</span></a>
+      <a class="fact" href="#budget" id="heroBudgetLink" style="text-decoration:none;color:inherit"><b>Budget stimato</b><span id="heroBudget">circa $2240</span></a>
       <div class="fact"><b>Partenza tra</b><span class="countdown" id="countdown">–</span></div>
       <div class="fact"><b>Andata · AA 199</b><span>Mer 28/10 · MXP 10:20 ➔ JFK 14:35</span></div>
       <div class="fact"><b>Ritorno · AA 198</b><span>Mer 4/11 · JFK 18:25 ➔ MXP 08:05</span></div>
@@ -295,7 +295,6 @@ footer a{color:var(--ink-2)}
   <a href="https://arlohotels.com/soho/?p=1707">Parade per chi va la prima volta</a> ·
   <a href="https://www.nyu.edu/community/nyu-in-nyc/events/annual-children-s-halloween-parade.html">Children's Halloween Parade</a> ·
   <a href="https://info.summitov.com/faq/can-i-bring-a-stroller-to-summit-one-vanderbilt">Summit e passeggini</a> ·
-  <a href="https://raceraves.com/races/abbott-dash-to-the-finish-line-5k/">Abbott Dash 5K</a> ·
   <a href="https://www.nintendo.com/us/new-york/">Nintendo NY</a> ·
   <a href="https://www.moma.org/visit/tips">MoMA</a> · <a href="https://moovit.com/blog/navigating-nyc-transit-fares-omny-and-saving-money-in-2026/">Tariffe metro 2026</a> · <a href="https://thebettervacation.com/new-york/summit-one-vanderbilt/">Prezzi Summit</a> · <a href="https://gocity.com/en/new-york/attractions/empire-state-building">Prezzi Empire</a> ·
   <a href="https://www.timeout.com/newyork/news/nycs-most-famous-winter-village-is-making-its-festive-return-next-month-with-free-skating-and-180-vendors-091926">Winter Village 2026</a> ·
@@ -303,7 +302,7 @@ footer a{color:var(--ink-2)}
   <a href="https://www.timeout.com/newyork/news/the-worlds-biggest-halloween-parade-returns-to-nyc-next-month-and-the-titillating-2026-theme-has-just-been-revealed-091626">Halloween Parade</a> ·
   <a href="https://www.blade.com/jfk-manhattan-uber-taxi-subway">Taxi JFK</a> ·
   <a href="https://freetoursbyfoot.com/walking-the-brooklyn-bridge/">Brooklyn Bridge</a> ·
-  <a href="https://www.timessquarenyc.org/food-beverage/dear-pasta">Dear Pasta</a> ·
+  <a href="https://www.opentable.com.mx/carmines-44th-street-nyc">Carmine's</a> ·
   <a href="https://www.frommers.com/destinations/new-york-city/restaurants/kikis">Kiki's</a> ·
   <a href="https://wanderlog.com/place/details/368514/shu-jiao-fu-zhou">Shu Jiao Fu Zhou</a> ·
   <a href="https://decks-nyc.com/opening-hours-of-empire-state-building">Empire State</a>.
@@ -385,22 +384,20 @@ const DAYS = [
     ["bimbo","Tacchino arrosto non pepato, oppure la pappa portata da casa."],
     ["warn","All'ingresso danno un ticket a testa: non perdetelo. Un genitore tiene il tavolo, l'altro va al banco."]]}
   ]},
-{ d:31, dow:"Sab", date:"Sabato 31 ottobre", title:"Halloween: 5K, Central Park, Summit e Village Halloween Parade", zone:"Central Park ➔ Madison Sq ➔ LES ➔ Grand Central ➔ Village", lvl:3, budget:[["Colazione", 25], ["Metro (poi scatta il tetto settimanale)", 30], ["Shake Shack", 45], ["SUMMIT, 2 adulti al tramonto", 130], ["Dear Pasta", 50], ["Caffè e snack", 15], ["Bimbo", 15]], halloween:true,
+{ d:31, dow:"Sab", date:"Sabato 31 ottobre", title:"Halloween: Central Park, Summit e Village Halloween Parade", zone:"Central Park ➔ Madison Sq ➔ LES ➔ Grand Central ➔ Village", lvl:3, budget:[["Colazione", 25], ["Metro (poi scatta il tetto settimanale)", 30], ["Shake Shack", 45], ["SUMMIT, 2 adulti al tramonto", 130], ["Carmine's, la vostra quota", 90], ["Caffè e snack", 15], ["Bimbo", 15]], halloween:true,
   map:G+"Columbus+Circle,+New+York/Bethesda+Terrace,+New+York/Bow+Bridge,+Central+Park/Alice+in+Wonderland,+Central+Park/Balto+Statue,+Central+Park/The+Plaza,+New+York/Shake+Shack,+Madison+Square+Park/Flatiron+Building/",
-  map2:G+"SUMMIT+One+Vanderbilt/Dear+Pasta,+785+8th+Ave,+New+York/Broadway-Lafayette+St+Station/6th+Ave+%26+W+Houston+St,+New+York/5+Allen+St,+New+York/",
+  map2:G+"SUMMIT+One+Vanderbilt/Carmine's,+200+W+44th+St,+New+York/42+St-Bryant+Park+Station/Broadway-Lafayette+St+Station/6th+Ave+%26+W+Houston+St,+New+York/5+Allen+St,+New+York/",
   slots:[
-  {a:"08:00",b:"09:15",t:"5K di tuo fratello (Abbott Dash to the Finish Line)",n:[
-    ["info","Si parte su First Avenue vicino all'ONU e si arriva sul traguardo della maratona, in Central Park. L'orario 2026 è nella mail NYRR del pettorale."],
-    ["move","Voi: metro <b>D da Grand St a 59 St–Columbus Circle</b>. Il sabato <b>la B non circola</b>."],
-    ["info","Ritrovo <b>fuori dall'area d'arrivo, a Columbus Circle</b>, verso le 9:15."]]},
-  {a:"09:15",b:"11:00",t:"Central Park da ovest a est",n:[
+  {a:"09:00",b:"11:00",t:"Central Park da ovest a est",n:[
+    ["move","Metro <b>D da Grand St a 59 St–Columbus Circle</b> (il sabato <b>la B non circola</b>), si entra dal Merchants' Gate."],
     ["info","Bethesda Terrace ➔ <b>Bow Bridge</b> ➔ Alice e Conservatory Water (74th) ➔ Balto (67th) ➔ Plaza Hotel e Grand Army Plaza (59th)."],
     ["info","Bow Bridge, il ponte in ghisa sul Lake, è a 3–4 minuti a ovest di Bethesda: andata e ritorno, poi si prosegue verso est. A inizio novembre il foliage è al massimo."],
-    ["bimbo","Viali asfaltati e foglie autunnali: ideale col passeggino."]]},
+    ["bimbo","Viali asfaltati e foglie autunnali: ideale col passeggino."],
+    ["info","Tuo fratello: alla vigilia della maratona gli conviene stare leggero. Se ha voglia vi raggiunge per un pezzo di passeggiata, altrimenti lo vedete direttamente al Summit."]]},
   {a:"11:00",b:"12:15",t:"Shake Shack a Madison Square Park e Flatiron",n:[
     ["move","Metro <b>N/R/W da 5 Av/59 St a 23 St</b> (diretta, 10 minuti). È lo Shake Shack originale, un chiosco nel parco con il Flatiron di fronte."],
     ["bimbo","Il bun morbido al latte va bene."],
-    ["info","Tuo fratello rientra con la N/R/W fino a Times Sq–42 St e riposa."]]},
+    ["info","Se tuo fratello è con voi, da qui rientra con la N/R/W fino a Times Sq–42 St e riposa."]]},
   {a:"12:30",b:"16:00",t:"Nanna lunga in hotel e preparazione costume",n:[
     ["move","Metro <b>F da 23 St (6th Ave) a East Broadway</b>, diretta."],
     ["bimbo","È il pezzo più importante della giornata: se il bimbo dorme bene adesso, la sera regge."]]},
@@ -409,12 +406,13 @@ const DAYS = [
   {a:"17:15",b:"18:30",t:"SUMMIT One Vanderbilt al tramonto",n:[
     ["info","Tramonto alle 17:52, luce perfetta. I bimbi fino a 5 anni entrano gratis."],
     ["warn","Passeggino solo pieghevole e da chiudere su scale mobili e ascensori, e <b>non c'è un deposito</b>: marsupio, passeggino chiuso a spalla e cuffie per le stanze rumorose."]]},
-  {a:"18:45",b:"19:45",t:"Cena pre-gara: Dear Pasta",n:[
-    ["food","785 8th Ave (47th–48th), 20 minuti a piedi o S Shuttle fino a Times Square. Fast casual, <b>non prende prenotazioni</b>: alle 18:45 si trova ancora posto."],
+  {a:"18:45",b:"19:45",t:"Cena pre-gara: Carmine's",n:[
+    ["food","200 W 44th St (tra la 7th e la 8th Ave), 15 minuti a piedi o S Shuttle fino a Times Square. Italo-americano con porzioni familiari da dividere: due piatti di pasta e un secondo bastano per tre adulti, e tuo fratello fa il pieno di carboidrati."],
+    ["warn","<b>Va prenotato</b> (OpenTable o (212) 221-3800): il sabato di Halloween, vigilia della maratona, è pieno di runner e famiglie. Gli orari 2026 non li ho trovati confermati: ricontrollateli quando prenotate."],
     ["bimbo","Pasta corta ben cotta con pomodoro semplice."],
     ["info","Alle 19:45 tuo fratello va a dormire: il St. James è a 5 minuti."]]},
   {a:"19:45",b:"20:15",t:"Verso la parata",n:[
-    ["move","5 minuti a piedi fino a 47–50 Sts, metro <b>F, M o D fino a Broadway–Lafayette</b>, poi 8 minuti a piedi verso ovest su Houston St."],
+    ["move","7 minuti a piedi fino a 42 St–Bryant Park, metro <b>F, M o D fino a Broadway–Lafayette</b>, poi 8 minuti a piedi verso ovest su Houston St."],
     ["warn","🔑 <b>Arrivate e restate sul marciapiede EST della 6th Avenue.</b> Le strade che la incrociano chiudono dalle 18:00 e la 6th Ave non si attraversa più: stando sul lato est, l'hotel è sempre dalla vostra parte."]]},
   {a:"20:15",b:"21:15",t:"🎃 Village Halloween Parade",n:[
     ["info","La parata va dalle 19:00 alle 23:00 circa. Secondo gli organizzatori risale la 6th Avenue <b>da King St alla W 15th St</b>, e si guarda da entrambi i lati in quel tratto. Più a sud, tra Canal e Spring, c'è il ritrovo di chi sfila: lì non si guarda."],
@@ -427,7 +425,7 @@ const DAYS = [
     ["move","A piedi fino a Broadway–Lafayette, poi <b>F fino a East Broadway</b> (3 fermate). In alternativa taxi da Lafayette St."],
     ["warn","🕐 Stanotte alle 2:00 gli orologi tornano indietro di un'ora: un'ora di sonno in più."]]},
   {a:"Alt.",b:"",t:"Variante \"più Halloween, meno Midtown\"",n:[
-    ["info","Al Summit va solo tuo fratello. Voi fate la <b>Children's Halloween Parade a Washington Square Park</b> (NYU: nel 2025 il ritrovo era alle 15:00 sotto l'arco, da riconfermare), un giro tra le case addobbate di W 10th e W 11th St, cena con lui alle 18:00 da Dear Pasta e parata dalle 19:30."],
+    ["info","Al Summit va solo tuo fratello. Voi fate la <b>Children's Halloween Parade a Washington Square Park</b> (NYU: nel 2025 il ritrovo era alle 15:00 sotto l'arco, da riconfermare), un giro tra le case addobbate di W 10th e W 11th St, cena con lui alle 18:00 da Carmine's (spostate la prenotazione) e parata dalle 19:30."],
     ["bimbo","Il prezzo da pagare è una nanna più corta."]]}
   ]},
 { d:1, dow:"Dom", date:"Domenica 1 novembre", title:"TCS NYC Marathon e John's Pizzeria", zone:"East Harlem (tifo) ➔ Times Square", lvl:2, budget:[["Colazione", 25], ["Metro (quasi tutta coperta dal tetto)", 5], ["Pranzo in un deli", 35], ["Snack", 15], ["John's, vostra quota", 70], ["Bimbo", 15]], race:true,
@@ -539,10 +537,9 @@ const CHECK = [
   ["summit","SUMMIT One Vanderbilt · sab 31/10, ore 17:15 (tramonto 17:52)"],
   ["costume","Costume di Halloween caldo per il bimbo (la sera 8–12 °C)"],
   ["photo","Avere sul telefono la foto dei genitori da rifare al Seaport"],
-  ["5k","Orario ufficiale della 5K di sabato (mail NYRR)"],
   ["esb","Empire State Building · lun 2/11, fascia 19:30–20:00"],
   ["moma","MoMA · mar 3/11, ingresso 12:30 (adulti $30, biglietto gratuito anche per il bimbo)"],
-  ["din","Ristorante di riserva per la cena pre-gara · sab 31/10"],
+  ["carmines","Prenotare Carmine's Times Square · sab 31/10 ore 18:45, 3 adulti più il bimbo (OpenTable o 212-221-3800)"],
   ["johns","Chiamare John's of Times Square per la cena di dom 1/11"],
   ["esta","ESTA per tutti, bimbo compreso"],
   ["air","American Airlines: passeggino al gate e bagagli del bimbo"],
