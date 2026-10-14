@@ -218,7 +218,7 @@ footer a{color:var(--ink-2)}
     <h1>New York,<br>Halloween e maratona</h1>
     <p class="sub">Dal 28 ottobre al 4 novembre 2026, con un bimbo di 9 mesi nel suo passeggino YOYO, la Village Halloween Parade sabato sera e tuo fratello alla TCS NYC Marathon domenica.</p>
     <div class="facts">
-      <a class="fact" href="#budget" id="heroBudgetLink" style="text-decoration:none;color:inherit"><b>Budget stimato</b><span id="heroBudget">circa $2290</span></a>
+      <a class="fact" href="#budget" id="heroBudgetLink" style="text-decoration:none;color:inherit"><b>Budget stimato</b><span id="heroBudget">circa $2236</span></a>
       <div class="fact"><b>Partenza tra</b><span class="countdown" id="countdown">–</span></div>
       <div class="fact"><b>Andata · AA 199</b><span>Mer 28/10 · MXP 10:20 ➔ JFK 14:35</span></div>
       <div class="fact"><b>Ritorno · AA 198</b><span>Mer 4/11 · JFK 18:25 ➔ MXP 08:05</span></div>
@@ -565,8 +565,8 @@ const DAYS = [
     ["bimbo","86° piano all'aperto: bimbo ben coperto, copertina sul passeggino."],
     ["move","Ritorno: B/D da 34 St–Herald Sq a Grand St."]]}
   ]},
-{ d:3, dow:"Mar", date:"Martedì 3 novembre", title:"Bryant Park, Biblioteca, MoMA, zoo di Central Park e saluti", zone:"Midtown e Central Park, tutto a piedi", lvl:2, budget:[["Colazione da Krispy Kreme", 15], ["Winter Village (cioccolata, dolci)", 20], ["Pranzo dalla Halal Guys", 20], ["MoMA, 2 adulti", 60], ["Central Park Zoo, 2 adulti", 50], ["Ultima cena", 80], ["Bimbo", 15]],
-  map:G+"Krispy+Kreme,+1601+Broadway,+New+York/Bryant+Park,+New+York/New+York+Public+Library+Stephen+A.+Schwarzman+Building/Museum+of+Modern+Art,+New+York/W+53rd+St+%26+6th+Ave,+New+York/Central+Park+Zoo,+New+York/Gapstow+Bridge,+Central+Park/FAO+Schwarz,+30+Rockefeller+Plaza,+New+York/",
+{ d:3, dow:"Mar", date:"Martedì 3 novembre", title:"Bryant Park, Biblioteca, MoMA, Central Park e saluti", zone:"Midtown e Central Park, tutto a piedi", lvl:2, budget:[["Colazione da Krispy Kreme", 15], ["Winter Village (cioccolata, dolci)", 20], ["Pranzo dalla Halal Guys", 20], ["MoMA, 2 adulti", 60], ["Giostra di Central Park (contanti)", 6], ["Ultima cena", 80], ["Bimbo", 15]],
+  map:G+"Krispy+Kreme,+1601+Broadway,+New+York/Bryant+Park,+New+York/New+York+Public+Library+Stephen+A.+Schwarzman+Building/Museum+of+Modern+Art,+New+York/W+53rd+St+%26+6th+Ave,+New+York/Heckscher+Playground,+Central+Park/Central+Park+Carousel/Literary+Walk,+Central+Park/Gapstow+Bridge,+Central+Park/FAO+Schwarz,+30+Rockefeller+Plaza,+New+York/",
   slots:[
   {a:"09:30",b:"10:00",t:"Bryant Park Winter Village",n:[
     ["move","Metro <b>F da Delancey St–Essex St a 47–50 Sts–Rockefeller Ctr</b>, diretta."],
@@ -587,13 +587,13 @@ const DAYS = [
   {a:"13:15",b:"13:45",t:"Pranzo dalla Halal Guys",n:[
     ["food","<b>The Halal Guys</b>, il carretto all'angolo tra la <b>53rd St e la 6th Ave</b>, a un isolato dal MoMA: chicken over rice (piatto di riso con pollo) con la salsa bianca e, poca, quella rossa piccantissima. Un'istituzione di New York, in due circa $20. Si mangia in piedi o su una panchina."],
     ["warn","Il carretto storico lavora soprattutto di sera (dalle 19); il servizio a pranzo è segnalato da una sola fonte. All'incrocio di solito ci sono altri carretti halal; se non vi convincono, c'è la caffetteria del MoMA."]]},
-  {a:"14:00",b:"15:30",t:"Central Park Zoo con tuo fratello",n:[
-    ["move","Dalla 53rd & 6th Ave sono circa 15 minuti a piedi fino all'ingresso dello zoo (5th Ave & 64th St)."],
-    ["info","Piccolo e tutto in piano: leoni marini, pinguini al coperto, panda rossi, e il <b>Tisch Children's Zoo</b> con capre e pecore da vedere da vicino. Un'ora e mezza basta."],
-    ["warn","Biglietti solo online e con la data: adulti $22,95, il bimbo è gratis ma serve il biglietto anche per lui. A novembre è aperto 10:00–16:30, ultimo ingresso alle 15:30."],
-    ["bimbo","Gli animali visti da vicino sono perfetti alla sua età, e si gira sempre col passeggino aperto."]]},
+  {a:"14:00",b:"15:30",t:"Central Park sud con tuo fratello",n:[
+    ["move","Dalla 53rd & 6th Ave sono 6 minuti a piedi fino all'ingresso del parco sulla 6th Ave (Central Park South)."],
+    ["info","Un giro nella parte sud che sabato non avete visto: l'<b>Heckscher Playground</b>, la <b>giostra storica</b> (Friedsam Memorial Carousel, all'altezza della 65th), il prato di <b>Sheep Meadow</b> e il viale alberato del <b>Literary Walk</b>, col foliage di inizio novembre."],
+    ["warn","La giostra costa $3 a giro, solo contanti. A novembre nei giorni feriali potrebbe essere chiusa (il sito del parco dà orari contraddittori): se è chiusa, restano il playground e il prato."],
+    ["bimbo","Sulla giostra il bimbo sale in braccio a uno di voi. All'Heckscher ci sono le altalene per i piccoli. Viali asfaltati, ottimi per il pisolino."]]},
   {a:"15:30",b:"16:00",t:"Saluti a tuo fratello al Gapstow Bridge",n:[
-    ["move","Dallo zoo 5 minuti a piedi fino al <b>Pond e al Gapstow Bridge</b> (5th Ave & 59th), lo scorcio classico col Plaza sullo sfondo, a 10 minuti dal suo hotel."],
+    ["move","Dal Literary Walk 8 minuti a piedi verso sud fino al <b>Pond e al Gapstow Bridge</b> (5th Ave & 59th), lo scorcio classico col Plaza sullo sfondo, a 10 minuti dal suo hotel."],
     ["info","Lui ha il volo alle 21:50 (deve uscire entro le 18:00)."],
     ["info","Il volo di ritorno è <b>mercoledì 4 novembre alle 18:25</b> (AA 198)."]]},
   {a:"16:15",b:"17:30",t:"FAO Schwarz e Rockefeller Center illuminato",n:[
@@ -639,7 +639,6 @@ const CHECK = [
   ["photo","Avere sul telefono la foto dei genitori da rifare al Seaport"],
   ["esb","Empire State Building · lun 2/11, fascia 19:30–20:00"],
   ["moma","MoMA · mar 3/11, ingresso 11:00 (adulti $30, biglietto gratuito anche per il bimbo)"],
-  ["zoo","Central Park Zoo · mar 3/11, biglietti online con data (anche per il bimbo, gratis)"],
   ["johns","Chiamare John's of Times Square per la cena di dom 1/11 alle 18:00"],
   ["esta","ESTA per tutti, bimbo compreso"],
   ["air","American Airlines: YOYO in cabina (policy salvata sul telefono) e bagagli del bimbo"],
