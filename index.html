@@ -218,7 +218,7 @@ footer a{color:var(--ink-2)}
     <h1>New York,<br>Halloween e maratona</h1>
     <p class="sub">Dal 28 ottobre al 4 novembre 2026, con un bimbo di 9 mesi in marsupio, la Village Halloween Parade sabato sera e tuo fratello alla TCS NYC Marathon domenica.</p>
     <div class="facts">
-      <a class="fact" href="#budget" id="heroBudgetLink" style="text-decoration:none;color:inherit"><b>Budget stimato</b><span id="heroBudget">circa $2228</span></a>
+      <a class="fact" href="#budget" id="heroBudgetLink" style="text-decoration:none;color:inherit"><b>Budget stimato</b><span id="heroBudget">circa $2403</span></a>
       <div class="fact"><b>Partenza tra</b><span class="countdown" id="countdown">–</span></div>
       <div class="fact"><b>Andata · AA 199</b><span>Mer 28/10 · MXP 10:20 ➔ JFK 14:35</span></div>
       <div class="fact"><b>Ritorno · AA 198</b><span>Mer 4/11 · JFK 18:25 ➔ MXP 08:05</span></div>
@@ -282,7 +282,7 @@ footer a{color:var(--ink-2)}
   <section class="panel" id="ristoranti" data-view="food">
     <h2>🍽 Ristoranti, giorno per giorno</h2>
     <div class="box">
-      <p class="bnote">Tutti i pasti fuori in ordine cronologico, con l'orario previsto nell'itinerario. I prezzi sono per voi due, con tasse e mance. Dove c'è scritto "a scelta" non c'è un locale fissato: decidete sul posto.</p>
+      <p class="bnote">Tutti i pasti fuori in ordine cronologico, con l'orario previsto nell'itinerario. I prezzi sono per voi due, con tasse e mance. Per i locali con l'avviso "da confermare" una telefonata qualche giorno prima toglie il dubbio.</p>
       <ol class="rlist" id="rlist"></ol>
     </div>
   </section>
@@ -363,11 +363,12 @@ const DAYS = [
     ["info","Dopo cena: Doyers St, Pell St e Mott St, poi su per <b>Mulberry St fino a Little Italy</b>."],
     ["bimbo","Col fuso orario (−5h) il bimbo crollerà presto. Dall'hotel è tutto a 5–10 minuti a piedi."]]}
   ]},
-{ d:29, dow:"Gio", date:"Giovedì 29 ottobre", title:"Rockefeller, High Line, West Village e Times Square di sera", zone:"Midtown ➔ Hudson Yards ➔ Chelsea ➔ West Village ➔ Times Square", lvl:2, budget:[["Colazione", 25], ["Metro (4 corse a testa)", 24], ["Pranzo al Chelsea Market", 50], ["Caffè e snack", 15], ["Cena da Kiki's", 85], ["Bimbo", 15]],
+{ d:29, dow:"Gio", date:"Giovedì 29 ottobre", title:"Rockefeller, High Line, West Village e Times Square di sera", zone:"Midtown ➔ Hudson Yards ➔ Chelsea ➔ West Village ➔ Times Square", lvl:2, budget:[["Colazione da Kossar's", 25], ["Metro (4 corse a testa)", 24], ["Pranzo al Chelsea Market", 50], ["Caffè e snack", 15], ["Cena da Kiki's", 85], ["Bimbo", 15]],
   map:G+"St.+Patrick's+Cathedral,+New+York/Rockefeller+Plaza,+New+York/34+St-Hudson+Yards,+New+York/The+Spur,+High+Line,+New+York/Chelsea+Market,+New+York/Little+Island,+New+York/66+Perry+St,+New+York/Washington+Square+Park,+New+York/Kiki's,+130+Division+St,+New+York/Times+Square,+New+York/",
   slots:[
   {a:"09:30",b:"10:45",t:"St. Patrick's e Rockefeller Center",n:[
-    ["move","Metro <b>B o D</b> da Grand St a 47–50 Sts–Rockefeller Ctr (il giovedì la B circola)."],
+    ["food","Colazione da <b>Kossar's Bagels & Bialys</b> (367 Grand St, angolo Essex St), 7 minuti a piedi dall'hotel: bagel e bialy sfornati, dal 1936. Pochi tavolini, si può anche portare via."],
+    ["move","Da Kossar's, metro <b>F da Delancey St–Essex St</b> (3 minuti a piedi) fino a 47–50 Sts–Rockefeller Ctr, diretta."],
     ["info","St. Patrick's è gratis, con una rampa sul lato nord. Poi Rockefeller Plaza e il Channel Gardens. Times Square la vedete stasera, illuminata."],
     ["info","<b>Opzionale: Nintendo NY</b> (10 Rockefeller Plaza, apre alle 10:00). Se non vi convince, saltatelo: è aperto fino alle 20:00 e potete decidere anche stasera, è a 5 minuti da Times Square."]]},
   {a:"10:45",b:"11:05",t:"Trasferimento a Hudson Yards",n:[
@@ -395,11 +396,12 @@ const DAYS = [
     ["bimbo","Rumorosa e piena di luci: passeggino con la capottina abbassata se è stanco, o in marsupio se è curioso."],
     ["move","Rientro: <b>B o D da 42 St–Bryant Park a Grand St</b>, diretta. In hotel verso le 21:00."]]}
   ]},
-{ d:30, dow:"Ven", date:"Venerdì 30 ottobre", title:"Statua della Libertà, Wall Street, la foto dei genitori, Domino Park ed Essex Market", zone:"Financial District ➔ South Street Seaport ➔ Williamsburg", lvl:2, budget:[["Colazione", 25], ["Metro (4 corse a testa)", 24], ["Staten Island Ferry", 0], ["Pranzo al Seaport", 45], ["Caffè e snack", 15], ["Katz's, vostra quota", 70], ["Bimbo", 15]],
+{ d:30, dow:"Ven", date:"Venerdì 30 ottobre", title:"Statua della Libertà, Wall Street, la foto dei genitori, Domino Park ed Essex Market", zone:"Financial District ➔ South Street Seaport ➔ Williamsburg", lvl:2, budget:[["Colazione da Clinton St. Baking Co.", 45], ["Metro (4 corse a testa)", 24], ["Staten Island Ferry", 0], ["Pranzo da Fresh Salt", 45], ["Caffè e snack", 15], ["Katz's, vostra quota", 70], ["Bimbo", 15]],
   map:G+"5+Allen+St,+New+York/Whitehall+Terminal,+New+York/Battery+Park,+New+York/Charging+Bull,+New+York/New+York+Stock+Exchange/9%2F11+Memorial,+New+York/Pier+17,+New+York/Domino+Park,+Brooklyn/Essex+Market,+88+Essex+St,+New+York/Katz's+Delicatessen,+New+York/",
   slots:[
   {a:"09:30",b:"11:15",t:"Staten Island Ferry",n:[
-    ["move","Metro <b>J da Bowery a Broad St</b> (la Z passa solo nelle ore di punta). A piedi dall'hotel sono <b>30–35 minuti</b>."],
+    ["food","Colazione verso le 8:30 da <b>Clinton St. Baking Company</b> (4 Clinton St), 10 minuti a piedi dall'hotel: famosa per i pancake ai mirtilli. Nei feriali presto si aspetta poco. Apertura alle 8:00 o alle 8:30 secondo le fonti, e una fonte vecchia dice che a colazione si paga solo in contanti: portateli."],
+    ["move","Poi metro <b>J da Essex St a Broad St</b> (Essex St è a 4 minuti; la Z passa solo nelle ore di punta)."],
     ["info","Traghetto gratuito, 25 minuti a tratta. All'andata state sul <b>lato destro</b> per vedere meglio la Statua."],
     ["info","A Staten Island si scende obbligatoriamente e si risale sul primo traghetto di ritorno."],
     ["bimbo","Accessibile col passeggino aperto, con sale riscaldate."]]},
@@ -416,7 +418,8 @@ const DAYS = [
     ["bimbo","<b>Come rifarla:</b> voi due seduti di spalle col bimbo in mezzo, e la ringhiera e il fiume tra voi e il ponte. Inquadratura orizzontale, all'altezza di chi è seduto."],
     ["warn","La zona è stata ricostruita (Pier 17 ha riaperto nel 2018): ringhiera rossa e panchina potrebbero non esserci più. Conta l'angolo sul ponte."],
     ["info","<b>Luce:</b> verso le 13 il sole è a sud, alle vostre spalle, e il ponte è illuminato bene."],
-    ["food","Pranzo veloce al Seaport, poi metro <b>J da Fulton St a Bowery</b>."]]},
+    ["food","Pranzo da <b>Fresh Salt</b> (146 Beekman St, 3 minuti da Pier 17): panini, quiche del giorno e piatti semplici in un locale di quartiere, in due circa $45. Orari 2026 non confermati: (212) 962-0053."],
+    ["move","Poi metro <b>J da Fulton St a Bowery</b>."]]},
   {a:"14:15",b:"16:00",t:"Riposo in camera",n:[
     ["bimbo","Pisolino del pomeriggio."],
     ["info","Tuo fratello: arrivo, check-in al St. James e ritiro del pettorale all'Expo del Javits Center (orari nell'app NYRR)."]]},
@@ -433,24 +436,27 @@ const DAYS = [
     ["food","205 E Houston St, a 8 minuti a piedi dall'Essex Market risalendo Ludlow St. Un pastrami sandwich (circa $30) basta per due."],
     ["warn","All'ingresso danno un ticket a testa: non perdetelo. Un genitore tiene il tavolo, l'altro va al banco."]]}
   ]},
-{ d:31, dow:"Sab", date:"Sabato 31 ottobre", title:"Halloween: Central Park, Summit e Village Halloween Parade", zone:"Central Park ➔ Madison Sq ➔ LES ➔ Grand Central ➔ Village", lvl:3, budget:[["Colazione", 25], ["Metro (poi scatta il tetto settimanale)", 30], ["Shake Shack", 45], ["SUMMIT, 2 adulti al tramonto", 130], ["Urban Hawker", 45], ["Caffè e snack", 15], ["Bimbo", 15]], halloween:true,
+{ d:31, dow:"Sab", date:"Sabato 31 ottobre", title:"Halloween: Central Park, Summit e Village Halloween Parade", zone:"Central Park ➔ Madison Sq ➔ LES ➔ Grand Central ➔ Village", lvl:3, budget:[["Colazione da Mei Lai Wah", 25], ["Metro (poi scatta il tetto settimanale)", 30], ["Shake Shack", 45], ["SUMMIT, 2 adulti al tramonto", 130], ["Urban Hawker", 45], ["Merenda a Grand Central e caffè", 15], ["Bimbo", 15]], halloween:true,
   map:G+"Columbus+Circle,+New+York/Bethesda+Terrace,+New+York/Bow+Bridge,+Central+Park/Alice+in+Wonderland,+Central+Park/Balto+Statue,+Central+Park/The+Plaza,+New+York/Shake+Shack,+Madison+Square+Park/Flatiron+Building/",
   map2:G+"SUMMIT+One+Vanderbilt/Urban+Hawker,+135+W+50th+St,+New+York/47-50+Sts-Rockefeller+Ctr+Station/Broadway-Lafayette+St+Station/6th+Ave+%26+W+Houston+St,+New+York/5+Allen+St,+New+York/",
   slots:[
   {a:"09:00",b:"11:00",t:"Central Park da ovest a est",n:[
+    ["food","Colazione veloce da <b>Mei Lai Wah</b> (41 Mott St), la bakery cinese dei baked pork buns e dei dolci, aperta dalle 7. A pochi dollari, e a 7 minuti dalla stazione di Grand St. Ha da poco una sede nuova e più grande al 41 di Mott St; la vecchia di Bayard St potrebbe aver chiuso."],
     ["move","Metro <b>D da Grand St a 59 St–Columbus Circle</b> (il sabato <b>la B non circola</b>), si entra dal Merchants' Gate."],
     ["info","Bethesda Terrace ➔ <b>Bow Bridge</b> ➔ Alice e Conservatory Water (74th) ➔ Balto (67th) ➔ Plaza Hotel e Grand Army Plaza (59th)."],
     ["info","Bow Bridge, il ponte in ghisa sul Lake, è a 3–4 minuti a ovest di Bethesda: andata e ritorno, poi si prosegue verso est. A inizio novembre il foliage è al massimo."],
     ["bimbo","Viali asfaltati e foglie autunnali: ideale col passeggino."],
     ["info","Tuo fratello: alla vigilia della maratona gli conviene stare leggero. Se ha voglia vi raggiunge per un pezzo di passeggiata, altrimenti lo vedete direttamente al Summit."]]},
   {a:"11:00",b:"12:15",t:"Shake Shack a Madison Square Park e Flatiron",n:[
-    ["move","Metro <b>N/R/W da 5 Av/59 St a 23 St</b> (diretta, 10 minuti). È lo Shake Shack originale, un chiosco nel parco con il Flatiron di fronte."],
+    ["move","Metro <b>N/R/W da 5 Av/59 St a 23 St</b> (diretta, 10 minuti)."],
+    ["food","Pranzo anticipato allo <b>Shake Shack</b> originale, un chiosco dentro il parco con il Flatiron di fronte: burger, hot dog e frozen custard. In due $40–45. Fino a cena c'è solo la merenda, quindi mangiate bene."],
     ["info","Se tuo fratello è con voi, da qui rientra con la N/R/W fino a Times Sq–42 St e riposa."]]},
   {a:"12:30",b:"16:00",t:"Nanna lunga in hotel e preparazione costume",n:[
     ["move","Metro <b>F da 23 St (6th Ave) a East Broadway</b>, diretta."],
     ["bimbo","È il pezzo più importante della giornata: se il bimbo dorme bene adesso, la sera regge."]]},
   {a:"16:15",b:"17:00",t:"Verso Grand Central",n:[
-    ["move","F fino a 42 St–Bryant Park, poi 6 minuti a piedi. Ritrovo con tuo fratello all'ingresso del Summit (42nd St & Vanderbilt Ave)."]]},
+    ["move","F fino a 42 St–Bryant Park, poi 6 minuti a piedi. Ritrovo con tuo fratello all'ingresso del Summit (42nd St & Vanderbilt Ave)."],
+    ["food","<b>Merenda a Grand Central</b>, che è di fronte al Summit: <b>Magnolia Bakery</b> (banana pudding e cupcake) aveva un banco nella stazione, ma non ho conferme per il 2026. In alternativa, i banchi del Dining Concourse al piano inferiore."]]},
   {a:"17:15",b:"18:30",t:"SUMMIT One Vanderbilt al tramonto",n:[
     ["info","Tramonto alle 17:52, luce perfetta. I bimbi fino a 5 anni entrano gratis."],
     ["warn","Passeggino solo pieghevole e da chiudere su scale mobili e ascensori, e <b>non c'è un deposito</b>: marsupio, passeggino chiuso a spalla e cuffie per le stanze rumorose."]]},
@@ -475,11 +481,12 @@ const DAYS = [
     ["info","Al Summit va solo tuo fratello. Voi fate la <b>Children's Halloween Parade a Washington Square Park</b> (NYU: nel 2025 il ritrovo era alle 15:00 sotto l'arco, da riconfermare), un giro tra le case addobbate di W 10th e W 11th St, cena con lui alle 18:00 da Urban Hawker e parata dalle 19:30."],
     ["bimbo","Il prezzo da pagare è una nanna più corta."]]}
   ]},
-{ d:1, dow:"Dom", date:"Domenica 1 novembre", title:"TCS NYC Marathon e John's Pizzeria", zone:"East Harlem (tifo) ➔ Times Square", lvl:2, budget:[["Colazione", 25], ["Metro (quasi tutta coperta dal tetto)", 5], ["Pranzo in un deli", 35], ["Snack", 15], ["John's, vostra quota", 70], ["Bimbo", 15]], race:true,
+{ d:1, dow:"Dom", date:"Domenica 1 novembre", title:"TCS NYC Marathon e John's Pizzeria", zone:"East Harlem (tifo) ➔ Times Square", lvl:2, budget:[["Colazione da Kossar's", 25], ["Metro (quasi tutta coperta dal tetto)", 5], ["Pranzo da Le Pain Quotidien", 40], ["Snack", 15], ["John's, vostra quota", 70], ["Bimbo", 15]], race:true,
   map:G+"5+Allen+St,+New+York/96+St+Station+Q,+New+York/1st+Ave+%26+E+113th+St,+New+York/5th+Ave+%26+E+111th+St,+New+York/John's+of+Times+Square,+260+W+44th+St,+New+York/",
   slots:[
   {a:"09:30",b:"12:15",t:"Trasferimento e tifo su First Avenue",n:[
     ["info","Punto di tifo: First Ave & 113th St, <b>circa al km 30</b> (miglio 18,7). Passaggio stimato <b>tra le 11:13 e le 11:20</b>: siate sul marciapiede <b>entro le 10:45</b>."],
+    ["food","Colazione da portar via da <b>Kossar's Bagels & Bialys</b> (367 Grand St, angolo Essex St), che apre alle 6: bagel da mangiare in metro o in attesa del passaggio. Poi la F si prende da <b>Delancey St–Essex St</b>, a 3 minuti, invece che da East Broadway: è la stessa linea."],
     ["move","Metro <b>F da East Broadway a Lexington Av/63 St</b>, poi cambio sulla stessa banchina con la <b>Q fino a 96 St</b> (con ascensori). Da lì circa 18 minuti a piedi sul <b>lato ovest</b> di First Avenue."],
     ["warn","La B la domenica non circola, e la D arriva sul lato ovest di Harlem: troppo lontano."],
     ["info","Se volete camminare meno, First Ave tra la 96th e la 100th è a 3 minuti dalla Q: c'è più folla, e lui passa circa 2 minuti prima."],
@@ -491,7 +498,7 @@ const DAYS = [
     ["move","Tra la First e la 5th Avenue, a quell'altezza, non ci sono tratti di gara da attraversare. Guardate dal marciapiede est della 5th (dall'altro lato c'è il parco)."],
     ["bimbo","Se il bimbo è stanco o la folla è troppa, saltatelo: il primo passaggio basta."]]},
   {a:"12:30",b:"17:00",t:"Pranzo, passeggiata nell'Upper East Side e riposo",n:[
-    ["food","Pranzo in un deli o bakery dell'Upper East Side, tra Madison e Lexington Ave."],
+    ["food","Pranzo da <b>Le Pain Quotidien</b> (1309 Lexington Ave, angolo 88th St), in Carnegie Hill: panetteria con tavoli, zuppe e tartine, aperta la domenica dalle 7 alle 20. In due circa $40."],
     ["warn","<b>Central Park oggi non è accessibile da qui:</b> la gara entra nel parco alla 5th & 90th e scende sull'East Drive fino alla 59th, e i trasversali (65th, 79th, 96th) restano chiusi quasi tutto il giorno. Anche la 5th Ave sopra la 90th e la First Ave sono percorso: restate tra le due."],
     ["bimbo","Al posto del parco, una passeggiata tra le townhouse di Carnegie Hill (le strade tra la 86th e la 96th, tra Madison e Park Ave), tutta in piano e tranquilla."],
     ["move","Ritorno con la Q da 96 St o 86 St (sulla 2nd Ave), poi F. Evitate la linea 6, che sarà strapiena."],
@@ -501,10 +508,11 @@ const DAYS = [
     ["info","L'alternativa è <b>John's of Bleecker Street</b>, l'originale del 1929: più autentico, ma piccolo e senza prenotazioni. Dopo una maratona la sede di Times Square è più pratica."],
     ["warn","La policy sulle prenotazioni non è chiara: chiamate il <a href=\"tel:+12123917560\">(212) 391-7560</a> qualche giorno prima. Arrivare alle 18:30 aiuta comunque."]]}
   ]},
-{ d:2, dow:"Lun", date:"Lunedì 2 novembre", title:"DUMBO, Brooklyn Bridge, Herald Square ed Empire State", zone:"DUMBO ➔ Brooklyn Heights ➔ Brooklyn Bridge ➔ Herald Square", lvl:2, budget:[["Colazione", 20], ["Nom Wah", 55], ["Taxi per DUMBO (facoltativo)", 20], ["Empire State, 2 adulti", 105], ["Cena leggera", 30], ["Bimbo", 15]],
+{ d:2, dow:"Lun", date:"Lunedì 2 novembre", title:"DUMBO, Brooklyn Bridge, Herald Square ed Empire State", zone:"DUMBO ➔ Brooklyn Heights ➔ Brooklyn Bridge ➔ Herald Square", lvl:2, budget:[["Colazione da Mei Lai Wah", 20], ["Nom Wah", 55], ["Taxi per DUMBO (facoltativo)", 20], ["Empire State, 2 adulti", 105], ["BCD Tofu House", 45], ["Bimbo", 15]],
   map:G+"5+Allen+St,+New+York/Washington+St+%26+Water+St,+Brooklyn/Pebble+Beach,+Brooklyn/Pier+1,+Brooklyn+Bridge+Park/Brooklyn+Heights+Promenade,+Brooklyn/Tillary+St+%26+Adams+St,+Brooklyn/City+Hall+Park,+New+York/Nom+Wah+Tea+Parlor,+New+York/Macy's+Herald+Square,+New+York/Empire+State+Building/",
   slots:[
   {a:"09:30",b:"11:45",t:"DUMBO, Pebble Beach e Pier 1",n:[
+    ["food","Colazione da <b>Mei Lai Wah</b> (41 Mott St), poi 10 minuti a piedi fino a East Broadway."],
     ["move","Partenza con calma dopo il weekend. F da East Broadway a York St (stazione solo con scale) oppure taxi di 15 minuti."],
     ["info","Foto su Washington St & Water St, con il Manhattan Bridge incorniciato tra i palazzi, poi <b>Pebble Beach</b> (la spiaggetta tra i due ponti, in fondo a Main St) e Pier 1 per lo skyline."],
     ["info","<b>Perché di mattina:</b> il sole sta a est, alle vostre spalle, e illumina in pieno lo skyline di Manhattan. Di pomeriggio sareste controluce."]]},
@@ -519,20 +527,22 @@ const DAYS = [
     ["food","13 Doyers St, la sala da tè più antica di NYC. Dopo il ponte è di strada, e dall'hotel sono 10 minuti a piedi."]]},
   {a:"15:00",b:"16:15",t:"Riposo in camera",n:[
     ["bimbo","Pisolino lungo: la serata finisce tardi con l'Empire."]]},
-  {a:"16:45",b:"19:30",t:"Herald Square, Macy's, Koreatown e cena leggera",n:[
+  {a:"16:45",b:"19:30",t:"Herald Square, Macy's, Koreatown e cena da BCD Tofu House",n:[
     ["move","Metro <b>B o D da Grand St a 34 St–Herald Sq</b>, diretta."],
     ["info","<b>Macy's Herald Square</b>, il grande magazzino storico: al caldo, con le vecchie scale mobili in legno ancora in funzione ai piani alti. Buono anche per i souvenir."],
-    ["info","Poi due passi su <b>W 32nd St (Koreatown)</b>, che col buio si accende di insegne, e una cena leggera in zona. L'Empire è a 3 minuti a piedi."],
+    ["info","Poi due passi su <b>W 32nd St (Koreatown)</b>, che col buio si accende di insegne. L'Empire è a 3 minuti a piedi."],
+    ["food","Cena verso le 18:30 da <b>BCD Tofu House</b> (5 W 32nd St): zuppe di tofu bollenti e bibimbap, servizio veloce, in due circa $45. Orari 2026 da verificare: (212) 967-1900."],
     ["bimbo","Da Macy's ci sono ascensori e bagni con fasciatoio."]]},
   {a:"19:45",b:"21:00",t:"Empire State Building con tuo fratello",n:[
     ["warn","Prenota la fascia <b>19:30–20:00</b>: a novembre l'ultimo ascensore potrebbe essere alle 21:15."],
     ["bimbo","86° piano all'aperto: marsupio e bimbo ben coperto."],
     ["move","Ritorno: B/D da 34 St–Herald Sq a Grand St."]]}
   ]},
-{ d:3, dow:"Mar", date:"Martedì 3 novembre", title:"Bryant Park, Biblioteca, Grand Central, MoMA e saluti", zone:"Midtown, tutto a piedi", lvl:2, budget:[["Colazione", 25], ["Winter Village (cioccolata, dolci)", 20], ["Pranzo a Grand Central", 45], ["MoMA, 2 adulti", 60], ["Cena da asporto", 35], ["Bimbo", 15]],
+{ d:3, dow:"Mar", date:"Martedì 3 novembre", title:"Bryant Park, Biblioteca, Grand Central, MoMA e saluti", zone:"Midtown, tutto a piedi", lvl:2, budget:[["Colazione da Clinton St. Baking Co.", 45], ["Winter Village (cioccolata, dolci)", 20], ["Pranzo a Grand Central", 45], ["MoMA, 2 adulti", 60], ["Ultima cena", 80], ["Bimbo", 15]],
   map:G+"Bryant+Park,+New+York/New+York+Public+Library+Stephen+A.+Schwarzman+Building/Grand+Central+Terminal,+New+York/Chrysler+Building,+New+York/Museum+of+Modern+Art,+New+York/Gapstow+Bridge,+Central+Park/",
   slots:[
   {a:"09:30",b:"10:00",t:"Bryant Park Winter Village",n:[
+    ["food","Colazione verso le 8:30 da <b>Clinton St. Baking Company</b> (4 Clinton St), poi metro <b>F da Delancey St–Essex St a 42 St–Bryant Park</b>, diretta (3 minuti a piedi dal locale)."],
     ["info","Il Winter Village apre il <b>28 ottobre 2026</b>: bancarelle e pista di pattinaggio."],
     ["bimbo","In Bryant Park ci sono bagni custoditi con fasciatoio."]]},
   {a:"10:00",b:"10:45",t:"New York Public Library e Rose Main Reading Room",n:[
@@ -555,23 +565,31 @@ const DAYS = [
     ["move","8 minuti a piedi fino al <b>Pond e al Gapstow Bridge</b> (5th Ave & 59th), col Plaza sullo sfondo e a 10 minuti dal suo hotel."],
     ["info","Lui ha il volo alle 21:50 (deve uscire entro le 18:00)."],
     ["info","Il volo di ritorno è <b>mercoledì 4 novembre alle 18:25</b> (AA 198)."]]},
-  {a:"16:00",b:"",t:"Rientro e valigie",n:[
+  {a:"16:00",b:"18:15",t:"Rientro e valigie",n:[
     ["move","B/D da 47–50 Sts–Rockefeller Ctr a Grand St (oppure F da 57 St a East Broadway)."],
-    ["food","Cena da asporto e bagagli chiusi con calma."]]}
+    ["info","Valigie chiuse prima di cena, così la sera è libera."]]},
+  {a:"18:30",b:"20:00",t:"Ultima cena: tre proposte vicino all'hotel",n:[
+    ["food","<b>Thai Diner</b> (186 Mott St, Nolita, 12 minuti a piedi): cucina thai con un tocco da diner americano, segnalato dalla Guida Michelin. Prende poche prenotazioni e tiene la maggior parte dei tavoli per chi si presenta: alle 18:30 di martedì si entra con poca attesa. In due circa $80–90. (646) 559-4140."],
+    ["food","<b>Wu's Wonton King</b> (165 E Broadway, 8 minuti a piedi): cantonese, porzioni da condividere, e si porta il proprio vino (BYOB). Se volete l'anatra arrosto va ordinata quando prenotate. In due circa $60–80. (212) 477-1111."],
+    ["food","<b>456 Shanghai Cuisine</b> (69 Mott St, 10 minuti a piedi): ravioli di Shanghai con il brodo dentro (xiaolongbao) e noodles, informale ed economico. In due circa $45–50."],
+    ["warn","Orari 2026 non confermati per nessuno dei tre: una telefonata il giorno prima. Il budget conta circa $80."]]}
   ]},
-{ d:4, dow:"Mer", date:"Mercoledì 4 novembre", title:"Ultima mattina e partenza", zone:"SoHo e Tribeca (o Seaport) ➔ Chinatown ➔ JFK", lvl:2, budget:[["Colazione", 25], ["Torta e caffè da Bubby's", 30], ["Taxi Tribeca ➔ hotel", 15], ["Pranzo", 35], ["Taxi hotel ➔ JFK", 100], ["Snack in aeroporto", 20]],
+{ d:4, dow:"Mer", date:"Mercoledì 4 novembre", title:"Ultima mattina e partenza", zone:"SoHo e Tribeca (o Seaport) ➔ Chinatown ➔ JFK", lvl:2, budget:[["Colazione da Russ & Daughters", 40], ["Torta e caffè da Bubby's", 30], ["Taxi Tribeca ➔ hotel", 15], ["Pranzo da Wo Hop", 35], ["Taxi hotel ➔ JFK", 100], ["Cena al Terminal 8", 55]],
   map:G+"5+Allen+St,+New+York/Greene+St+%26+Prince+St,+New+York/Greene+St+%26+Canal+St,+New+York/Hook+%26+Ladder+Company+8,+New+York/Bubby's,+120+Hudson+St,+New+York/5+Allen+St,+New+York/Mulberry+St+%26+Grand+St,+New+York/JFK+Airport/",
   slots:[
   {a:"09:00",b:"11:30",t:"SoHo e Tribeca, oppure piano B per la foto",n:[
+    ["food","Colazione da <b>Russ & Daughters</b> (179 E Houston St), il negozio storico del 1914, sulla strada per SoHo: bagel col salmone affumicato e cream cheese da asporto. Il negozio non ha tavoli: si mangia su una panchina. Apre alle 8."],
     ["info","Si parte da <b>SoHo</b>, a circa 20 minuti a piedi dall'hotel. Le facciate in ghisa con le scale antincendio sono il motivo per venirci: <b>Greene St</b> tra Houston e Canal, poi Mercer St e Prince St. I negozi aprono verso le 10–11, quindi di mattina presto le strade sono tranquille e perfette per le foto."],
     ["food","Da Greene St & Canal sono 12 minuti a piedi verso ovest fino a <b>Tribeca</b>: la caserma dei Ghostbusters (Hook & Ladder 8, 14 N Moore St) e dietro l'angolo <b>Bubby's</b> (120 Hudson St), con la Mile High Apple Pie come seconda colazione."],
     ["bimbo","Su Greene e Mercer in alcuni tratti la strada è in pavé: meglio stare sul marciapiede o passare al marsupio."],
     ["move","Rientro in hotel in taxi (10–15 minuti) per il check-out."],
     ["warn","<b>Piano B:</b> se venerdì pioveva o la foto non vi convince, andate invece al Seaport verso le 10:30 (il sole è già abbastanza a sud) e saltate SoHo e Tribeca."]]},
-  {a:"11:45",b:"13:30",t:"Check-out e souvenir a Chinatown",n:[
-    ["info","Check-out entro le 12:00, lasciando le valigie alla reception fino alla partenza. Ultimo giro a Chinatown/Little Italy."]]},
+  {a:"11:45",b:"13:30",t:"Check-out, souvenir e pranzo a Chinatown",n:[
+    ["info","Check-out entro le 12:00, lasciando le valigie alla reception fino alla partenza. Ultimo giro a Chinatown/Little Italy."],
+    ["food","Pranzo da <b>Wo Hop</b> (17 Mott St), cantonese storico aperto dal 1938, economico e veloce. In due circa $35."]]},
   {a:"13:45",b:"18:25",t:"Trasferimento al JFK e volo AA 198",n:[
     ["move","Taxi fino al <b>Terminal 8</b>: $95–110, circa 60 minuti a metà giornata. In aeroporto verso le 15:00."],
+    ["food","Cena verso le 16:30 al Terminal 8, rinnovato ad aprile 2026: <b>The Boroughs Food Hall</b>, con banchi di locali newyorkesi e tavoli in comune, oppure <b>Eataly</b>. In due circa $55."],
     ["bimbo","Volo notturno, arrivo a Malpensa giovedì 5/11 alle 08:05. Pigiama prima dell'imbarco: con un po' di fortuna dorme quasi tutto il viaggio."],
     ["bimbo","Latte e pappe sono ammessi oltre i 100 ml, basta dichiararli. Biberon o ciuccio al decollo e all'atterraggio."]]}
   ]}
@@ -759,20 +777,31 @@ renderChecks();
 // Restaurants panel: [dayIndex, meal, time, name, address|"", info, warn|"", price, withBrother]
 const FOOD = [
   [0,"Cena","18:50","Shu Jiao Fu Zhou","118 Eldridge St","Ravioli fuzhounesi al vapore e noodles, sulla strada tra il Target e l'hotel.","Solo contanti, chiude alle 20:00: sedetevi entro le 19:15.","$15–20",false],
+  [1,"Colazione","08:45","Kossar's Bagels & Bialys","367 Grand St","Bagel e bialy sfornati dal 1936, a 7 minuti dall'hotel. Poi F da Delancey St–Essex St fino al Rockefeller Center.","","~$25",false],
   [1,"Pranzo","12:30","Chelsea Market","75 9th Ave","Mercato coperto con tanti banchi, all'uscita della High Line alla 16th St.","","~$50",false],
   [1,"Cena","17:45","Kiki's","130 Division St","Taverna greca a 5 minuti dall'hotel.","Non prende prenotazioni: nelle ore di punta circa 30 minuti di attesa.","~$85",false],
-  [2,"Pranzo","13:30","Pranzo veloce al Seaport, a scelta","","Dopo la foto dei genitori, tra Pier 17 e Fulton St.","","~$45",false],
+  [2,"Colazione","08:30","Clinton St. Baking Company","4 Clinton St","Pancake ai mirtilli famosi in tutta la città. Nei feriali presto si aspetta poco. Poi J da Essex St.","Apertura alle 8:00 o alle 8:30 secondo le fonti; forse solo contanti a colazione.","~$45",false],
+  [2,"Pranzo","13:30","Fresh Salt","146 Beekman St","Locale di quartiere a 3 minuti da Pier 17: panini, quiche, piatti semplici.","Orari 2026 non confermati: (212) 962-0053.","~$45",false],
   [2,"Cena","19:30","Katz's Delicatessen","205 E Houston St","Cena speciale 1. Un pastrami sandwich (circa $30) basta per due. A 8 minuti dall'Essex Market.","All'ingresso danno un ticket a testa: non perdetelo.","~$70 vostra quota",true],
-  [3,"Pranzo","11:00","Shake Shack","Madison Square Park","Lo Shake Shack originale, un chiosco nel parco col Flatiron di fronte.","","~$45",false],
+  [3,"Colazione","08:15","Mei Lai Wah","41 Mott St","Bakery cinese dei baked pork buns, veloce e a pochi dollari, a 7 minuti dalla stazione di Grand St.","Si è spostata da poco al 41 di Mott St: la vecchia sede di Bayard St potrebbe aver chiuso.","~$25",false],
+  [3,"Pranzo","11:00","Shake Shack","Madison Square Park","Lo Shake Shack originale, un chiosco nel parco col Flatiron di fronte. Pranzo anticipato: fino a cena c'è solo la merenda.","","~$45",false],
+  [3,"Merenda","16:40","Magnolia Bakery","Grand Central Terminal","Banana pudding e cupcake prima del Summit, di fronte alla stazione.","Presenza nel 2026 non confermata: in alternativa, il Dining Concourse.","~$15",false],
   [3,"Cena","18:45","Urban Hawker","135 W 50th St","Cena pre-gara. Food hall di street food singaporeano: si ordina al banco, mancia non obbligatoria.","Non si prenota e il sabato c'è gente. Orari da confermare: (212) 381-1245.","$40–45",true],
-  [4,"Pranzo","12:30","Deli o bakery nell'Upper East Side, a scelta","","Tra Madison e Lexington Ave, dopo il tifo alla maratona.","","~$35",false],
+  [4,"Colazione","08:45","Kossar's Bagels & Bialys","367 Grand St","Da portar via prima della maratona: apre alle 6. Poi F da Delancey St–Essex St.","","~$25",false],
+  [4,"Pranzo","13:00","Le Pain Quotidien","1309 Lexington Ave","In Carnegie Hill, all'angolo con la 88th St: zuppe e tartine, aperto la domenica 7–20.","","~$40",false],
   [4,"Cena","18:30","John's of Times Square","260 W 44th St","Cena speciale 2. Pizza dal forno a carbone in una ex chiesa, vicina all'hotel di tuo fratello.","Chiamate il (212) 391-7560 qualche giorno prima per prenotare.","~$70 vostra quota",true],
+  [5,"Colazione","08:45","Mei Lai Wah","41 Mott St","Colazione veloce, poi 10 minuti a piedi fino alla F di East Broadway per DUMBO.","","~$20",false],
   [5,"Pranzo","13:45","Nom Wah Tea Parlor","13 Doyers St","Dim sum nella sala da tè più antica di NYC, di strada dopo il Brooklyn Bridge.","","~$55",false],
-  [5,"Cena","18:30","Cena leggera a Koreatown, a scelta","W 32nd St","Prima dell'Empire State, a 3 minuti a piedi.","","~$30",false],
+  [5,"Cena","18:30","BCD Tofu House","5 W 32nd St","Zuppe di tofu bollenti e bibimbap a Koreatown, veloce, a 3 minuti dall'Empire.","Orari 2026 da verificare: (212) 967-1900.","~$45",false],
+  [6,"Colazione","08:30","Clinton St. Baking Company","4 Clinton St","Seconda volta: provate i biscuit. Poi F da Delancey St–Essex St a 42 St–Bryant Park, diretta.","","~$45",false],
   [6,"Pranzo","11:30","Dining Concourse di Grand Central","89 E 42nd St","Al piano inferiore della stazione, pranzo veloce prima del MoMA.","","~$45",false],
-  [6,"Cena","sera","Cena da asporto in camera","","La sera delle valigie.","","~$35",false],
-  [7,"Colazione","10:30","Bubby's","120 Hudson St","Seconda colazione con la Mile High Apple Pie, dietro l'angolo della caserma dei Ghostbusters.","","~$30",false],
-  [7,"Pranzo","12:30","Pranzo a Chinatown, a scelta","","Dopo il check-out, prima del taxi per il JFK.","","~$35",false]
+  [6,"Cena","18:30","Thai Diner (proposta 1)","186 Mott St","Thai con un tocco da diner americano, segnalato dalla Guida Michelin. Poche prenotazioni, molti tavoli per chi si presenta.","Orari 2026 da confermare: (646) 559-4140.","$80–90",false],
+  [6,"Cena","18:30","Wu's Wonton King (proposta 2)","165 E Broadway","Cantonese da condividere, BYOB. L'anatra arrosto va ordinata quando prenotate.","Orari 2026 da confermare: (212) 477-1111.","$60–80",false],
+  [6,"Cena","18:30","456 Shanghai Cuisine (proposta 3)","69 Mott St","Xiaolongbao e noodles, informale ed economico.","Orari 2026 da confermare.","$45–50",false],
+  [7,"Colazione","08:30","Russ & Daughters","179 E Houston St","Negozio storico del 1914: bagel col salmone affumicato da asporto, sulla strada per SoHo.","Non ha tavoli: si mangia su una panchina.","~$40",false],
+  [7,"Spuntino","10:30","Bubby's","120 Hudson St","Seconda colazione con la Mile High Apple Pie, dietro l'angolo della caserma dei Ghostbusters.","","~$30",false],
+  [7,"Pranzo","12:30","Wo Hop","17 Mott St","Cantonese storico dal 1938, economico e veloce, prima del taxi per il JFK.","","~$35",false],
+  [7,"Cena","16:30","The Boroughs Food Hall o Eataly","JFK Terminal 8","Nel terminal rinnovato ad aprile 2026, dopo i controlli. Banchi di locali newyorkesi e tavoli in comune.","","~$55",false]
 ];
 (function(){
   const ol = document.getElementById("rlist");
