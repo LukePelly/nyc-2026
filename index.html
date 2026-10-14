@@ -111,6 +111,22 @@ details.budget li{display:flex;justify-content:space-between;gap:10px;padding:5p
 .ph{margin:0 0 12px}
 .ph img{display:block;width:100%;max-width:420px;border-radius:12px;border:1px solid var(--line)}
 .ph figcaption{font-size:12px;color:var(--ink-2);margin-top:4px}
+.rlist{list-style:none;margin:0;padding:0}
+.rrow{display:grid;grid-template-columns:86px 1fr auto;gap:12px;padding:12px 0;border-top:1px dashed var(--line);align-items:start}
+.rrow:first-child{border-top:0}
+.rwhen b{display:block;font-family:Fraunces,serif;font-size:17px;line-height:1.1}
+.rwhen small{display:block;font-size:12px;color:var(--ink-2)}
+.meal{display:inline-block;margin-top:4px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;border-radius:99px;padding:2px 8px;background:var(--food-soft);color:var(--food)}
+.meal.cena{background:var(--navy-soft);color:var(--navy)}
+.rname{font-weight:600}
+.rname .bro{font-weight:500;font-size:12px;color:var(--accent);margin-left:6px;white-space:nowrap}
+.rinfo{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+.rwarn{font-size:13px;color:var(--warn);margin-top:2px}
+.rlinks{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;font-size:13px}
+.rlinks a,.rlinks button{color:var(--accent);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-decoration:underline}
+.rprice{font-variant-numeric:tabular-nums;font-weight:600;font-size:13px;text-align:right;white-space:nowrap}
+.rrow.free .rname{font-weight:500;color:var(--ink-2)}
+@media (max-width:560px){.rrow{grid-template-columns:70px 1fr;}.rprice{grid-column:2;text-align:left}}
 .daybtn .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-left:4px;vertical-align:middle}
 
 .filters{display:flex;gap:6px;flex-wrap:wrap;padding:0 0 10px}
@@ -219,6 +235,7 @@ footer a{color:var(--ink-2)}
     <div class="views" role="tablist">
       <button type="button" class="vbtn" data-v="itin">🗓 Itinerario</button>
       <button type="button" class="vbtn" data-v="budget">💵 Budget</button>
+      <button type="button" class="vbtn" data-v="food">🍽 Ristoranti</button>
       <button type="button" class="vbtn" data-v="info">✅ Prenotazioni e info</button>
     </div>
     <div id="itinNav">
@@ -259,6 +276,14 @@ footer a{color:var(--ink-2)}
       <div class="box"><h4>🧾 Niente tassa sui vestiti</h4><p>Vestiti e scarpe sotto i $110 al pezzo non pagano la tassa sulle vendite di NYC: magliette e felpe costano quanto il cartellino.</p></div>
       <div class="box"><h4>🚇 Tetto della metro</h4><p>Toccate sempre con la stessa carta o lo stesso telefono: dopo 12 corse ($35) il resto della settimana è gratis. Al massimo $35 a testa.</p></div>
       <div class="box"><h4>✂️ Se volete tagliare</h4><p>La voce più cara sono i due osservatori ($235 in totale). Togliendo l'Empire risparmiate circa $105.</p></div>
+    </div>
+  </section>
+
+  <section class="panel" id="ristoranti" data-view="food">
+    <h2>🍽 Ristoranti, giorno per giorno</h2>
+    <div class="box">
+      <p class="bnote">Tutti i pasti fuori in ordine cronologico, con l'orario previsto nell'itinerario. I prezzi sono per voi due, con tasse e mance. Dove c'è scritto "a scelta" non c'è un locale fissato: decidete sul posto.</p>
+      <ol class="rlist" id="rlist"></ol>
     </div>
   </section>
 
@@ -731,6 +756,41 @@ renderChecks();
 })();
 
 // Views
+// Restaurants panel: [dayIndex, meal, time, name, address|"", info, warn|"", price, withBrother]
+const FOOD = [
+  [0,"Cena","18:50","Shu Jiao Fu Zhou","118 Eldridge St","Ravioli fuzhounesi al vapore e noodles, sulla strada tra il Target e l'hotel.","Solo contanti, chiude alle 20:00: sedetevi entro le 19:15.","$15–20",false],
+  [1,"Pranzo","12:30","Chelsea Market","75 9th Ave","Mercato coperto con tanti banchi, all'uscita della High Line alla 16th St.","","~$50",false],
+  [1,"Cena","17:45","Kiki's","130 Division St","Taverna greca a 5 minuti dall'hotel.","Non prende prenotazioni: nelle ore di punta circa 30 minuti di attesa.","~$85",false],
+  [2,"Pranzo","13:30","Pranzo veloce al Seaport, a scelta","","Dopo la foto dei genitori, tra Pier 17 e Fulton St.","","~$45",false],
+  [2,"Cena","19:30","Katz's Delicatessen","205 E Houston St","Cena speciale 1. Un pastrami sandwich (circa $30) basta per due. A 8 minuti dall'Essex Market.","All'ingresso danno un ticket a testa: non perdetelo.","~$70 vostra quota",true],
+  [3,"Pranzo","11:00","Shake Shack","Madison Square Park","Lo Shake Shack originale, un chiosco nel parco col Flatiron di fronte.","","~$45",false],
+  [3,"Cena","18:45","Urban Hawker","135 W 50th St","Cena pre-gara. Food hall di street food singaporeano: si ordina al banco, mancia non obbligatoria.","Non si prenota e il sabato c'è gente. Orari da confermare: (212) 381-1245.","$40–45",true],
+  [4,"Pranzo","12:30","Deli o bakery nell'Upper East Side, a scelta","","Tra Madison e Lexington Ave, dopo il tifo alla maratona.","","~$35",false],
+  [4,"Cena","18:30","John's of Times Square","260 W 44th St","Cena speciale 2. Pizza dal forno a carbone in una ex chiesa, vicina all'hotel di tuo fratello.","Chiamate il (212) 391-7560 qualche giorno prima per prenotare.","~$70 vostra quota",true],
+  [5,"Pranzo","13:45","Nom Wah Tea Parlor","13 Doyers St","Dim sum nella sala da tè più antica di NYC, di strada dopo il Brooklyn Bridge.","","~$55",false],
+  [5,"Cena","18:30","Cena leggera a Koreatown, a scelta","W 32nd St","Prima dell'Empire State, a 3 minuti a piedi.","","~$30",false],
+  [6,"Pranzo","11:30","Dining Concourse di Grand Central","89 E 42nd St","Al piano inferiore della stazione, pranzo veloce prima del MoMA.","","~$45",false],
+  [6,"Cena","sera","Cena da asporto in camera","","La sera delle valigie.","","~$35",false],
+  [7,"Colazione","10:30","Bubby's","120 Hudson St","Seconda colazione con la Mile High Apple Pie, dietro l'angolo della caserma dei Ghostbusters.","","~$30",false],
+  [7,"Pranzo","12:30","Pranzo a Chinatown, a scelta","","Dopo il check-out, prima del taxi per il JFK.","","~$35",false]
+];
+(function(){
+  const ol = document.getElementById("rlist");
+  FOOD.forEach(([di,meal,time,name,addr,info,warn,price,bro])=>{
+    const d = DAYS[di], free = !addr || name.includes("a scelta");
+    const q = encodeURIComponent(addr ? name.replace(/,? a scelta/,"")+", "+addr+", New York" : "");
+    const li = document.createElement("li");
+    li.className = "rrow" + (free ? " free" : "");
+    li.innerHTML = `<div class="rwhen"><b>${d.dow} ${d.d}</b><small>${time}</small><span class="meal ${meal==="Cena"?"cena":""}">${meal}</span></div>
+      <div><div class="rname">${name}${bro?'<span class="bro">con tuo fratello</span>':''}</div>
+        ${addr?`<div class="rinfo">${addr}</div>`:""}<div class="rinfo">${info}</div>${warn?`<div class="rwarn">⚠️ ${warn}</div>`:""}
+        <div class="rlinks">${addr&&!free?`<a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">📍 Mappa</a>`:""}<button type="button" data-day="${di}">Vedi il giorno →</button></div></div>
+      <div class="rprice">${price}</div>`;
+    ol.appendChild(li);
+  });
+  ol.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>{ setView("itin",true); show(+b.dataset.day,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); });
+})();
+
 function setView(v, save){
   document.querySelectorAll("[data-view]").forEach(el=>el.hidden = el.dataset.view!==v);
   document.getElementById("itinNav").hidden = v!=="itin";
@@ -739,7 +799,7 @@ function setView(v, save){
 }
 document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>{ setView(b.dataset.v,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop}); });
 document.getElementById("heroBudgetLink").onclick = e=>{ e.preventDefault(); setView("budget",true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); };
-setView(["itin","budget","info"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
+setView(["itin","budget","food","info"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
 
 // Theme toggle
 const themeBtn = document.getElementById("themeBtn");
