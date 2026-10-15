@@ -129,6 +129,23 @@ details.budget li{display:flex;justify-content:space-between;gap:10px;padding:5p
 @media (max-width:560px){.rrow{grid-template-columns:70px 1fr;}.rprice{grid-column:2;text-align:left}}
 .daybtn .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-left:4px;vertical-align:middle}
 
+.search{position:relative;padding-top:10px}
+.search input{width:100%;font:inherit;font-size:16px;padding:9px 36px 9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);outline:none}
+.search input:focus{border-color:var(--accent)}
+.search input::-webkit-search-cancel-button{display:none}
+.sclear{position:absolute;right:6px;top:15px;width:28px;height:28px;border:0;border-radius:50%;background:var(--surface-2);color:var(--ink-2);font-size:14px;cursor:pointer}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:6;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);max-height:min(60vh,460px);overflow-y:auto;margin:0;padding:4px 0;list-style:none}
+.sres li{border-top:1px dashed var(--line)}
+.sres li:first-child{border-top:0}
+.sres button{display:block;width:100%;text-align:left;background:none;border:0;padding:9px 14px;font:inherit;color:var(--ink);cursor:pointer}
+.sres button:hover,.sres button:focus-visible,.sres button.act{background:var(--surface-2);outline:none}
+.sres .sk{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.sres .st{display:block;font-weight:600;font-size:14px}
+.sres .ss{display:block;font-size:13px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sres .sempty{padding:10px 14px;color:var(--ink-2);font-size:14px}
+mark{background:var(--accent-soft);color:inherit;border-radius:3px;padding:0 1px}
+.flash{animation:flash 2.2s ease-out}
+@keyframes flash{0%,30%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:0 0 0 3px transparent}}
 .filters{display:flex;gap:6px;flex-wrap:wrap;padding:0 0 10px}
 .chip{border:1px solid var(--line);background:transparent;color:var(--ink-2);border-radius:99px;padding:4px 11px;font:inherit;font-size:13px;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -204,7 +221,7 @@ footer a{color:var(--ink-2)}
   .card{padding:12px 13px}
 }
 @media print{
-  nav.days,.daynav,.themebtn,.filters{display:none}
+  nav.days,.daynav,.themebtn,.filters,.search{display:none}
   .day{display:block!important;page-break-after:always}
   body{background:#fff}
 }
@@ -232,6 +249,11 @@ footer a{color:var(--ink-2)}
 
 <nav class="days" aria-label="Giorni">
   <div class="wrap">
+    <div class="search" id="search">
+      <input type="search" id="sq" placeholder="🔍 Cerca attrazioni, ristoranti, indirizzi…" autocomplete="off" aria-label="Cerca nell'itinerario">
+      <button type="button" class="sclear" id="sclear" aria-label="Cancella ricerca" hidden>✕</button>
+      <ul class="sres" id="sres" hidden></ul>
+    </div>
     <div class="views" role="tablist">
       <button type="button" class="vbtn" data-v="itin">🗓 Itinerario</button>
       <button type="button" class="vbtn" data-v="budget">💵 Budget</button>
@@ -868,6 +890,82 @@ function setView(v, save){
 document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>{ setView(b.dataset.v,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop}); });
 document.getElementById("heroBudgetLink").onclick = e=>{ e.preventDefault(); setView("budget",true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); };
 setView(["itin","budget","food","info"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
+
+// Search
+(function(){
+  const q = document.getElementById("sq"), res = document.getElementById("sres"), clr = document.getElementById("sclear");
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+  const esc = s => s.replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const VIEWS = {budget:"💵 Budget", food:"🍽 Ristorante", info:"✅ Info"};
+  let hits = [], act = -1;
+  function index(){
+    const items = [];
+    [...host.children].forEach((sec,di)=>{
+      const d = DAYS[di];
+      sec.querySelectorAll(".slot").forEach(el=>items.push({el, di, view:"itin", kind:`🗓 ${d.dow} ${d.d} · ${el.querySelector(".time").firstChild.textContent}`, title:el.querySelector("h3").textContent}));
+      const hw = sec.querySelector(".hw-card"); if(hw) items.push({el:hw, di, view:"itin", kind:`🎃 ${d.dow} ${d.d}`, title:hw.querySelector("h3").textContent});
+    });
+    document.querySelectorAll("#rlist .rrow").forEach(el=>items.push({el, view:"food", kind:`🍽 ${el.querySelector(".rwhen b").textContent} · ${el.querySelector(".meal").textContent}`, title:el.querySelector(".rname").firstChild.textContent}));
+    document.querySelectorAll("main .box").forEach(el=>{
+      if(el.querySelector(".box,.rlist,.bars,#checklist")) return;
+      const v = el.closest("[data-view]").dataset.view, h = el.querySelector("h4") || el.closest("section").querySelector("h2");
+      items.push({el, view:v, kind:VIEWS[v], title:h.textContent});
+    });
+    document.querySelectorAll("#checklist .check").forEach(el=>items.push({el, view:"info", kind:"✅ Da prenotare", title:el.textContent}));
+    return items;
+  }
+  function snippet(text, nq){
+    const i = norm(text).indexOf(nq); if(i<0) return esc(text.slice(0,90));
+    const s = Math.max(0, i-35);
+    return (s?"…":"") + esc(text.slice(s,i)) + "<mark>" + esc(text.slice(i,i+nq.length)) + "</mark>" + esc(text.slice(i+nq.length, i+nq.length+70));
+  }
+  function run(){
+    const raw = q.value.trim(), nq = norm(raw);
+    clr.hidden = !raw;
+    if(nq.length < 2){ res.hidden = true; hits = []; return; }
+    const words = nq.split(/\s+/);
+    hits = index().filter(it=>{ const t = norm(it.title+" "+it.el.textContent); return words.every(w=>t.includes(w)); })
+      .map((it,i)=>({it, i, s:norm(it.title).includes(nq) ? 0 : 1})).sort((a,b)=>a.s-b.s||a.i-b.i).map(x=>x.it).slice(0,40);
+    act = -1;
+    res.innerHTML = hits.length ? hits.map((it,i)=>{
+      const body = it.el.textContent.replace(/\s+/g," ").trim();
+      const inTitle = norm(it.title).includes(words[0]);
+      return `<li><button type="button" data-i="${i}"><span class="sk">${esc(it.kind)}</span><span class="st">${inTitle?snippet(it.title,words[0]):esc(it.title)}</span>${inTitle?"":`<span class="ss">${snippet(body,words[0])}</span>`}</button></li>`;
+    }).join("") : `<li class="sempty">Nessun risultato per "${esc(raw)}"</li>`;
+    res.hidden = false;
+  }
+  function go(i){
+    const it = hits[i]; if(!it) return;
+    res.hidden = true; q.blur();
+    setView(it.view, true);
+    if(it.view==="itin"){
+      if(filter!=="all") document.querySelector('#filters .chip[data-f="all"]').click();
+      show(it.di, true);
+    }
+    requestAnimationFrame(()=>{
+      it.el.scrollIntoView({block:"center", behavior:"smooth"});
+      const target = it.el.classList.contains("slot") ? it.el.querySelector(".card") : it.el;
+      target.classList.remove("flash"); void target.offsetWidth; target.classList.add("flash");
+    });
+  }
+  function move(dir){
+    const btns = res.querySelectorAll("button"); if(!btns.length) return;
+    act = (act + dir + btns.length) % btns.length;
+    btns.forEach((b,j)=>b.classList.toggle("act", j===act));
+    btns[act].scrollIntoView({block:"nearest"});
+  }
+  q.addEventListener("input", run);
+  q.addEventListener("focus", ()=>{ if(q.value.trim().length>=2) run(); });
+  q.addEventListener("keydown", e=>{
+    if(e.key==="ArrowDown"){ e.preventDefault(); move(1); }
+    else if(e.key==="ArrowUp"){ e.preventDefault(); move(-1); }
+    else if(e.key==="Enter"){ e.preventDefault(); go(act>=0 ? act : 0); }
+    else if(e.key==="Escape"){ q.value=""; run(); q.blur(); }
+  });
+  res.addEventListener("click", e=>{ const b = e.target.closest("button[data-i]"); if(b) go(+b.dataset.i); });
+  clr.onclick = ()=>{ q.value=""; run(); q.focus(); };
+  document.addEventListener("click", e=>{ if(!e.target.closest("#search")) res.hidden = true; });
+})();
 
 // Theme toggle
 const themeBtn = document.getElementById("themeBtn");
