@@ -234,6 +234,30 @@ section.panel h2{font-family:Fraunces,serif;font-size:26px;margin:0 0 12px}
 .padd{display:flex;gap:6px;margin-top:8px}
 .padd input{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:10px;padding:7px 10px;font:inherit;font-size:13px}
 .padd button{border:0;background:var(--accent);color:#fff;font:inherit;font-weight:600;font-size:13px;border-radius:10px;padding:7px 12px;cursor:pointer}
+.wxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.wx{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.wx.wet{border-color:var(--move)}
+.wxtop{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.wxday{font-weight:600}
+.wxday small{display:block;font-weight:500;font-size:12px;color:var(--ink-2)}
+.wxico{font-size:34px;line-height:1}
+.wxt{font-family:Fraunces,serif;font-size:30px;line-height:1}
+.wxt span{font-size:18px;color:var(--ink-2)}
+.wxrain{font-size:13px;color:var(--ink-2)}
+.wxbar{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin-top:4px}
+.wxbar i{display:block;height:100%;background:var(--move);border-radius:3px}
+.wxparts{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;font-size:11px;color:var(--ink-2);text-align:center}
+.wxparts div{background:var(--surface-2);border-radius:8px;padding:3px 0}
+.wxparts b{display:block;font-size:13px;color:var(--ink)}
+.wxsrc{display:inline-block;align-self:flex-start;font-size:11px;font-weight:600;border-radius:99px;padding:1px 8px;background:var(--baby-soft);color:var(--baby)}
+.wxsrc.tend{background:var(--food-soft);color:var(--food)}
+.wxsrc.clim{background:var(--surface-2);color:var(--ink-2)}
+.wxclim{font-size:12px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:8px}
+.wx details{font-size:13px}
+.wx summary{cursor:pointer;font-weight:600;color:var(--move)}
+.wx details p{margin:6px 0 0;color:var(--ink-2)}
+.pill.wxpill{cursor:pointer;border:0;font:inherit;font-size:13px;color:var(--ink-2)}
+.pill.wxpill.wet{background:var(--move-soft);color:var(--move);font-weight:600}
 .hide-done .check.done{display:none}
 footer{color:var(--ink-2);font-size:12px;padding:30px 0 40px;border-top:1px solid var(--line)}
 footer a{color:var(--ink-2)}
@@ -280,6 +304,7 @@ footer a{color:var(--ink-2)}
     </div>
     <div class="views" role="tablist">
       <button type="button" class="vbtn" data-v="itin">🗓 Itinerario</button>
+      <button type="button" class="vbtn" data-v="meteo">🌦 Meteo</button>
       <button type="button" class="vbtn" data-v="sights">🗽 Attrazioni</button>
       <button type="button" class="vbtn" data-v="budget">💵 Budget</button>
       <button type="button" class="vbtn" data-v="food">🍽 Ristoranti</button>
@@ -301,6 +326,16 @@ footer a{color:var(--ink-2)}
 
 <main class="wrap">
   <div id="days" data-view="itin"></div>
+
+  <section class="panel" id="meteo" data-view="meteo">
+    <h2>🌦 Meteo e piano B pioggia</h2>
+    <p class="bnote" id="wxnote"></p>
+    <div class="wxgrid" id="wxgrid"></div>
+    <div class="grid2" style="margin-top:12px">
+      <div class="box"><h4>☔ Per il passeggino</h4><p>Portate il parapioggia del YOYO (se non l'avete, si compra a parte) e una copertina: con pioggia e vento il bimbo resta asciutto anche sul traghetto e alla parata. Un ombrello compatto a testa basta, i grandi si incastrano tra la folla.</p></div>
+      <div class="box"><h4>🧥 Come vestirsi</h4><p>Fine ottobre a NY va dai 7–8 °C del mattino ai 15–16 °C del pomeriggio, con vento forte sull'acqua (traghetti, Brooklyn Bridge, Roosevelt Island). Vestiti a strati e un guscio impermeabile.</p></div>
+    </div>
+  </section>
 
   <section class="panel" id="budget" data-view="budget">
     <h2>💵 Budget del viaggio</h2>
@@ -706,6 +741,30 @@ const DAYS = [
   ]}
 ];
 
+// Meteo: i dati tra i marcatori li riscrive ogni giorno aggiorna_meteo.py
+/*METEO:START*/const METEO = {"upd":"2026-10-15T11:32","days":[{"date":"2026-10-28","src":"prev","code":3,"tmax":14,"tmin":8,"pp":21,"mm":0.0,"wind":23,"parts":[13,10,7],"far":true,"clim":{"tmax":16,"tmin":8,"pp":36}},{"date":"2026-10-29","src":"prev","code":3,"tmax":15,"tmin":8,"pp":16,"mm":0.0,"wind":19,"parts":[13,11,16],"far":true,"clim":{"tmax":16,"tmin":8,"pp":37}},{"date":"2026-10-30","src":"tend","tmax":15,"tmin":7,"range":[10,18],"pp":13,"mm":0.0,"clim":{"tmax":15,"tmin":7,"pp":35}},{"date":"2026-10-31","src":"tend","tmax":14,"tmin":8,"range":[10,17],"pp":16,"mm":0.0,"clim":{"tmax":15,"tmin":7,"pp":29}},{"date":"2026-11-01","src":"tend","tmax":14,"tmin":8,"range":[9,19],"pp":19,"mm":0.0,"clim":{"tmax":15,"tmin":7,"pp":26}},{"date":"2026-11-02","src":"tend","tmax":14,"tmin":7,"range":[9,19],"pp":29,"mm":0.0,"clim":{"tmax":15,"tmin":6,"pp":21}},{"date":"2026-11-03","src":"tend","tmax":14,"tmin":7,"range":[9,17],"pp":35,"mm":0.4,"clim":{"tmax":15,"tmin":6,"pp":20}},{"date":"2026-11-04","src":"tend","tmax":13,"tmin":7,"range":[9,18],"pp":26,"mm":0.0,"clim":{"tmax":15,"tmin":6,"pp":20}}]};/*METEO:END*/
+const RAINB = [
+  "Cambia poco: il Target e Shu Jiao Fu Zhou sono al chiuso. Saltate il giro a piedi tra Chinatown e Little Italy e recuperatelo lunedì pomeriggio, quando ci ripassate per i souvenir.",
+  "St. Patrick's e Rockefeller restano. Al posto di High Line e Little Island: The Shops at Hudson Yards (al coperto, ascensori ovunque), pranzo lungo al Chelsea Market e poi il Whitney Museum, a due passi e con i passeggini ammessi. Il West Village solo se smette. Times Square di sera regge anche la pioggia, con i negozi M&M's e Hershey's come rifugio.",
+  "Il traghetto per Staten Island va bene lo stesso: si sta dentro. Al posto di Battery Park e Wall Street all'aperto, l'Oculus e il Winter Garden di Brookfield Place, al coperto e collegati tra loro, più il museo dell'11 settembre se ve la sentite. La foto al Seaport si sposta a mercoledì mattina (il piano B c'è già). Williamsburg e Domino Park si saltano: dritti all'Essex Market e poi da Katz's.",
+  "Al posto di Central Park, l'American Museum of Natural History sul lato ovest del parco: dinosauri e balena blu, passeggini ammessi. Il Summit con le nuvole basse non vale il biglietto: guardate il cielo a pranzo e, se serve, chiedete di cambiare fascia. La parata si fa anche con la pioggia: parapioggia sul passeggino e cuffie.",
+  "Il tifo sulla First Avenue si fa comunque: parapioggia e un posto sotto una tettoia. La funivia di Roosevelt Island è chiusa e vale anche con la pioggia, ma il Four Freedoms Park è esposto al vento: andata e ritorno in funivia, poi Bloomingdale's, proprio all'uscita della funivia sulla 59th, prima di andare verso Times Square.",
+  "DUMBO e il Brooklyn Bridge sono tutti all'aperto. Invertite la giornata: mattina da Macy's a Herald Square, pranzo da Nom Wah, pomeriggio a Chinatown, sera a Koreatown come previsto. Il ponte a piedi lo recuperate mercoledì mattina se torna il sereno. Per l'Empire State controllate la visibilità prima di salire: con la nebbia non si vede nulla.",
+  "Biblioteca e MoMA sono già al chiuso. Al posto della passeggiata in Central Park con tuo fratello, il food hall sotto il Plaza Hotel o FAO Schwarz, e i saluti lì invece che al Gapstow Bridge. Bryant Park diventa un passaggio veloce.",
+  "SoHo e Tribeca si saltano senza rimpianti: colazione lunga da Bubby's, al chiuso, e poi l'Oculus e Brookfield Place se venerdì non li avete visti. Le valigie restano in hotel come previsto."
+];
+const WXI = {0:"☀️",1:"🌤",2:"⛅",3:"☁️",45:"🌫",48:"🌫"};
+const WXSRC = {prev:"Previsione", tend:"Tendenza, poco affidabile", clim:"Media storica"};
+function wxIcon(w){
+  const c = w.code;
+  if(c!=null){ if(WXI[c]) return WXI[c]; if(c>=95) return "⛈"; if((c>=71&&c<80)||c===85||c===86) return "🌨"; if(c>=80) return "🌦"; return "🌧"; }
+  return w.pp>=60 ? "🌧" : w.pp>=35 ? "🌦" : "⛅";
+}
+function wxPill(i){
+  const w = METEO.days[i]; if(!w) return "";
+  return `<button type="button" class="pill wxpill ${w.pp>=40?"wet":""}" data-wx title="Apri il meteo">${wxIcon(w)} ${w.tmax}°/${w.tmin}° · pioggia ${w.pp}%${w.src==="tend"?" (tendenza)":w.src==="clim"?" (media)":""}</button>`;
+}
+
 const CHECK = [
   ["summit","SUMMIT One Vanderbilt · sab 31/10, ore 17:15 (tramonto 17:52)"],
   ["costume","Costume di Halloween caldo per il bimbo (la sera 8–12 °C)"],
@@ -749,7 +808,7 @@ DAYS.forEach((day,i)=>{
       <div><div class="eyebrow">Giorno ${i+1} · ${day.date}</div><h2>${day.title}</h2></div>
       <div class="maps"><a class="mapbtn" href="${day.map}" target="_blank" rel="noopener">📍 ${day.map2?"Mappa mattina":"Mappa del giorno"}</a>${day.map2?`<a class="mapbtn" href="${day.map2}" target="_blank" rel="noopener">🎃 Mappa sera</a>`:""}</div>
     </div>
-    <div class="meta"><span class="pill">${day.zone}</span><span class="pill">Intensità ${lvlTxt}<span class="intensity">${lvl}</span></span><span class="pill money">💵 circa $${dayTot(day)}</span></div>
+    <div class="meta"><span class="pill">${day.zone}</span><span class="pill">Intensità ${lvlTxt}<span class="intensity">${lvl}</span></span><span class="pill money">💵 circa $${dayTot(day)}</span>${wxPill(i)}</div>
     <details class="budget"><summary>Budget del giorno: circa $${dayTot(day)} <span>(voi due + bimbo, con tasse e mance)</span></summary><ul>${day.budget.map(([l,v])=>`<li><span>${l}</span><b>$${v}</b></li>`).join("")}</ul></details>
     ${day.race ? calcHTML() : ""}
     ${day.halloween ? hwHTML() : ""}
@@ -766,6 +825,7 @@ DAYS.forEach((day,i)=>{
       <button type="button" ${i===0?"disabled":""} data-go="${i-1}">← ${i>0?DAYS[i-1].dow+" "+DAYS[i-1].d:""}</button>
       <button type="button" ${i===DAYS.length-1?"disabled":""} data-go="${i+1}">${i<DAYS.length-1?DAYS[i+1].dow+" "+DAYS[i+1].d:""} →</button>
     </div>`;
+  const wxb = sec.querySelector("[data-wx]"); if(wxb) wxb.onclick = ()=>{ setView("meteo",true); document.getElementById("wx-"+i)?.scrollIntoView({behavior:"smooth",block:"center"}); };
   sec.querySelectorAll("[data-go]").forEach(btn=>btn.onclick=()=>{ show(+btn.dataset.go, true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); });
   host.appendChild(sec);
 });
@@ -1140,6 +1200,28 @@ const SIGHTS = [
   host.querySelectorAll("[data-go-day]").forEach(b=>b.onclick=()=>{ setView("itin",true); show(+b.dataset.goDay,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); });
 })();
 
+// Meteo panel
+(function(){
+  const note = document.getElementById("wxnote"), grid = document.getElementById("wxgrid");
+  if(!METEO.days.length){ note.textContent = "Previsioni non ancora disponibili."; return; }
+  const u = new Date(METEO.upd);
+  note.innerHTML = `Aggiornato il ${u.toLocaleDateString("it-IT",{day:"numeric",month:"long"})} alle ${METEO.upd.slice(11,16)} (ora italiana), per il Lower East Side. Entro una settimana la <b>previsione</b> è affidabile, tra 8 e 15 giorni è indicativa; più in là c'è solo una <b>tendenza</b> del modello americano GFS, utile solo per farsi un'idea. "Di solito" è la media 2006–2025 per gli stessi giorni. Quando la pioggia è al 40% o più il piano B si apre da solo.`;
+  grid.innerHTML = METEO.days.map((w,i)=>{
+    const d = DAYS[i], wet = w.pp>=40, c = w.clim;
+    const parts = w.parts ? `<div class="wxparts">${["Mattina","Pomeriggio","Sera"].map((l,j)=>`<div>${l}<b>${w.parts[j]??"–"}%</b></div>`).join("")}</div>` : "";
+    const rng = w.range ? ` · max tra ${w.range[0]}° e ${w.range[1]}°` : "";
+    return `<div class="wx ${wet?"wet":""}" id="wx-${i}">
+      <div class="wxtop"><div class="wxday">${d.dow} ${d.d}<small>${d.title}</small></div><div class="wxico">${wxIcon(w)}</div></div>
+      <div class="wxt">${w.tmax}°<span> / ${w.tmin}°</span></div>
+      <div class="wxrain">Pioggia ${w.pp}%${w.mm?` · ${String(w.mm).replace(".",",")} mm`:""}${w.wind?` · vento ${w.wind} km/h`:""}${rng}<div class="wxbar"><i style="width:${w.pp}%"></i></div></div>
+      ${parts}
+      <span class="wxsrc ${w.far?"tend":w.src}">${w.far?"Previsione indicativa":WXSRC[w.src]}</span>
+      <div class="wxclim">Di solito: ${c.tmax}° / ${c.tmin}°, giorni con pioggia ${c.pp}%</div>
+      <details ${wet?"open":""}><summary>☔ Piano B se piove</summary><p>${RAINB[i]}</p></details>
+    </div>`;
+  }).join("");
+})();
+
 function setView(v, save){
   document.querySelectorAll("[data-view]").forEach(el=>el.hidden = el.dataset.view!==v);
   document.getElementById("itinNav").hidden = v!=="itin";
@@ -1148,14 +1230,14 @@ function setView(v, save){
 }
 document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>{ setView(b.dataset.v,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop}); });
 document.getElementById("heroBudgetLink").onclick = e=>{ e.preventDefault(); setView("budget",true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); };
-setView(["itin","sights","budget","food","info","pack"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
+setView(["itin","meteo","sights","budget","food","info","pack"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
 
 // Search
 (function(){
   const q = document.getElementById("sq"), res = document.getElementById("sres"), clr = document.getElementById("sclear");
   const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
   const esc = s => s.replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-  const VIEWS = {sights:"🗽 Attrazioni", budget:"💵 Budget", food:"🍽 Ristorante", info:"✅ Info", pack:"🧳 Valigia"};
+  const VIEWS = {meteo:"🌦 Meteo", sights:"🗽 Attrazioni", budget:"💵 Budget", food:"🍽 Ristorante", info:"✅ Info", pack:"🧳 Valigia"};
   let hits = [], act = -1;
   function index(){
     const items = [];
