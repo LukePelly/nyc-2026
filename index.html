@@ -127,6 +127,13 @@ details.budget li{display:flex;justify-content:space-between;gap:10px;padding:5p
 .rprice{font-variant-numeric:tabular-nums;font-weight:600;font-size:13px;text-align:right;white-space:nowrap}
 .rrow.free .rname{font-weight:500;color:var(--ink-2)}
 @media (max-width:560px){.rrow{grid-template-columns:70px 1fr;}.rprice{grid-column:2;text-align:left}}
+.aday+.aday{margin-top:12px}
+.aday h3{margin:0;font-family:Fraunces,serif;font-size:19px;font-weight:600;line-height:1.2}
+.aday h3 small{display:block;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink-2);margin-top:2px}
+.aper{margin:14px 0 2px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.alist .rrow{grid-template-columns:52px 1fr auto}
+.alist .rwhen b{font-size:15px}
+@media (max-width:560px){.alist .rrow{grid-template-columns:46px 1fr}}
 .daybtn .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-left:4px;vertical-align:middle}
 
 .search{position:relative;padding-top:10px}
@@ -256,6 +263,7 @@ footer a{color:var(--ink-2)}
     </div>
     <div class="views" role="tablist">
       <button type="button" class="vbtn" data-v="itin">🗓 Itinerario</button>
+      <button type="button" class="vbtn" data-v="sights">🗽 Attrazioni</button>
       <button type="button" class="vbtn" data-v="budget">💵 Budget</button>
       <button type="button" class="vbtn" data-v="food">🍽 Ristoranti</button>
       <button type="button" class="vbtn" data-v="info">✅ Prenotazioni e info</button>
@@ -307,6 +315,12 @@ footer a{color:var(--ink-2)}
       <p style="margin-top:8px"><b>3. Mai accettare la conversione dello sportello.</b> Se chiede "addebito in EUR" o "con conversione", rifiutate e scegliete sempre USD: la conversione dell'ATM costa il 3–8%. Lo stesso vale per i POS di negozi e ristoranti.</p>
       <p style="margin-top:8px">Esempio: $200 prelevati in una volta costano solo la commissione dello sportello, circa $4–5. Portate comunque una seconda carta di un'altra banca, nel caso Revolut blocchi la carta per un controllo antifrode.</p>
     </div>
+  </section>
+
+  <section class="panel" id="attrazioni" data-view="sights">
+    <h2>🗽 Attrazioni, giorno per giorno</h2>
+    <p class="bnote">Le cose principali che vedete, divise per giorno e per momento della giornata, con l'orario previsto nell'itinerario. Spostamenti e dettagli pratici sono nell'itinerario: "Vedi il giorno →" vi porta lì. I prezzi sono per voi due.</p>
+    <div id="alist"></div>
   </section>
 
   <section class="panel" id="ristoranti" data-view="food">
@@ -882,6 +896,76 @@ const FOOD = [
   ol.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>{ setView("itin",true); show(+b.dataset.day,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); });
 })();
 
+// Attractions panel: [dayIndex, time, name, address|"", info, warn|"", price, withBrother]
+const SIGHTS = [
+  [0,"19:30","Chinatown e Little Italy","Doyers St, Pell St, Mott St, Mulberry St","Primo giro dopo cena: le stradine storiche di Chinatown, poi su per Mulberry St fino a Little Italy. Tutto a 5–10 minuti dall'hotel.","","Gratis",false],
+  [1,"09:30","St. Patrick's Cathedral","5th Ave & 50th St","La cattedrale neogotica di Midtown, di fronte al Rockefeller Center. Rampa sul lato nord.","","Gratis",false],
+  [1,"10:00","Rockefeller Center","Rockefeller Plaza","Rockefeller Plaza e il Channel Gardens. Opzionale il Nintendo NY (10 Rockefeller Plaza, apre alle 10:00).","","Gratis",false],
+  [1,"11:05","The High Line","W 34th St & 12th Ave","Il parco sopraelevato sulla vecchia ferrovia, da nord a sud: The Spur alla 30th St, uscita alla 16th St davanti al Chelsea Market.","","Gratis",false],
+  [1,"13:30","Little Island","Pier 55, Hudson River Park","Il parco sospeso sull'Hudson all'altezza della W 13th St. Accanto c'è il Pier 51.","","Gratis",false],
+  [1,"14:30","West Village e la casa di Carrie","66 Perry St","Scalinate addobbate per Halloween, la foto al 66 di Perry St e Bleecker St, con calma.","","Gratis",false],
+  [1,"16:45","Washington Square Park","Washington Square Park","L'arco con la luce calda del tardo pomeriggio.","","Gratis",false],
+  [1,"17:30","Times Square illuminata","Times Square","Si arriva mentre si accendono i maxischermi (tramonto 17:50). La scalinata rossa di Duffy Square per guardare la piazza dall'alto.","","Gratis",false],
+  [2,"09:30","Staten Island Ferry e Statua della Libertà","Whitehall Terminal","Il traghetto gratuito, 25 minuti a tratta: all'andata state sul lato destro per la Statua. A Staten Island si scende e si riprende il primo traghetto di ritorno.","","Gratis",false],
+  [2,"11:15","Battery Park, Charging Bull e Wall Street","Bowling Green","Tutto a piedi e in piano: Battery Park, il toro di Bowling Green, Wall Street e la facciata della Borsa.","","Gratis",false],
+  [2,"12:15","Memoriale 11 Settembre e Oculus","9/11 Memorial","Le due vasche commemorative e uno sguardo all'Oculus accanto: mezz'ora basta.","","Gratis",false],
+  [2,"13:30","📸 La foto dei genitori al Seaport","Pier 17, South Street Seaport","Sulla passeggiata tra Pier 16 e Pier 17, col Brooklyn Bridge da sinistra a destra e il Manhattan Bridge che spunta dietro.","La zona è stata ricostruita: conta l'angolo sul ponte, non la ringhiera.","Gratis",false],
+  [2,"15:15","Williamsburg","Bedford Ave & N 6th St, Brooklyn","Si arriva col NYC Ferry al Marsha P. Johnson State Park, poi Bedford Ave e Wythe Ave: negozietti, caffè e murales.","","Gratis",false],
+  [2,"16:30","Domino Park al tramonto","Domino Park, Brooklyn","Il lungofiume dell'ex raffineria Domino, col Williamsburg Bridge accanto. Il sole tramonta alle 17:50 dietro Manhattan.","","Gratis",false],
+  [2,"18:15","Essex Market","88 Essex St","Il mercato coperto del Lower East Side, dal 1940: un giro veloce tra i banchi prima di Katz's.","","Gratis",false],
+  [3,"09:00","Central Park da ovest a est","Bethesda Terrace, Central Park","Bethesda Terrace, Bow Bridge, Alice e Conservatory Water, Balto, fino al Plaza Hotel. Foliage al massimo.","","Gratis",false],
+  [3,"11:00","Flatiron Building e Madison Square Park","Flatiron Building","Il palazzo a ferro da stiro, di fronte allo Shake Shack del pranzo.","","Gratis",false],
+  [3,"15:45","Grand Central Terminal","Grand Central Terminal","Il soffitto astronomico e la Whispering Gallery.","","Gratis",false],
+  [3,"16:45","Chrysler Building","Lexington Ave & 42nd St","La guglia art déco, a 3 minuti a piedi da Grand Central.","","Gratis",false],
+  [3,"17:15","SUMMIT One Vanderbilt al tramonto","One Vanderbilt","Le stanze a specchio sopra Midtown con la luce del tramonto (17:52). Bimbi fino a 5 anni gratis.","Niente deposito passeggini: il YOYO va chiuso. Alle 18:10 si esce per la parata.","~$130",true],
+  [3,"18:50","🎃 Village Halloween Parade","6th Ave tra King St e Houston St","I pupazzi giganti aprono il corteo subito dopo le 19:00, poi bande e migliaia di persone in costume.","Restate sul marciapiede EST della 6th Ave. Punto d'incontro: Houston & MacDougal.","Gratis",false],
+  [4,"10:45","TCS NYC Marathon: tifo per tuo fratello","First Ave & E 113th St","Circa al km 30, passaggio stimato tra le 11:13 e le 11:20. Opzionale un secondo passaggio sulla 5th Ave all'altezza della 110th–112th, verso le 11:40.","Siate sul marciapiede entro le 10:45 e seguitelo con l'app TCS NYC Marathon.","Gratis",false],
+  [4,"14:00","Roosevelt Island Tramway","2nd Ave & E 60th St","La funivia sull'East River accanto al Queensboro Bridge, 4 minuti con Midtown sotto.","","Tetto metro",false],
+  [4,"15:30","Four Freedoms Park al tramonto","Franklin D. Roosevelt Four Freedoms Park","La punta sud di Roosevelt Island, col Palazzo dell'ONU di fronte. Lungo la strada le rovine dello Smallpox Hospital. Tramonto alle 16:45.","Da novembre potrebbe chiudere alle 17:00: ricontrollate su fdrfourfreedomspark.org.","Gratis",false],
+  [5,"09:30","DUMBO, Pebble Beach e Pier 1","Washington St & Water St, Brooklyn","La foto col Manhattan Bridge tra i palazzi, la spiaggetta tra i due ponti e lo skyline illuminato dal sole di mattina.","","Gratis",false],
+  [5,"11:45","Brooklyn Heights Promenade","Brooklyn Heights Promenade","La terrazza sul fiume con la vista più famosa su Lower Manhattan e la Statua sullo sfondo.","","Gratis",false],
+  [5,"12:30","Brooklyn Bridge a piedi","Tillary St & Adams St, Brooklyn","Verso Manhattan, fino a City Hall Park. Col passeggino si sale dalla rampa tra Tillary St e Adams St.","","Gratis",false],
+  [5,"14:45","Chinatown e Little Italy: souvenir","Mott St & Canal St","Mott St con le botteghe di tè e porcellane, le bancarelle di Canal St, poi Mulberry St.","","Souvenir",false],
+  [5,"16:30","Macy's Herald Square","151 W 34th St","Il grande magazzino storico, con le vecchie scale mobili in legno ai piani alti.","","Gratis",false],
+  [5,"18:00","Koreatown","W 32nd St","Due passi tra le insegne accese prima di cena da BCD Tofu House.","","Gratis",false],
+  [5,"19:45","Empire State Building","20 W 34th St","Midtown di notte dall'osservatorio dell'86° piano.","Prenotate la fascia 19:30–20:00.","~$105",true],
+  [6,"09:30","Bryant Park Winter Village","Bryant Park","Bancarelle e pista di pattinaggio, aperto dal 28 ottobre.","","~$20",false],
+  [6,"10:00","New York Public Library","476 5th Ave","I leoni sulla scalinata e la Rose Main Reading Room col soffitto dipinto.","Ultimo ingresso in sala alle 10:50. Col passeggino, ingresso sulla 42nd St.","Gratis",false],
+  [6,"11:00","MoMA","11 W 53rd St","Subito al 5° piano: Notte stellata, Les Demoiselles d'Avignon, La persistenza della memoria, le Ninfee. Poi il 4° piano e il giardino delle sculture.","Prenotate la fascia delle 11:00, anche il biglietto gratuito del bimbo.","~$60",false],
+  [6,"14:00","Central Park sud","Friedsam Memorial Carousel, Central Park","Heckscher Playground, la giostra storica, Sheep Meadow e il Literary Walk.","La giostra è solo contanti ($3) e a novembre potrebbe essere chiusa.","~$6",true],
+  [6,"15:30","Gapstow Bridge e il Pond","Gapstow Bridge, Central Park","Lo scorcio classico col Plaza sullo sfondo. Qui salutate tuo fratello.","","Gratis",true],
+  [6,"16:15","FAO Schwarz","30 Rockefeller Plaza","Il negozio di giocattoli storico, col pianoforte gigante da suonare coi piedi.","","Gratis",false],
+  [6,"17:00","Rockefeller Center illuminato","Rockefeller Plaza","Channel Gardens e pista di pattinaggio col buio, se la pista ha già aperto.","","Gratis",false],
+  [7,"09:00","SoHo","Greene St & Prince St","Le facciate in ghisa con le scale antincendio di Greene St, poi Mercer St e Prince St, tranquille prima che aprano i negozi.","Piano B: se la foto di venerdì non vi convince, Seaport al posto di SoHo.","Gratis",false],
+  [7,"10:30","Tribeca e la caserma dei Ghostbusters","14 N Moore St","Hook & Ladder Company 8, la caserma del film, dietro l'angolo da Bubby's.","","Gratis",false]
+];
+(function(){
+  const host = document.getElementById("alist");
+  const per = t => +t.slice(0,2) < 12 ? "Mattina" : +t.slice(0,2) < 17 ? "Pomeriggio" : "Sera";
+  DAYS.forEach((d,di)=>{
+    const rows = SIGHTS.filter(s=>s[0]===di); if(!rows.length) return;
+    const box = document.createElement("div");
+    box.className = "box aday";
+    box.innerHTML = `<h3>${d.date}<small>${d.title}</small></h3>`;
+    let cur, ol;
+    rows.forEach(([,time,name,addr,info,warn,price,bro])=>{
+      if(per(time)!==cur){ cur = per(time); box.insertAdjacentHTML("beforeend",`<div class="aper">${cur}</div>`); ol = document.createElement("ol"); ol.className = "rlist alist"; box.appendChild(ol); }
+      const q = encodeURIComponent(addr.includes(name) ? addr+", New York" : name.replace(/^[^A-Za-z]+/,"")+", "+addr+", New York");
+      const li = document.createElement("li");
+      li.className = "rrow";
+      li.dataset.day = d.dow+" "+d.d; li.dataset.per = cur;
+      li.innerHTML = `<div class="rwhen"><b>${time}</b></div>
+        <div><div class="rname">${name}${bro?'<span class="bro">con tuo fratello</span>':''}</div>
+          ${addr.includes(name)||name.includes(addr)?"":`<div class="rinfo">${addr}</div>`}<div class="rinfo">${info}</div>${warn?`<div class="rwarn">⚠️ ${warn}</div>`:""}
+          <div class="rlinks"><a href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">📍 Mappa</a><button type="button" data-go-day="${di}">Vedi il giorno →</button></div></div>
+        <div class="rprice">${price}</div>`;
+      ol.appendChild(li);
+    });
+    host.appendChild(box);
+  });
+  host.querySelectorAll("[data-go-day]").forEach(b=>b.onclick=()=>{ setView("itin",true); show(+b.dataset.goDay,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); });
+})();
+
 function setView(v, save){
   document.querySelectorAll("[data-view]").forEach(el=>el.hidden = el.dataset.view!==v);
   document.getElementById("itinNav").hidden = v!=="itin";
@@ -890,14 +974,14 @@ function setView(v, save){
 }
 document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>{ setView(b.dataset.v,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop}); });
 document.getElementById("heroBudgetLink").onclick = e=>{ e.preventDefault(); setView("budget",true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); };
-setView(["itin","budget","food","info"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
+setView(["itin","sights","budget","food","info"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
 
 // Search
 (function(){
   const q = document.getElementById("sq"), res = document.getElementById("sres"), clr = document.getElementById("sclear");
   const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
   const esc = s => s.replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-  const VIEWS = {budget:"💵 Budget", food:"🍽 Ristorante", info:"✅ Info"};
+  const VIEWS = {sights:"🗽 Attrazioni", budget:"💵 Budget", food:"🍽 Ristorante", info:"✅ Info"};
   let hits = [], act = -1;
   function index(){
     const items = [];
@@ -906,6 +990,7 @@ setView(["itin","budget","food","info"].includes(store.get("nyc-view")) ? store.
       sec.querySelectorAll(".slot").forEach(el=>items.push({el, di, view:"itin", kind:`🗓 ${d.dow} ${d.d} · ${el.querySelector(".time").firstChild.textContent}`, title:el.querySelector("h3").textContent}));
       const hw = sec.querySelector(".hw-card"); if(hw) items.push({el:hw, di, view:"itin", kind:`🎃 ${d.dow} ${d.d}`, title:hw.querySelector("h3").textContent});
     });
+    document.querySelectorAll("#alist .rrow").forEach(el=>items.push({el, view:"sights", kind:`🗽 ${el.dataset.day} · ${el.dataset.per}`, title:el.querySelector(".rname").firstChild.textContent}));
     document.querySelectorAll("#rlist .rrow").forEach(el=>items.push({el, view:"food", kind:`🍽 ${el.querySelector(".rwhen b").textContent} · ${el.querySelector(".meal").textContent}`, title:el.querySelector(".rname").firstChild.textContent}));
     document.querySelectorAll("main .box").forEach(el=>{
       if(el.querySelector(".box,.rlist,.bars,#checklist")) return;
