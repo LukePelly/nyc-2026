@@ -218,6 +218,23 @@ section.panel h2{font-family:Fraunces,serif;font-size:26px;margin:0 0 12px}
 .check.done span{text-decoration:line-through;color:var(--ink-2)}
 .progress{height:6px;background:var(--surface-2);border-radius:3px;overflow:hidden;margin:6px 0 10px}
 .progress i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.ptop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ptop b{font-family:Fraunces,serif;font-size:22px}
+.pbtns{display:flex;gap:6px;flex-wrap:wrap}
+.pbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink-2);font:inherit;font-size:12px;font-weight:600;border-radius:99px;padding:5px 11px;cursor:pointer}
+.pbtn[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.pgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:12px}
+.pgroup h4{display:flex;justify-content:space-between;gap:8px}
+.pgroup h4 small{font-weight:500;color:var(--ink-2)}
+.pgroup.complete{border-color:var(--baby)}
+.pgroup.complete h4 small{color:var(--baby);font-weight:600}
+.ptag{display:inline-block;font-size:11px;font-weight:600;background:var(--move-soft);color:var(--move);border-radius:99px;padding:1px 7px;margin-left:4px;white-space:nowrap}
+.check em{display:block;font-style:normal;font-size:12px;color:var(--ink-2);margin-top:2px}
+.check .pdel{margin-left:auto;border:0;background:none;color:var(--ink-2);cursor:pointer;font-size:14px;padding:0 4px}
+.padd{display:flex;gap:6px;margin-top:8px}
+.padd input{flex:1;min-width:0;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:10px;padding:7px 10px;font:inherit;font-size:13px}
+.padd button{border:0;background:var(--accent);color:#fff;font:inherit;font-weight:600;font-size:13px;border-radius:10px;padding:7px 12px;cursor:pointer}
+.hide-done .check.done{display:none}
 footer{color:var(--ink-2);font-size:12px;padding:30px 0 40px;border-top:1px solid var(--line)}
 footer a{color:var(--ink-2)}
 @media (max-width:560px){
@@ -267,6 +284,7 @@ footer a{color:var(--ink-2)}
       <button type="button" class="vbtn" data-v="budget">💵 Budget</button>
       <button type="button" class="vbtn" data-v="food">🍽 Ristoranti</button>
       <button type="button" class="vbtn" data-v="info">✅ Prenotazioni e info</button>
+      <button type="button" class="vbtn" data-v="pack">🧳 Valigia</button>
     </div>
     <div id="itinNav">
     <div class="daystrip" id="daystrip" role="tablist"></div>
@@ -351,6 +369,21 @@ footer a{color:var(--ink-2)}
       <div class="box"><h4>📶 eSIM e telefono</h4><p>Una eSIM dati a testa (Revolut in app, Airalo o Ubigi): 10 GB per 8 giorni bastano, in hotel c'è il wifi. Installatela a casa prima di partire, il pacchetto parte quando vi collegate alla rete americana. All'arrivo, in Gestione SIM: eSIM per i dati mobili con il roaming dati attivo, SIM italiana accesa solo per chiamate e SMS (codici della banca) con il roaming dati spento. La eSIM non dà un numero americano: le telefonate ai ristoranti si fanno con la SIM italiana in roaming.</p></div>
       <div class="box"><h4>🍼 TSA</h4><p>Latte, pappe e acqua per il bimbo sono ammessi oltre i 100 ml: basta dichiararli al controllo di sicurezza.</p></div>
     </div>
+  </section>
+
+  <section class="panel" id="valigia" data-view="pack">
+    <h2>🧳 Valigia</h2>
+    <div class="box">
+      <p class="bnote">Tutto quello che serve per otto giorni con il bimbo a fine ottobre: di giorno 12–16 °C, la sera 8–12 °C, con la parata e l'Empire all'aperto. Spuntate man mano che preparate. Le voci con 🎒 vanno nel bagaglio a mano. Le spunte restano salvate su questo telefono, non sull'altro.</p>
+      <div class="ptop"><b id="pCount">–</b>
+        <div class="pbtns">
+          <button type="button" class="pbtn" id="pHide" aria-pressed="false">Nascondi le voci fatte</button>
+          <button type="button" class="pbtn" id="pReset">Azzera</button>
+        </div>
+      </div>
+      <div class="progress"><i id="pProg"></i></div>
+    </div>
+    <div class="pgroups" id="packing"></div>
   </section>
 </main>
 
@@ -842,6 +875,144 @@ function renderChecks(){
 cl.addEventListener("change", e=>{ done[e.target.dataset.id] = e.target.checked; store.set("nyc-check", done); renderChecks(); });
 renderChecks();
 
+// Packing list: [group id, title, [[id, text, note|"", hand luggage]]]
+const PACK = [
+  ["doc","🛂 Documenti e soldi",[
+    ["pass","Passaporti di tutti e tre, bimbo compreso","Validi per tutta la durata del viaggio",true],
+    ["esta","ESTA approvati (anche quello del bimbo)","Stampati o salvati sul telefono",true],
+    ["board","Carte d'imbarco AA 199 e prenotazione dell'hotel","Check-in online 24 ore prima",true],
+    ["tix","Biglietti Summit, Empire e MoMA sul telefono","Meglio anche in screenshot, senza rete",true],
+    ["rev","Carta Revolut con i dollari già cambiati","",true],
+    ["card2","Seconda carta di un'altra banca","Se Revolut blocca la carta per l'antifrode",true],
+    ["ins","Assicurazione sanitaria di viaggio: numero di polizza e contatto d'emergenza","Negli USA il medico costa moltissimo",true],
+    ["copy","Foto di passaporti e documenti sul telefono e in cloud","",false],
+    ["ts","Tessera sanitaria","",true]]],
+  ["tech","🔌 Elettronica",[
+    ["adapt","Adattatori per prese americane (tipo A/B), 2 o 3","Le spine italiane non entrano",true],
+    ["strip","Una multipresa italiana da attaccare a un solo adattatore","Così si caricano più cose di notte",false],
+    ["volt","Controllare che i caricatori siano 100–240 V","Phon e piastre italiani a 220 V a 120 V non vanno: in hotel c'è il phon",false],
+    ["chg","Caricatori e cavi dei telefoni","",true],
+    ["pb","Power bank carico","Solo nel bagaglio a mano, mai in stiva",true],
+    ["esim","eSIM installate su entrambi i telefoni","Fatto a casa col wifi",false],
+    ["apps","App sul telefono: TCS NYC Marathon, Revolut, American, Google Maps con le mappe offline","",false],
+    ["tab","Tablet o telefono con cartoni scaricati per il volo","",true],
+    ["ear2","Auricolari","",true]]],
+  ["fly","✈️ Bimbo in volo (borsa del cambio)",[
+    ["dia","Pannolini per il viaggio, circa 10","Da casa all'hotel sono più di 15 ore",true],
+    ["wipe","Salviette e sacchetti per i pannolini sporchi","",true],
+    ["mat","Fasciatoio portatile o telo per il cambio","",true],
+    ["chg2","Due cambi completi per il bimbo","",true],
+    ["shirt","Una maglietta di ricambio per voi","",true],
+    ["milk","Latte in polvere già dosato e biberon","Al controllo dichiarate latte e acqua: sono ammessi oltre i 100 ml",true],
+    ["food","Pappe e pouch per il volo, cucchiaino, bavaglini","",true],
+    ["paci","Ciuccio di scorta con catenella","Al decollo e all'atterraggio: biberon o ciuccio",true],
+    ["blkt","Copertina per l'aereo","In cabina fa freddo",true],
+    ["toys","Due o tre giochini, meglio se nuovi","",true],
+    ["med1","Antipiretico pediatrico e termometro","Anche nel bagaglio a mano, non solo in valigia",true]]],
+  ["baby","👶 Vestiti e nanna del bimbo",[
+    ["body","Body a manica lunga, 8–10","",false],
+    ["suit","Tutine e pantaloncini caldi, 6–8","",false],
+    ["pj","Pigiami, 4–5","",false],
+    ["sack","Sacco nanna","Per la culla dell'hotel e per l'aereo",false],
+    ["coat","Tuta imbottita o giubbino caldo","La sera alla parata e all'86° piano dell'Empire",false],
+    ["hat","Cappellino di lana, guantini e calzini pesanti","",false],
+    ["layer","Felpine e maglioncini per gli strati","Fuori fa freddo, metro e musei sono caldi",false],
+    ["shoes","Scarpine o calze antiscivolo","",false],
+    ["cost","Costume di Halloween (caldo)","Sabato sera",false],
+    ["ear","Cuffie antirumore","Parata e maratona",true],
+    ["bib","Bavaglini, 5–6","",false],
+    ["play","Telo o tappetino per farlo gattonare in camera","",false],
+    ["bath","Bagnoschiuma, crema idratante e crema per il cambio in formato piccolo","",false]]],
+  ["eat","🍼 Pappa",[
+    ["milk2","Latte in polvere per tutto il viaggio, più una scorta","Le formule americane sono diverse: portatelo dall'Italia",false],
+    ["bott","Biberon, 2–3, e tettarelle di ricambio","",false],
+    ["brush","Scovolino e un po' di detersivo per biberon","",false],
+    ["therm","Thermos piccolo per l'acqua calda","",false],
+    ["spoon","Cucchiaini morbidi e una ciotolina col coperchio","",false],
+    ["snack","Qualche pouch e biscotti per i primi giorni","Il resto lo comprate da Target la prima sera",false]]],
+  ["yoyo","🛒 Passeggino YOYO",[
+    ["yoyo","Babyzen YOYO","In cappelliera su American, non conta come bagaglio",true],
+    ["foot","Sacco termico o copertina per il passeggino","",false],
+    ["rain","Parapioggia","",false],
+    ["ybag","Sacca da viaggio del YOYO","Se al gate lo mandano in stiva",true],
+    ["hook","Gancio per le borse","",false],
+    ["policy","Policy American sui passeggini salvata sul telefono","",false],
+    ["seat","Ovetto per i taxi, solo se avete deciso di portarlo","",false]]],
+  ["med","💊 Farmacia",[
+    ["para","Paracetamolo pediatrico con la siringa dosatrice","Negli USA le concentrazioni sono diverse",false],
+    ["nose","Soluzione fisiologica e aspiratore nasale","",false],
+    ["derm","Crema per gli arrossamenti","",false],
+    ["plast","Cerotti e disinfettante","",false],
+    ["adult","Antidolorifico e medicine abituali per voi due","",true],
+    ["gel","Gel igienizzante per le mani","",true],
+    ["ped","Numero del pediatra salvato sul telefono","Ricordate il fuso: −5 o −6 ore",false]]],
+  ["you","🧥 Vestiti per voi",[
+    ["walk","Scarpe comode già rodate, un paio a testa più uno di ricambio","Si cammina tanto ogni giorno",false],
+    ["jack","Giacca calda e impermeabile","",false],
+    ["warm","Sciarpa, berretto e guanti","Sera di Halloween e Empire",false],
+    ["lay","Maglioni e felpe per vestirsi a strati","",false],
+    ["umb","Ombrello pieghevole","",false],
+    ["night","Pigiami, intimo e calze per otto giorni","",false],
+    ["hw","Qualcosa di Halloween per voi, anche solo un accessorio","Alla parata è in costume quasi tutto il pubblico",false],
+    ["photo","Abiti per rifare la foto dei genitori, se volete gli stessi colori","",false]]],
+  ["wash","🧴 Necessaire",[
+    ["liq","Liquidi in flaconi da 100 ml nella bustina trasparente","",true],
+    ["teeth","Spazzolini e dentifricio","",false],
+    ["lens","Occhiali o lenti, crema solare e burrocacao","",false],
+    ["comb","Spazzola, deodorante, rasoio","",false]]],
+  ["day","🎒 Zaino per le giornate fuori",[
+    ["bag","Zaino o borsa leggera per la giornata","",false],
+    ["bottle","Borraccia","",false],
+    ["mini","Kit cambio da giornata: 3–4 pannolini, salviette, un cambio","",false],
+    ["bags","Sacchetti di plastica e una borsa pieghevole per la spesa da Target","",false],
+    ["cash","Portamonete per i contanti","Shu Jiao Fu Zhou e le mance",false]]],
+  ["last","🚪 Prima di uscire di casa",[
+    ["weigh","Pesare le valigie","Su American la valigia in stiva arriva a 23 kg",false],
+    ["charge","Telefoni e power bank carichi","",false],
+    ["checkin","Check-in online fatto","",false],
+    ["home","Chiavi di casa, finestre chiuse, frigo svuotato","",false]]]
+];
+(function(){
+  const pdone = store.get("nyc-pack") || {}, extra = store.get("nyc-pack-extra") || {};
+  const host = document.getElementById("packing"), esc = s => s.replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const items = g => g[2].map(([id,t,n,h])=>({id:g[0]+"-"+id,t,n,h})).concat((extra[g[0]]||[]).map(x=>({id:x.id,t:x.t,custom:true})));
+  function render(){
+    let all = 0, ok = 0;
+    host.innerHTML = PACK.map(g=>{
+      const list = items(g), n = list.filter(x=>pdone[x.id]).length;
+      all += list.length; ok += n;
+      return `<div class="box pgroup ${n===list.length?"complete":""}"><h4>${g[1]}<small>${n}/${list.length}</small></h4>
+        ${list.map(x=>`<label class="check ${pdone[x.id]?"done":""}"><input type="checkbox" data-id="${x.id}" ${pdone[x.id]?"checked":""}><span>${esc(x.t)}${x.h?'<span class="ptag">🎒 a mano</span>':""}${x.n?`<em>${x.n}</em>`:""}</span>${x.custom?`<button type="button" class="pdel" data-del="${x.id}" data-g="${g[0]}" aria-label="Elimina">✕</button>`:""}</label>`).join("")}
+        <form class="padd" data-g="${g[0]}"><input placeholder="Aggiungi una voce…" aria-label="Aggiungi una voce a ${g[1]}"><button type="submit">+</button></form></div>`;
+    }).join("");
+    document.getElementById("pCount").textContent = ok===all ? "Tutto pronto! 🎉" : `${ok} su ${all}`;
+    document.getElementById("pProg").style.width = (ok/all*100)+"%";
+  }
+  host.addEventListener("change", e=>{ if(!e.target.dataset.id) return; pdone[e.target.dataset.id] = e.target.checked; store.set("nyc-pack", pdone); render(); });
+  host.addEventListener("click", e=>{
+    const b = e.target.closest("[data-del]"); if(!b) return;
+    e.preventDefault();
+    extra[b.dataset.g] = (extra[b.dataset.g]||[]).filter(x=>x.id!==b.dataset.del); delete pdone[b.dataset.del];
+    store.set("nyc-pack-extra", extra); store.set("nyc-pack", pdone); render();
+  });
+  host.addEventListener("submit", e=>{
+    e.preventDefault();
+    const inp = e.target.querySelector("input"), t = inp.value.trim(); if(!t) return;
+    const g = e.target.dataset.g;
+    (extra[g] = extra[g]||[]).push({id:"x"+Date.now(), t});
+    store.set("nyc-pack-extra", extra); render();
+    host.querySelector(`.padd[data-g="${g}"] input`).focus();
+  });
+  const hide = document.getElementById("pHide");
+  const setHide = v => { host.classList.toggle("hide-done", v); hide.setAttribute("aria-pressed", v); store.set("nyc-pack-hide", v); };
+  hide.onclick = () => setHide(hide.getAttribute("aria-pressed")!=="true");
+  document.getElementById("pReset").onclick = () => {
+    if(!confirm("Togliere tutte le spunte della valigia? Le voci aggiunte restano.")) return;
+    Object.keys(pdone).forEach(k=>delete pdone[k]); store.set("nyc-pack", pdone); render();
+  };
+  render(); setHide(store.get("nyc-pack-hide")===true);
+})();
+
 // Countdown and start day (auto-select today during the trip)
 (function(){
   const start = new Date(2026,9,28), now = new Date(), el = document.getElementById("countdown");
@@ -977,14 +1148,14 @@ function setView(v, save){
 }
 document.querySelectorAll(".vbtn").forEach(b=>b.onclick=()=>{ setView(b.dataset.v,true); window.scrollTo({top:document.querySelector("nav.days").offsetTop}); });
 document.getElementById("heroBudgetLink").onclick = e=>{ e.preventDefault(); setView("budget",true); window.scrollTo({top:document.querySelector("nav.days").offsetTop,behavior:"smooth"}); };
-setView(["itin","sights","budget","food","info"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
+setView(["itin","sights","budget","food","info","pack"].includes(store.get("nyc-view")) ? store.get("nyc-view") : "itin", false);
 
 // Search
 (function(){
   const q = document.getElementById("sq"), res = document.getElementById("sres"), clr = document.getElementById("sclear");
   const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
   const esc = s => s.replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-  const VIEWS = {sights:"🗽 Attrazioni", budget:"💵 Budget", food:"🍽 Ristorante", info:"✅ Info"};
+  const VIEWS = {sights:"🗽 Attrazioni", budget:"💵 Budget", food:"🍽 Ristorante", info:"✅ Info", pack:"🧳 Valigia"};
   let hits = [], act = -1;
   function index(){
     const items = [];
@@ -996,11 +1167,12 @@ setView(["itin","sights","budget","food","info"].includes(store.get("nyc-view"))
     document.querySelectorAll("#alist .rrow").forEach(el=>items.push({el, view:"sights", kind:`🗽 ${el.dataset.day} · ${el.dataset.per}`, title:el.querySelector(".rname").firstChild.textContent}));
     document.querySelectorAll("#rlist .rrow").forEach(el=>items.push({el, view:"food", kind:`🍽 ${el.querySelector(".rwhen b").textContent} · ${el.querySelector(".meal").textContent}`, title:el.querySelector(".rname").firstChild.textContent}));
     document.querySelectorAll("main .box").forEach(el=>{
-      if(el.querySelector(".box,.rlist,.bars,#checklist")) return;
+      if(el.classList.contains("pgroup") || el.querySelector(".box,.rlist,.bars,#checklist")) return;
       const v = el.closest("[data-view]").dataset.view, h = el.querySelector("h4") || el.closest("section").querySelector("h2");
       items.push({el, view:v, kind:VIEWS[v], title:h.textContent});
     });
     document.querySelectorAll("#checklist .check").forEach(el=>items.push({el, view:"info", kind:"✅ Da prenotare", title:el.textContent}));
+    document.querySelectorAll("#packing .check").forEach(el=>items.push({el, view:"pack", kind:"🧳 "+el.closest(".pgroup").querySelector("h4").firstChild.textContent, title:el.querySelector("span").firstChild.textContent}));
     return items;
   }
   function snippet(text, nq){
