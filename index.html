@@ -432,7 +432,6 @@ footer a{color:var(--ink-2)}
   <a href="https://www.nypl.org/locations/schwarzman">New York Public Library</a> ·
   <a href="https://www.nyc.gov/mayors-office/news/2026/08/after-decades-of-delay--mayor-mamdani-moves-to-fix-the-city-owne">BQE e Promenade</a> ·
   <a href="https://arlohotels.com/soho/?p=1707">Parade per chi va la prima volta</a> ·
-  <a href="https://www.nyu.edu/community/nyu-in-nyc/events/annual-children-s-halloween-parade.html">Children's Halloween Parade</a> ·
   <a href="https://info.summitov.com/faq/can-i-bring-a-stroller-to-summit-one-vanderbilt">Summit e passeggini</a> · <a href="https://viewfromthewing.com/american-airlines-now-allows-any-collapsible-stroller-onboard-free-heres-the-policy-to-show-gate-agents-who-say-no">Passeggini in cabina su American</a> ·
   <a href="https://www.nintendo.com/us/new-york/">Nintendo NY</a> ·
   <a href="https://www.moma.org/visit/tips">MoMA</a> · <a href="https://moovit.com/blog/navigating-nyc-transit-fares-omny-and-saving-money-in-2026/">Tariffe metro 2026</a> · <a href="https://thebettervacation.com/new-york/summit-one-vanderbilt/">Prezzi Summit</a> · <a href="https://gocity.com/en/new-york/attractions/empire-state-building">Prezzi Empire</a> ·
@@ -478,7 +477,7 @@ const DAYS = [
     ["bimbo","Col fuso orario (−5h) il bimbo crollerà presto. Dall'hotel è tutto a 5–10 minuti a piedi."]]}
   ]},
 { d:29, dow:"Gio", date:"Giovedì 29 ottobre", title:"Rockefeller, High Line, West Village e Times Square di sera", zone:"Midtown ➔ Hudson Yards ➔ Chelsea ➔ West Village ➔ Times Square", lvl:2, budget:[["Colazione da Kossar's", 25], ["Metro (4 corse a testa)", 24], ["Pranzo al Chelsea Market", 50], ["Caffè e snack", 15], ["Joe's Pizza, una fetta a testa", 10], ["Raising Cane's", 30], ["Bimbo", 15]],
-  map:G+"St.+Patrick's+Cathedral,+New+York/Rockefeller+Plaza,+New+York/34+St-Hudson+Yards,+New+York/Vessel,+Hudson+Yards,+New+York/The+Spur,+High+Line,+New+York/Chelsea+Market,+New+York/Little+Island,+New+York/66+Perry+St,+New+York/Joe's+Pizza,+7+Carmine+St,+New+York/Washington+Square+Park,+New+York/Times+Square,+New+York/Raising+Cane's,+1501+Broadway,+New+York/",
+  map:G+"St.+Patrick's+Cathedral,+New+York/Rockefeller+Plaza,+New+York/34+St-Hudson+Yards,+New+York/Vessel,+Hudson+Yards,+New+York/The+Spur,+High+Line,+New+York/Chelsea+Market,+New+York/Little+Island,+New+York/66+Perry+St,+New+York/Joe's+Pizza,+7+Carmine+St,+New+York/W+11th+St+%26+5th+Ave,+New+York/W+10th+St+%26+6th+Ave,+New+York/Washington+Square+Park,+New+York/Times+Square,+New+York/Raising+Cane's,+1501+Broadway,+New+York/",
   slots:[
   {a:"09:30",b:"10:45",t:"St. Patrick's e Rockefeller Center",n:[
     ["food","Colazione da <b>Kossar's Bagels & Bialys</b> (367 Grand St, angolo Essex St), 7 minuti a piedi dall'hotel: bagel e bialy sfornati, dal 1936. Pochi tavolini, si può anche portare via."],
@@ -501,7 +500,8 @@ const DAYS = [
   {a:"14:30",b:"17:15",t:"West Village, casa di Carrie e Washington Square al tramonto",n:[
     ["info","Scalinate addobbate per Halloween, foto al 66 di Perry St, Bleecker St e il resto del Village con calma."],
     ["food","Merenda verso le 16:00 da <b>Joe's Pizza</b> (7 Carmine St, angolo Bleecker St), la sede originale del 1975: la fetta newyorkese classica, sottile e da piegare, si mangia in piedi. Circa $5 a fetta."],
-    ["info","Chiudete a <b>Washington Square</b> verso le 16:45, con la luce calda del tardo pomeriggio sull'arco."],
+    ["info","Dopo Joe's, il giro delle <b>case addobbate</b> nelle due strade più famose per Halloween: su per la 6th Ave fino alla <b>W 11th St</b>, verso est fino alla 5th Ave, poi un isolato giù e ritorno verso ovest sulla <b>W 10th St</b>, tra la 5th e la 6th Ave. Sono 15–20 minuti, con marciapiedi più regolari che su Perry St."],
+    ["info","Chiudete a <b>Washington Square</b> verso le 16:50, con la luce calda del tardo pomeriggio sull'arco."],
     ["bimbo","Su Perry St i marciapiedi sono sconnessi e le ruote piccole del YOYO ci soffrono: andate piano, e nei tratti peggiori uno prende il bimbo in braccio e l'altro solleva il passeggino."]]},
   {a:"17:30",b:"18:45",t:"Times Square illuminata",n:[
     ["move","Da West 4th St metro <b>B, D, F o M fino a 42 St–Bryant Park</b>, poi 5 minuti a piedi verso ovest. Il sole tramonta alle 17:50: arrivate mentre si accendono gli schermi."],
@@ -605,10 +605,7 @@ const DAYS = [
     ["info","Piano B a 3 minuti: <b>Café Habana</b>, 17 Prince St (angolo Elizabeth), cubano-messicano, famoso per il mais grigliato. È piccolo: col passeggino conviene un tavolo fuori o l'asporto."]]},
   {a:"21:00",b:"21:30",t:"Rientro",n:[
     ["move","Metro <b>F da 2 Av</b> (Houston & 2nd Ave, 6 minuti a piedi) a <b>East Broadway</b>, una fermata. In alternativa 20 minuti a piedi o taxi da Bowery."],
-    ["warn","🕐 Stanotte alle 2:00 gli orologi tornano indietro di un'ora: un'ora di sonno in più."]]},
-  {a:"Alt.",b:"",t:"Variante \"più Halloween, meno Midtown\"",n:[
-    ["info","Al Summit va solo il resto del gruppo e vi ritrovate alla parata. Voi fate la <b>Children's Halloween Parade a Washington Square Park</b> (NYU: nel 2025 il ritrovo era alle 15:00 sotto l'arco, da riconfermare), un giro tra le case addobbate di W 10th e W 11th St, parata alle 19:00 e cena da Tacombi come sopra."],
-    ["bimbo","Il prezzo da pagare è una nanna più corta."]]}
+    ["warn","🕐 Stanotte alle 2:00 gli orologi tornano indietro di un'ora: un'ora di sonno in più."]]}
   ]},
 { d:1, dow:"Dom", date:"Domenica 1 novembre", title:"TCS NYC Marathon, Roosevelt Island e John's Pizzeria", zone:"East Harlem (tifo) ➔ Roosevelt Island ➔ Times Square", lvl:2, budget:[["Colazione da Kossar's", 25], ["Metro e funivia (coperte dal tetto settimanale)", 0], ["Pranzo da Le Pain Quotidien", 40], ["Snack", 15], ["John's, vostra quota", 70], ["Bimbo", 15]], race:true,
   map:G+"5+Allen+St,+New+York/96+St+Station+Q,+New+York/1st+Ave+%26+E+113th+St,+New+York/5th+Ave+%26+E+111th+St,+New+York/Le+Pain+Quotidien,+1309+Lexington+Ave,+New+York/Roosevelt+Island+Tramway,+New+York/Franklin+D.+Roosevelt+Four+Freedoms+Park/John's+of+Times+Square,+260+W+44th+St,+New+York/",
@@ -1152,7 +1149,8 @@ const SIGHTS = [
   [1,"11:05","Vessel e The High Line","W 34th St & 12th Ave","Prima uno sguardo da fuori al Vessel di Hudson Yards, poi il parco sopraelevato sulla vecchia ferrovia, da nord a sud: The Spur alla 30th St, uscita alla 16th St davanti al Chelsea Market.","","Gratis",false],
   [1,"13:30","Little Island","Pier 55, Hudson River Park","Il parco sospeso sull'Hudson all'altezza della W 13th St. Accanto c'è il Pier 51.","","Gratis",false],
   [1,"14:30","West Village e la casa di Carrie","66 Perry St","Scalinate addobbate per Halloween, la foto al 66 di Perry St e Bleecker St, con calma.","","Gratis",false],
-  [1,"16:45","Washington Square Park","Washington Square Park","L'arco con la luce calda del tardo pomeriggio.","","Gratis",false],
+  [1,"16:20","Case addobbate di W 11th e W 10th St","W 11th St & 5th Ave","Le due strade del Village più famose per gli addobbi di Halloween, sulla strada tra Joe's e Washington Square.","","Gratis",false],
+  [1,"16:50","Washington Square Park","Washington Square Park","L'arco con la luce calda del tardo pomeriggio.","","Gratis",false],
   [1,"17:30","Times Square illuminata","Times Square","Si arriva mentre si accendono i maxischermi (tramonto 17:50). La scalinata rossa di Duffy Square per guardare la piazza dall'alto.","","Gratis",false],
   [2,"09:30","Staten Island Ferry e Statua della Libertà","Whitehall Terminal","Il traghetto gratuito, 25 minuti a tratta: all'andata state sul lato destro per la Statua. A Staten Island si scende e si riprende il primo traghetto di ritorno.","","Gratis",false],
   [2,"11:15","Battery Park, Charging Bull e Wall Street","Bowling Green","Tutto a piedi e in piano: Battery Park, il toro di Bowling Green, Wall Street e la facciata della Borsa, poi la Trinity Church con la tomba di Hamilton.","","Gratis",false],
