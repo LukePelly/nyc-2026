@@ -575,16 +575,17 @@ const DAYS = [
   {a:"11:00",b:"12:15",t:"Shake Shack a Madison Square Park e Flatiron",n:[
     ["move","Metro <b>R da 5 Av/59 St a 23 St</b> (diretta, 10 minuti). Il sabato la W non circola e la N salta la 23 St."],
     ["food","Pranzo anticipato allo <b>Shake Shack</b> originale, un chiosco dentro il parco con il Flatiron di fronte: burger, hot dog e frozen custard. In due $40–45. Fino a cena c'è solo la merenda, quindi mangiate bene."]]},
-  {a:"12:30",b:"15:45",t:"Nanna lunga in hotel e preparazione costume",n:[
+  {a:"12:30",b:"15:15",t:"Nanna lunga in hotel e preparazione costume",n:[
     ["move","Metro <b>F da 23 St (6th Ave) a East Broadway</b>, diretta."],
     ["bimbo","È il pezzo più importante della giornata: se il bimbo dorme bene adesso, la sera regge."]]},
-  {a:"15:45",b:"17:10",t:"Grand Central, Chrysler e merenda",n:[
+  {a:"15:15",b:"16:40",t:"Grand Central, Chrysler e merenda",n:[
     ["move","F da East Broadway a 42 St–Bryant Park, poi 6 minuti a piedi."],
     ["info","Grand Central: il soffitto astronomico e la Whispering Gallery. Poi la guglia del <b>Chrysler Building</b> (Lexington & 42nd), a 3 minuti a piedi."],
-    ["info","Alle 17:10 ritrovo col gruppo all'ingresso del Summit (42nd St & Vanderbilt Ave): avete tutti la stessa fascia delle 17:15."],
+    ["info","Alle 16:40 ritrovo col gruppo all'ingresso del Summit (42nd St & Vanderbilt Ave): avete tutti la stessa fascia delle 16:45."],
     ["food","<b>Merenda a Grand Central</b>, che è di fronte al Summit: <b>Magnolia Bakery</b> (banana pudding e cupcake), al Dining Concourse al piano inferiore. Il sabato è aperta fino alle 21. Fatela sostanziosa: si cena verso le 20."]]},
-  {a:"17:15",b:"18:10",t:"SUMMIT One Vanderbilt al tramonto",n:[
-    ["info","Tramonto alle 17:52, luce perfetta. I bimbi fino a 5 anni entrano gratis."],
+  {a:"16:45",b:"18:10",t:"SUMMIT One Vanderbilt al tramonto, con Ascent",n:[
+    ["info","Entrate alle 16:45 e fate <b>subito l'Ascent</b>, l'ascensore di vetro sulla facciata (incluso nel biglietto): la salita dura pochi minuti, ma nelle ore del tramonto la coda arriva a 20–30 minuti, e prima delle 17:15 è più corta. Poi stanze a specchi e terrazza per il tramonto delle 17:52. I bimbi fino a 5 anni entrano gratis."],
+    ["info","Chi del gruppo non ha l'Ascent vi aspetta nelle stanze a specchi. Se alle 17:30 non siete ancora saliti, lasciatelo perdere: la parata viene prima."],
     ["warn","Passeggino solo pieghevole e da chiudere su scale mobili e ascensori, e <b>non c'è un deposito</b>: il YOYO entra, ma per buona parte del percorso uno tiene il bimbo in braccio e l'altro porta il passeggino chiuso a spalla. Cuffie pronte per le stanze rumorose."],
     ["warn","⏱ <b>Alle 18:10 si esce tutti insieme</b>: è l'ora che serve per vedere i pupazzi. Tuo fratello la parata la salta: va a cena da Dear Pasta e poi a dormire."]]},
   {a:"18:10",b:"18:50",t:"Verso la parata",n:[
@@ -779,7 +780,7 @@ function wxPill(i){
 }
 
 const CHECK = [
-  ["summit","SUMMIT One Vanderbilt · sab 31/10, ore 17:15 (tramonto 17:52), stessa fascia per tutto il gruppo"],
+  ["summit","SUMMIT One Vanderbilt con Ascent · sab 31/10, ore 16:45 (tramonto 17:52), stessa fascia per tutto il gruppo: avvisarli che non è più alle 17:15"],
   ["costume","Costume di Halloween caldo per il bimbo (la sera 8–12 °C)"],
   ["photo","Avere sul telefono la foto dei genitori da rifare al Seaport"],
   ["esb","Empire State Building · lun 2/11, fascia 19:30–20:00, prenotazione unica per tutto il gruppo"],
@@ -868,8 +869,8 @@ function hwHTML(){
   return `<div class="hw-card">
     <div class="hw-title"><span>🎃</span><div><h3>La serata di Halloween in quattro mosse</h3><p>Village Halloween Parade · 6th Avenue · 19:00–23:00</p></div></div>
     <ol class="hw-steps">
-      <li><b>Nanna lunga</b> 12:30–16:00, poi costume e cuffie antirumore.</li>
-      <li><b>Summit al tramonto</b> col gruppo alle 17:15, alle 18:10 tutti verso la parata.</li>
+      <li><b>Nanna lunga</b> 12:30–15:15, poi costume e cuffie antirumore.</li>
+      <li><b>Summit al tramonto con l'Ascent</b> col gruppo alle 16:45, alle 18:10 tutti verso la parata.</li>
       <li><b>Arrivate da est</b>: F/M/D fino a Broadway–Lafayette, poi Houston St fino alla 6th Ave.</li>
       <li><b>Tratto sud, lato est</b>: tra King St e Houston St, con punto d'incontro a Houston & MacDougal.</li>
     </ol></div>`;
@@ -1109,7 +1110,7 @@ const FOOD = [
   [2,"Cena","18:45","Katz's Delicatessen","205 E Houston St","Cena speciale 1, solo voi tre. Un pastrami sandwich (circa $30) basta per due. A 8 minuti dall'Essex Market.","All'ingresso danno un ticket a testa: non perdetelo.","~$50",false],
   [3,"Colazione","08:15","Mei Lai Wah","41 Mott St","Bakery cinese dei baked pork buns, veloce e a pochi dollari, a 7 minuti dalla stazione di Grand St.","Si è spostata da poco al 41 di Mott St: la vecchia sede di Bayard St potrebbe aver chiuso.","~$25",false],
   [3,"Pranzo","11:00","Shake Shack","Madison Square Park","Lo Shake Shack originale, un chiosco nel parco col Flatiron di fronte. Pranzo anticipato: fino a cena c'è solo la merenda.","","~$45",false],
-  [3,"Merenda","16:40","Magnolia Bakery","Grand Central Terminal","Banana pudding e cupcake prima del Summit, di fronte alla stazione. Sostanziosa: si cena alle 20.","","~$20",false],
+  [3,"Merenda","16:10","Magnolia Bakery","Grand Central Terminal","Banana pudding e cupcake prima del Summit, di fronte alla stazione. Sostanziosa: si cena alle 20.","","~$20",false],
   [3,"Cena","20:05","Tacombi","267 Elizabeth St","Taqueria messicana a Nolita in un vecchio garage, dopo i pupazzi della parata. Spaziosa, sulla strada di casa.","Sabato di Halloween c'è fila, e siete in gruppo: prenotate per tutti la settimana prima. Piano B: Café Habana, 17 Prince St.","~$60",true],
   [4,"Colazione","08:45","Kossar's Bagels & Bialys","367 Grand St","Da portar via prima della maratona: apre alle 6. Poi F da Delancey St–Essex St.","","~$25",false],
   [4,"Pranzo","12:30","Le Pain Quotidien","1309 Lexington Ave","In Carnegie Hill, all'angolo con la 88th St: zuppe e tartine, aperto la domenica 7–20.","","~$40",false],
@@ -1162,9 +1163,9 @@ const SIGHTS = [
   [2,"18:15","Essex Market","88 Essex St","Il mercato coperto del Lower East Side, dal 1940: un giro veloce tra i banchi prima di Katz's.","","Gratis",false],
   [3,"09:00","Central Park da ovest a est","Bethesda Terrace, Central Park","Strawberry Fields e il Dakota, poi Bethesda Terrace, Bow Bridge, Alice e Conservatory Water, Balto, fino al Plaza Hotel. Foliage al massimo.","Ritrovo col gruppo alle 9:00 al Merchants' Gate di Columbus Circle.","Gratis",true],
   [3,"11:00","Flatiron Building e Madison Square Park","Flatiron Building","Il palazzo a ferro da stiro, di fronte allo Shake Shack del pranzo.","","Gratis",false],
-  [3,"15:45","Grand Central Terminal","Grand Central Terminal","Il soffitto astronomico e la Whispering Gallery.","","Gratis",false],
-  [3,"16:45","Chrysler Building","Lexington Ave & 42nd St","La guglia art déco, a 3 minuti a piedi da Grand Central.","","Gratis",false],
-  [3,"17:15","SUMMIT One Vanderbilt al tramonto","One Vanderbilt","Le stanze a specchio sopra Midtown con la luce del tramonto (17:52). Bimbi fino a 5 anni gratis.","Stessa fascia per tutto il gruppo. Niente deposito passeggini: il YOYO va chiuso. Alle 18:10 si esce per la parata.","~$130",true],
+  [3,"15:40","Grand Central Terminal","Grand Central Terminal","Il soffitto astronomico e la Whispering Gallery.","","Gratis",false],
+  [3,"16:00","Chrysler Building","Lexington Ave & 42nd St","La guglia art déco, a 3 minuti a piedi da Grand Central.","","Gratis",false],
+  [3,"16:45","SUMMIT One Vanderbilt al tramonto, con Ascent","One Vanderbilt","Prima l'ascensore di vetro sulla facciata, poi le stanze a specchio con la luce del tramonto (17:52). Bimbi fino a 5 anni gratis.","Stessa fascia per tutto il gruppo. Niente deposito passeggini: il YOYO va chiuso. Alle 18:10 si esce per la parata.","~$130",true],
   [3,"18:50","🎃 Village Halloween Parade","6th Ave tra King St e Houston St","I pupazzi giganti aprono il corteo subito dopo le 19:00, poi bande e migliaia di persone in costume.","Restate sul marciapiede EST della 6th Ave. Punto d'incontro: Houston & MacDougal.","Gratis",true],
   [4,"10:45","TCS NYC Marathon: tifo per tuo fratello","First Ave & E 113th St","Circa al km 30, passaggio stimato tra le 11:13 e le 11:20. Opzionale un secondo passaggio sulla 5th Ave all'altezza della 110th–112th, verso le 11:40.","Siate sul marciapiede entro le 10:45 e seguitelo con l'app TCS NYC Marathon.","Gratis",true],
   [4,"14:00","Roosevelt Island Tramway","2nd Ave & E 60th St","La funivia sull'East River accanto al Queensboro Bridge, 4 minuti con Midtown sotto.","","Tetto metro",false],
