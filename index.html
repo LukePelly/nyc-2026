@@ -645,8 +645,8 @@ const DAYS = [
     ["info","L'alternativa è <b>John's of Bleecker Street</b>, l'originale del 1929: più autentico, ma piccolo e senza prenotazioni. Dopo una maratona la sede di Times Square è più pratica."],
     ["warn","Siete in tanti: chiamate il <a href=\"tel:+12123917560\">(212) 391-7560</a> qualche giorno prima e prenotate per tutto il gruppo alle 19:00."]]}
   ]},
-{ d:2, dow:"Lun", date:"Lunedì 2 novembre", title:"DUMBO, Brooklyn Bridge, Ghostbusters, Basquiat Way ed Empire State", zone:"DUMBO ➔ Brooklyn Bridge ➔ Chinatown ➔ Tribeca ➔ NoHo ➔ Koreatown", lvl:2, budget:[["Colazione da Mei Lai Wah", 20], ["Nom Wah", 55], ["Taxi per DUMBO (facoltativo)", 20], ["Empire State, 2 adulti", 105], ["BCD Tofu House", 45], ["Bimbo", 15]],
-  map:G+"5+Allen+St,+New+York/Washington+St+%26+Water+St,+Brooklyn/Pebble+Beach,+Brooklyn/Pier+1,+Brooklyn+Bridge+Park/Brooklyn+Heights+Promenade,+Brooklyn/Tillary+St+%26+Adams+St,+Brooklyn/City+Hall+Park,+New+York/Nom+Wah+Tea+Parlor,+New+York/6A+Elizabeth+St,+New+York/Hook+%26+Ladder+Company+8,+New+York/57+Great+Jones+St,+New+York/Macy's+Herald+Square,+New+York/BCD+Tofu+House,+5+W+32nd+St,+New+York/Empire+State+Building/",
+{ d:2, dow:"Lun", date:"Lunedì 2 novembre", title:"DUMBO, Brooklyn Bridge, Ghostbusters, Basquiat Way ed Empire State", zone:"DUMBO ➔ Brooklyn Bridge ➔ Chinatown ➔ Tribeca ➔ NoHo ➔ Koreatown", lvl:2, budget:[["Colazione da Mei Lai Wah", 20], ["Nom Wah", 55], ["Taxi per DUMBO (facoltativo)", 20], ["Empire State, 2 adulti", 105], ["Shake Shack Herald Square", 45], ["Bimbo", 15]],
+  map:G+"5+Allen+St,+New+York/Washington+St+%26+Water+St,+Brooklyn/Pebble+Beach,+Brooklyn/Pier+1,+Brooklyn+Bridge+Park/Brooklyn+Heights+Promenade,+Brooklyn/Tillary+St+%26+Adams+St,+Brooklyn/City+Hall+Park,+New+York/Nom+Wah+Tea+Parlor,+New+York/6A+Elizabeth+St,+New+York/Hook+%26+Ladder+Company+8,+New+York/57+Great+Jones+St,+New+York/Macy's+Herald+Square,+New+York/Shake+Shack,+1333+Broadway,+New+York/Empire+State+Building/",
   slots:[
   {a:"09:30",b:"11:45",t:"DUMBO, Pebble Beach e Pier 1",n:[
     ["food","Colazione da <b>Mei Lai Wah</b> (41 Mott St), poi 10 minuti a piedi fino a East Broadway."],
@@ -674,11 +674,11 @@ const DAYS = [
     ["move","Circa 25 minuti a piedi verso nord-est attraversando SoHo (West Broadway, poi Prince St)."],
     ["info","Dall'ottobre 2025 il tratto di <b>Great Jones St tra Bowery e Lafayette</b> si chiama anche Jean-Michel Basquiat Way. Al <b>57 di Great Jones St</b> c'è lo studio dove Basquiat visse e lavorò dal 1983 al 1988: oggi ospita l'Atelier Jolie."],
     ["info","Qui il programma resta aperto: varie ed eventuali tra NoHo e SoHo, secondo le gambe e il bimbo."]]},
-  {a:"16:45",b:"19:15",t:"Herald Square, Koreatown e cena da BCD Tofu House",n:[
+  {a:"16:45",b:"19:15",t:"Herald Square, Koreatown e cena da Shake Shack",n:[
     ["move","Da <b>Broadway–Lafayette</b> (con ascensori, a 3 minuti da Great Jones St) metro <b>B, D, F o M fino a 34 St–Herald Sq</b>, diretta."],
     ["info","Facoltativo, se avanza tempo: <b>Macy's Herald Square</b>, il grande magazzino storico, al caldo e con le vecchie scale mobili in legno ancora in funzione ai piani alti."],
-    ["info","Poi due passi su <b>W 32nd St (Koreatown)</b>, che col buio si accende di insegne. L'Empire è a 3 minuti a piedi."],
-    ["food","Cena verso le 18:30, per chi vuole, da <b>BCD Tofu House</b> (5 W 32nd St): zuppe di tofu bollenti e bibimbap, servizio veloce, in due circa $45. Siete in tanti: chiamate per un tavolo di gruppo e per gli orari 2026, (212) 967-1900."],
+    ["info","Poi due passi su <b>W 32nd St (Koreatown)</b>, che col buio si accende di insegne, e su per la Broadway fino alla 36th per la cena."],
+    ["food","Cena verso le 18:15, tutti insieme, da <b>Shake Shack Herald Square</b> (1333 Broadway, angolo W 36th St): burger, hot dog e frozen custard, si ordina al banco e si mangia in fretta. Per il gruppo coi bimbi è la scelta più pratica prima dell'Empire. In due circa $45. Da lì all'Empire sono 7 minuti a piedi."],
     ["bimbo","Da Macy's ci sono ascensori e bagni con fasciatoio."]]},
   {a:"19:45",b:"21:00",t:"Empire State Building tutti insieme",n:[
     ["warn","<b>Un'unica prenotazione per tutto il gruppo</b>, fascia <b>19:30–20:00</b>: a novembre l'ultimo ascensore potrebbe essere alle 21:15."],
@@ -1116,7 +1116,7 @@ const FOOD = [
   [4,"Cena","19:00","John's of Times Square","260 W 44th St","Cena speciale 2, tutti insieme. Pizza dal forno a carbone in una ex chiesa, vicina all'hotel di tuo fratello.","Prenotate per tutto il gruppo al (212) 391-7560 qualche giorno prima.","~$70 vostra quota",true],
   [5,"Colazione","08:45","Mei Lai Wah","41 Mott St","Colazione veloce, poi 10 minuti a piedi fino alla F di East Broadway per DUMBO.","","~$20",false],
   [5,"Pranzo","13:45","Nom Wah Tea Parlor","13 Doyers St","Dim sum nella sala da tè più antica di NYC, di strada dopo il Brooklyn Bridge.","","~$55",true],
-  [5,"Cena","18:30","BCD Tofu House","5 W 32nd St","Zuppe di tofu bollenti e bibimbap a Koreatown, veloce, a 3 minuti dall'Empire. Col gruppo, per chi vuole.","Tavolo di gruppo e orari 2026 da verificare: (212) 967-1900.","~$45",true],
+  [5,"Cena","18:15","Shake Shack Herald Square","1333 Broadway","Burger e frozen custard tutti insieme, si ordina al banco e si mangia in fretta, a 7 minuti dall'Empire.","","~$45",true],
   [6,"Colazione","08:45","Krispy Kreme","1601 Broadway","Ciambelle Original Glazed calde quando è accesa l'insegna \"Hot Now\". Poi 10 minuti a piedi fino a Bryant Park. Non c'è in Italia.","","~$15",false],
   [6,"Pranzo","13:15","The Halal Guys","W 53rd St & 6th Ave","Il carretto più famoso di New York, chicken over rice con la salsa bianca, a un isolato dal MoMA.","Il carretto storico lavora soprattutto di sera: a pranzo non è garantito.","~$20",false],
   [6,"Cena","18:00","Thai Diner (proposta 1)","186 Mott St","Thai con un tocco da diner americano, segnalato dalla Guida Michelin. Poche prenotazioni, molti tavoli per chi si presenta.","Orari 2026 da confermare: (646) 559-4140.","$80–90",false],
@@ -1176,7 +1176,7 @@ const SIGHTS = [
   [5,"15:15","Tribeca e la caserma dei Ghostbusters","14 N Moore St","Hook & Ladder Company 8, la caserma del film, ancora in servizio: foto dal marciapiede.","","Gratis",true],
   [5,"15:45","Jean-Michel Basquiat Way","57 Great Jones St","Il tratto di Great Jones St tra Bowery e Lafayette intitolato a Basquiat nel 2025, con lo studio dove visse dal 1983 al 1988.","","Gratis",true],
   [5,"17:00","Macy's Herald Square (facoltativo)","151 W 34th St","Il grande magazzino storico, con le vecchie scale mobili in legno ai piani alti.","","Gratis",false],
-  [5,"18:00","Koreatown","W 32nd St","Due passi tra le insegne accese prima di cena da BCD Tofu House.","","Gratis",false],
+  [5,"18:00","Koreatown","W 32nd St","Due passi tra le insegne accese prima di cena.","","Gratis",false],
   [5,"19:45","Empire State Building","20 W 34th St","Midtown di notte dall'osservatorio dell'86° piano.","Un'unica prenotazione per tutto il gruppo, fascia 19:30–20:00.","~$105",true],
   [6,"09:30","Bryant Park Winter Village","Bryant Park","Bancarelle e pista di pattinaggio, aperto dal 28 ottobre.","","~$20",false],
   [6,"10:00","New York Public Library","476 5th Ave","I leoni sulla scalinata e la Rose Main Reading Room col soffitto dipinto.","Ultimo ingresso in sala alle 10:50. Col passeggino, ingresso sulla 42nd St.","Gratis",false],
