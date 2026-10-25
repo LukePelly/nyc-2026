@@ -509,7 +509,7 @@ const DAYS = [
     ["info","Di sera Times Square rende molto più che di mattina: maxischermi accesi, la scalinata rossa di Duffy Square per sedersi e guardare la piazza dall'alto. Gratis e tutta in piano."],
     ["bimbo","Rumorosa e piena di luci: passeggino con la capottina abbassata se è stanco, o in braccio se è curioso."]]},
   {a:"18:45",b:"20:00",t:"Cena da Bubba Gump",n:[
-    ["food","<b>Bubba Gump Shrimp Co.</b> (1501 Broadway, angolo 44th St), ristorante a tema Forrest Gump nel Paramount Building, in piena Times Square: gamberi in tutte le salse, servizio al tavolo. Più turistico che buono, ma l'esperienza è quella. Prenotabile su OpenTable, conviene farlo perché la sera c'è attesa. In due circa $90 con la mancia. Telefono <a href=\"tel:+12123917100\">(212) 391-7100</a>."],
+    ["food","<b>Bubba Gump Shrimp Co.</b> (1501 Broadway, angolo 44th St), ristorante a tema Forrest Gump nel Paramount Building, in piena Times Square: gamberi in tutte le salse, servizio al tavolo. Più turistico che buono, ma l'esperienza è quella. ✅ <b>Prenotato</b> su OpenTable per le 18:45. In due circa $90 con la mancia. Telefono <a href=\"tel:+12123917100\">(212) 391-7100</a>."],
     ["warn","Orari non uniformi tra le fonti (OpenTable dice 11–22 dal lunedì al giovedì), ma alle 18:45 è aperto di sicuro."],
     ["food","Dolce da asporto da <b>Junior's</b> (1515 Broadway, tra la 44th e la 45th), a un isolato: la cheesecake newyorkese originale, nata a Brooklyn nel 1950. Una fetta da dividere costa circa $12, la mangiate in hotel e non si allunga la serata. Non prende prenotazioni e a cena c'è fila al tavolo, ma il banco dell'asporto va veloce."],
     ["warn","Orari di Junior's 2026 non confermati: un sito di terzi dice 6:30–24."],
@@ -789,7 +789,7 @@ const CHECK = [
   ["esb","Empire State Building · lun 2/11, fascia 19:30–20:00, prenotazione unica per tutto il gruppo"],
   ["moma","MoMA · mar 3/11, ingresso 11:00 (adulti $30, biglietto gratuito anche per il bimbo). Chiedere al gruppo: MoMA con voi o Guggenheim?"],
   ["johns","Chiamare John's of Times Square: cena di dom 1/11 alle 19:00 per tutto il gruppo"],
-  ["bubba","Prenotare Bubba Gump (Times Square) su OpenTable per gio 29/10 alle 18:45"],
+  ["bubba","Bubba Gump (Times Square) prenotato su OpenTable per gio 29/10 alle 18:45",true],
   ["esta","ESTA per tutti, bimbo compreso"],
   ["air","American Airlines: YOYO in cabina (policy salvata sul telefono) e bagagli del bimbo"],
   ["bassinet","Chiedere ad AA la culla di bordo su AA 199 e AA 198 (limite di circa 9 kg da verificare: pesate il bimbo)"],
@@ -946,8 +946,8 @@ function renderBudget(){
 const done = store.get("nyc-check") || {};
 const cl = document.getElementById("checklist");
 function renderChecks(){
-  cl.innerHTML = CHECK.map(([id,txt])=>`<label class="check ${done[id]?"done":""}"><input type="checkbox" data-id="${id}" ${done[id]?"checked":""}><span>${txt}</span></label>`).join("");
-  const n = CHECK.filter(([id])=>done[id]).length;
+  cl.innerHTML = CHECK.map(([id,txt,pre])=>{ const on = done[id] ?? pre; return `<label class="check ${on?"done":""}"><input type="checkbox" data-id="${id}" ${on?"checked":""}><span>${txt}</span></label>`; }).join("");
+  const n = CHECK.filter(([id,,pre])=>done[id] ?? pre).length;
   document.getElementById("prog").style.width = (n/CHECK.length*100)+"%";
 }
 cl.addEventListener("change", e=>{ done[e.target.dataset.id] = e.target.checked; store.set("nyc-check", done); renderChecks(); });
@@ -1108,7 +1108,7 @@ const FOOD = [
   [1,"Colazione","08:45","Kossar's Bagels & Bialys","367 Grand St","Bagel e bialy sfornati dal 1936, a 7 minuti dall'hotel. Poi F da Delancey St–Essex St fino al Rockefeller Center.","","~$25",false],
   [1,"Pranzo","12:30","Chelsea Market","75 9th Ave","Mercato coperto con tanti banchi, all'uscita della High Line alla 16th St.","","~$50",false],
   [1,"Merenda","16:00","Joe's Pizza","7 Carmine St","La sede originale del 1975: la fetta newyorkese classica, nel West Village.","","~$10",false],
-  [1,"Cena","18:45","Bubba Gump Shrimp Co.","1501 Broadway","Ristorante a tema Forrest Gump in piena Times Square: gamberi in tutte le salse, servizio al tavolo. Più turistico che buono, ma l'esperienza è quella.","Prenotate su OpenTable: la sera c'è attesa.","~$90",false],
+  [1,"Cena","18:45","Bubba Gump Shrimp Co.","1501 Broadway","Ristorante a tema Forrest Gump in piena Times Square: gamberi in tutte le salse, servizio al tavolo. Più turistico che buono, ma l'esperienza è quella.","✅ Prenotato su OpenTable per le 18:45.","~$90",false],
   [1,"Dolce","20:00","Junior's","1515 Broadway","La cheesecake newyorkese, una fetta da asporto da mangiare in hotel. A un isolato da Bubba Gump.","Non prende prenotazioni. Orari 2026 da confermare.","~$12",false],
   [2,"Colazione","08:30","Clinton St. Baking Company","4 Clinton St","Pancake ai mirtilli famosi in tutta la città. Nei feriali presto si aspetta poco. Poi J da Essex St.","Apertura alle 8:00 o alle 8:30 secondo le fonti; forse solo contanti a colazione.","~$45",false],
   [2,"Pranzo","12:50","Chick-fil-A","Fulton St (Fulton Center)","Il Chick-fil-A più grande, cinque piani, tra il Memoriale e il Seaport. Chicken sandwich e waffle fries. Non c'è in Italia.","Chiuso la domenica.","~$30",false],
