@@ -396,9 +396,9 @@ footer a{color:var(--ink-2)}
     <h2>Da sapere</h2>
     <div class="grid2">
       <div class="box"><h4>🕐 Cambio d'ora</h4><p>Nella notte tra sabato 31/10 e domenica 1/11 (alle 2:00) gli USA tornano all'ora solare: la differenza con l'Italia passa da −5 a −6 ore. Il tramonto si sposta dalle 17:50 circa alle 16:45 circa.</p></div>
-      <div class="box"><h4>🚕 Taxi JFK</h4><p>Flat fare di $70, ma tra pedaggi, sovrattasse e mancia il totale è $95–110. Nei feriali tra le 16 e le 20 si aggiungono altri $5.</p></div>
+      <div class="box"><h4>🚕 Transfer e taxi JFK</h4><p>All'andata c'è il transfer prenotato su Booking.com, col seggiolino: l'autista vi aspetta fuori dall'aeroporto. Al ritorno taxi giallo: flat fare di $70, ma tra pedaggi, sovrattasse e mancia il totale è $95–110. Nei feriali tra le 16 e le 20 si aggiungono altri $5.</p></div>
       <div class="box"><h4>🛒 Passeggino YOYO</h4><p>Si chiude con una mano e ha la tracolla. Nelle stazioni senza ascensore e dove non si può usare: uno prende il bimbo, l'altro porta il YOYO chiuso a spalla. Ai tornelli usate il cancelletto largo, dove c'è. Le ruote sono piccole: evitate pavé e grate quando potete. In aereo American lo accetta gratis in cappelliera se c'è posto, e non conta come bagaglio a mano; se al gate lo vogliono in stiva, è comunque gratis.</p></div>
-      <div class="box"><h4>👶 Seggiolino</h4><p>A 9 mesi Uber "Car Seat" non va bene (parte da circa 12 mesi). I taxi gialli sono esenti dall'obbligo: o portate il vostro ovetto, o viaggiate col bimbo in braccio valutando voi il rischio.</p></div>
+      <div class="box"><h4>👶 Seggiolino</h4><p>All'andata il seggiolino c'è sul transfer Booking. Per gli altri spostamenti: a 9 mesi Uber "Car Seat" non va bene (parte da circa 12 mesi), e i taxi gialli sono esenti dall'obbligo: o portate il vostro ovetto, o viaggiate col bimbo in braccio valutando voi il rischio.</p></div>
       <div class="box"><h4>🚇 Metro</h4><p>Si paga con carta contactless (OMNY) al tornello, il bimbo non paga. Nel weekend la B non circola, la D sì. Tante stazioni hanno solo scale: tenete il passeggino leggero pronto da chiudere.</p></div>
       <div class="box"><h4>💵 Contanti</h4><p>Shu Jiao Fu Zhou accetta solo contanti. Tenetene un po' anche per le mance e i banchetti.</p></div>
       <div class="box"><h4>📶 eSIM e telefono</h4><p>Una eSIM dati a testa (Revolut in app, Airalo o Ubigi): 10 GB per 8 giorni bastano, in hotel c'è il wifi. Installatela a casa prima di partire, il pacchetto parte quando vi collegate alla rete americana. All'arrivo, in Gestione SIM: eSIM per i dati mobili con il roaming dati attivo, SIM italiana accesa solo per chiamate e SMS (codici della banca) con il roaming dati spento. La eSIM non dà un numero americano: le telefonate ai ristoranti si fanno con la SIM italiana in roaming.</p></div>
@@ -453,14 +453,14 @@ footer a{color:var(--ink-2)}
 const IC = {info:"ℹ️", bimbo:"🍼", move:"🚇", food:"🍽", warn:"⚠️"};
 const G = "https://www.google.com/maps/dir/";
 const DAYS = [
-{ d:28, dow:"Mer", date:"Mercoledì 28 ottobre", title:"Arrivo, Chinatown e Little Italy", zone:"JFK ➔ Chinatown / Little Italy", lvl:1, budget:[["Taxi JFK ➔ hotel", 100], ["Spesa bimbo al Target (pappe, pannolini, salviette)", 50], ["Cena da Shu Jiao Fu Zhou", 20], ["Acqua e snack", 10]],
+{ d:28, dow:"Mer", date:"Mercoledì 28 ottobre", title:"Arrivo, Chinatown e Little Italy", zone:"JFK ➔ Chinatown / Little Italy", lvl:1, budget:[["Transfer Booking JFK ➔ hotel", 100], ["Spesa bimbo al Target (pappe, pannolini, salviette)", 50], ["Cena da Shu Jiao Fu Zhou", 20], ["Acqua e snack", 10]],
   map:G+"5+Allen+St,+New+York,+NY/Target,+400+Grand+St,+New+York,+NY/Shu+Jiao+Fu+Zhou,+118+Eldridge+St,+New+York/Doyers+St,+New+York,+NY/Pell+St,+New+York,+NY/Mulberry+St+%26+Grand+St,+New+York,+NY/",
   slots:[
   {a:"14:35",b:"17:30",t:"Arrivo al JFK (AA 199, Terminal 8) e trasferimento",n:[
     ["info","Per dogana e bagagli calcolate 60–90 minuti. Il YOYO viaggia con voi in cabina, quindi appena scesi dall'aereo è pronto: bimbo nel passeggino per dogana e bagagli. Se al gate ve lo hanno fatto imbarcare in stiva, si ritira all'uscita dell'aereo."],
-    ["move","Taxi giallo dalla fila ufficiale: <b>$95–110 tutto incluso</b>. Si arriva in piena fascia di punta, quindi contate 60–75 minuti di viaggio: in hotel <b>verso le 17:00–17:30</b>."],
-    ["move","In alternativa: AirTrain fino a Sutphin Blvd–Archer Av, poi <b>metro J diretta fino a Bowery</b> e 10 minuti a piedi. Con valigie e neonato la sconsiglio."],
-    ["warn","A 9 mesi Uber \"Car Seat\" non va bene (parte da circa 12 mesi). Taxi giallo col vostro ovetto, oppure col bimbo in braccio valutando voi il rischio."],
+    ["move","<b>Transfer prenotato su Booking.com, con seggiolino.</b> L'autista vi aspetta fuori dall'aeroporto: arriva 60 minuti dopo l'atterraggio (verso le 15:35) e aspetta fino a 45 minuti in più, cioè fino a circa <b>16:20</b>. Si arriva in piena fascia di punta, quindi contate 60–75 minuti di viaggio: in hotel <b>verso le 17:00</b>."],
+    ["warn","Telefono acceso appena atterrati (al JFK c'è il wifi gratis): l'autista può scrivervi per il punto d'incontro. Se dogana e bagagli vanno oltre le 16:15, avvisatelo voi dall'app o dal messaggio di Booking prima che scada l'attesa."],
+    ["bimbo","Prima di partire guardate che il seggiolino sia quello rivolto all'indietro per i più piccoli e montato bene. Se è un rialzo o un seggiolino da bimbo grande, non va bene a 9 mesi."],
     ["info","Check-in all'Hotel Richland LES. Chiedete la culla e, se non c'è, un <b>frigorifero in camera</b> per le pappe aperte."],
     ["bimbo","Un telo a terra in camera per farlo gattonare dopo il volo."]]},
   {a:"17:45",b:"18:45",t:"Spesa per il bimbo al Target e Trader Joe's di Essex Crossing",n:[
