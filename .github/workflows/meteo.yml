@@ -1,0 +1,30 @@
+name: Meteo
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 07:00 a New York, 12:00 in Italia
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: meteo
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python meteo.py
+      - name: Commit e push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && { echo "Nessuna modifica"; exit 0; }
+          git commit -m "Meteo aggiornato al $(date -u +%F)"
+          git pull --rebase
+          git push
