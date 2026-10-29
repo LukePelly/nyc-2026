@@ -355,7 +355,7 @@ footer a{color:var(--ink-2)}
       <p class="bnote">Prima di partire: ESTA 3 × $40 = $120. Il cambio va aggiornato al momento.</p>
     </div>
     <div class="grid2" style="margin-top:12px">
-      <div class="box"><h4>🛍 Dove spendere per i souvenir</h4><p>Nintendo NY (gio, opzionale) ~$60 · Winter Village di Bryant Park (mar) ~$80 · magliette e calamite "I ❤ NY" ~$60 · Chinatown e Little Italy ~$60 · Seaport e varie ~$40.</p></div>
+      <div class="box"><h4>🛍 Dove spendere per i souvenir</h4><p>Nintendo NY (mar, opzionale) ~$60 · Winter Village di Bryant Park (mar) ~$80 · magliette e calamite "I ❤ NY" ~$60 · Chinatown e Little Italy ~$60 · Seaport e varie ~$40.</p></div>
       <div class="box"><h4>🧾 Niente tassa sui vestiti</h4><p>Vestiti e scarpe sotto i $110 al pezzo non pagano la tassa sulle vendite di NYC: magliette e felpe costano quanto il cartellino.</p></div>
       <div class="box"><h4>🚇 Tetto della metro</h4><p>Toccate sempre con la stessa carta o lo stesso telefono: dopo 12 corse ($35) il resto della settimana è gratis. Al massimo $35 a testa.</p></div>
       <div class="box"><h4>✂️ Se volete tagliare</h4><p>La voce più cara sono i due osservatori ($235 in totale). Togliendo l'Empire risparmiate circa $105.</p></div>
@@ -477,32 +477,25 @@ const DAYS = [
     ["info","Dopo cena: Doyers St, Pell St e Mott St, poi su per <b>Mulberry St fino a Little Italy</b>."],
     ["bimbo","Col fuso orario (−5h) il bimbo crollerà presto. Dall'hotel è tutto a 5–10 minuti a piedi."]]}
   ]},
-{ d:29, dow:"Gio", date:"Giovedì 29 ottobre", title:"Rockefeller, High Line, West Village e Times Square di sera", zone:"Midtown ➔ Hudson Yards ➔ Chelsea ➔ West Village ➔ Times Square", lvl:2, budget:[["Colazione da Kossar's", 25], ["Metro (4 corse a testa)", 24], ["Pranzo al Chelsea Market", 50], ["Caffè e snack", 15], ["Joe's Pizza, una fetta a testa", 10], ["Bubba Gump", 90], ["Cheesecake da Junior's", 12], ["Bimbo", 15]],
-  map:G+"St.+Patrick's+Cathedral,+New+York/Rockefeller+Plaza,+New+York/34+St-Hudson+Yards,+New+York/Vessel,+Hudson+Yards,+New+York/The+Spur,+High+Line,+New+York/Chelsea+Market,+New+York/Little+Island,+New+York/66+Perry+St,+New+York/Joe's+Pizza,+7+Carmine+St,+New+York/W+11th+St+%26+5th+Ave,+New+York/W+10th+St+%26+6th+Ave,+New+York/Washington+Square+Park,+New+York/Times+Square,+New+York/Bubba+Gump+Shrimp+Co.,+1501+Broadway,+New+York/",
+{ d:29, dow:"Gio", date:"Giovedì 29 ottobre", title:"Chelsea Market, Little Island, West Village e Times Square di sera", zone:"Chelsea ➔ West Village ➔ Times Square", lvl:2, budget:[["Metro (3 corse a testa)", 18], ["Pranzo al Chelsea Market", 50], ["Caffè e snack", 15], ["Joe's Pizza, una fetta a testa", 10], ["Bubba Gump", 90], ["Cheesecake da Junior's", 12], ["Bimbo", 15]],
+  map:G+"5+Allen+St,+New+York/Chelsea+Market,+New+York/High+Line+14th+St+Entrance,+New+York/Gansevoort+St+%26+Washington+St,+New+York/Little+Island,+New+York/66+Perry+St,+New+York/Joe's+Pizza,+7+Carmine+St,+New+York/W+11th+St+%26+5th+Ave,+New+York/W+10th+St+%26+6th+Ave,+New+York/Washington+Square+Park,+New+York/Times+Square,+New+York/Bubba+Gump+Shrimp+Co.,+1501+Broadway,+New+York/",
   slots:[
-  {a:"09:30",b:"10:45",t:"St. Patrick's e Rockefeller Center",n:[
-    ["food","Colazione da <b>Kossar's Bagels & Bialys</b> (367 Grand St, angolo Essex St), 7 minuti a piedi dall'hotel: bagel e bialy sfornati, dal 1936. Pochi tavolini, si può anche portare via."],
-    ["move","Da Kossar's, metro <b>F da Delancey St–Essex St</b> (3 minuti a piedi) fino a 47–50 Sts–Rockefeller Ctr, diretta."],
-    ["info","St. Patrick's è gratis, con una rampa sul lato nord. Poi Rockefeller Plaza e il Channel Gardens. Times Square la vedete stasera, illuminata."],
-    ["info","<b>Opzionale: Nintendo NY</b> (10 Rockefeller Plaza, apre alle 10:00). Se non vi convince, saltatelo: è aperto fino alle 20:00 e potete decidere anche stasera, è a 5 minuti da Times Square."]]},
-  {a:"10:45",b:"11:05",t:"Trasferimento a Hudson Yards",n:[
-    ["move","8 minuti a piedi fino a 5 Av/42 St, poi metro <b>7 fino a 34 St–Hudson Yards</b> (con ascensori)."],
-    ["info","Il <b>Vessel</b>, la scala a nido d'ape di Hudson Yards, è nella piazza a 2 minuti a sud della stazione: deviazione di 10 minuti prima di salire sulla High Line. È riaperto a marzo 2026 con biglietto a orario, ma la piattaforma più alta resta chiusa e dal secondo livello ci sono reti d'acciaio: col passeggino guardatelo da fuori, gratis."]]},
-  {a:"11:05",b:"12:30",t:"The High Line, da nord a sud",n:[
-    ["info","Si sale dall'estremo nord (34th St & 12th Ave, con rampa). <b>The Spur è alla 30th St & 10th Ave</b>."],
-    ["move","Uscita alla <b>16th St</b> (con ascensore), proprio davanti al Chelsea Market."],
-    ["bimbo","Il percorso liscio e rettilineo è perfetto per il primo pisolino in passeggino."]]},
-  {a:"12:30",b:"13:15",t:"Pranzo al Chelsea Market",n:[
-    ["info","Prima il pranzo, poi Little Island: così non tornate indietro."],
+  {a:"12:45",b:"13:15",t:"Si riparte a mezzogiorno",n:[
+    ["info","La mattina è saltata. St. Patrick's e Nintendo NY passano a martedì pomeriggio, accanto a FAO Schwarz. Il Vessel e la High Line intera vanno a lunedì, al tramonto. Kossar's lo avete comunque domenica."],
+    ["move","Metro <b>F da Delancey St–Essex St a W 4 St</b>, poi <b>A, C o E fino a 14 St–8 Av</b>, e 5 minuti a piedi fino al Chelsea Market. Circa 30 minuti."]]},
+  {a:"13:15",b:"14:00",t:"Pranzo al Chelsea Market",n:[
     ["food","Al coperto, con tanti banchi per tutti i gusti."]]},
-  {a:"13:30",b:"14:15",t:"Little Island",n:[
-    ["info","Parco sospeso sull'Hudson all'altezza della W 13th St. Se avete tempo, fate un salto anche al Pier 51 lì accanto."],
+  {a:"14:00",b:"14:25",t:"Un tratto di High Line",n:[
+    ["move","Dal Chelsea Market 3 minuti fino all'ascensore della <b>14th St & 10th Ave</b>, poi a piedi verso sud fino in fondo, alla <b>Gansevoort St</b>, e giù con l'ascensore accanto al Whitney. Una decina di minuti."],
+    ["info","Solo un assaggio: la High Line vera, da Hudson Yards in giù col Vessel, la fate lunedì al tramonto."]]},
+  {a:"14:30",b:"15:10",t:"Little Island",n:[
+    ["info","Parco sospeso sull'Hudson all'altezza della W 13th St, 5 minuti a piedi dalla Gansevoort. Se avete tempo, fate un salto anche al Pier 51 lì accanto."],
     ["bimbo","Rampe dolci e bagni con fasciatoio."]]},
-  {a:"14:30",b:"17:15",t:"West Village, casa di Carrie e Washington Square al tramonto",n:[
-    ["info","Scalinate addobbate per Halloween, foto al 66 di Perry St, Bleecker St e il resto del Village con calma."],
-    ["food","Merenda verso le 16:00 da <b>Joe's Pizza</b> (7 Carmine St, angolo Bleecker St), la sede originale del 1975: la fetta newyorkese classica, sottile e da piegare, si mangia in piedi. Circa $5 a fetta."],
+  {a:"15:20",b:"17:15",t:"West Village, casa di Carrie e Washington Square al tramonto",n:[
+    ["info","Scalinate addobbate per Halloween, foto al 66 di Perry St, Bleecker St e il resto del Village. C'è un'ora in meno del previsto: niente soste lunghe."],
+    ["food","Merenda verso le 16:15 da <b>Joe's Pizza</b> (7 Carmine St, angolo Bleecker St), la sede originale del 1975: la fetta newyorkese classica, sottile e da piegare, si mangia in piedi. Circa $5 a fetta."],
     ["info","Dopo Joe's, il giro delle <b>case addobbate</b> nelle due strade più famose per Halloween: su per la 6th Ave fino alla <b>W 11th St</b>, verso est fino alla 5th Ave, poi un isolato giù e ritorno verso ovest sulla <b>W 10th St</b>, tra la 5th e la 6th Ave. Sono 15–20 minuti, con marciapiedi più regolari che su Perry St."],
-    ["info","Chiudete a <b>Washington Square</b> verso le 16:50, con la luce calda del tardo pomeriggio sull'arco."],
+    ["info","Chiudete a <b>Washington Square</b> verso le 17:00, con la luce calda del tardo pomeriggio sull'arco."],
     ["bimbo","Su Perry St i marciapiedi sono sconnessi e le ruote piccole del YOYO ci soffrono: andate piano, e nei tratti peggiori uno prende il bimbo in braccio e l'altro solleva il passeggino."]]},
   {a:"17:30",b:"18:45",t:"Times Square illuminata",n:[
     ["move","Da West 4th St metro <b>B, D, F o M fino a 42 St–Bryant Park</b>, poi 5 minuti a piedi verso ovest. Il sole tramonta alle 17:50: arrivate mentre si accendono gli schermi."],
@@ -649,8 +642,8 @@ const DAYS = [
     ["info","L'alternativa è <b>John's of Bleecker Street</b>, l'originale del 1929: più autentico, ma piccolo e senza prenotazioni. Dopo una maratona la sede di Times Square è più pratica."],
     ["warn","Siete in tanti: chiamate il <a href=\"tel:+12123917560\">(212) 391-7560</a> qualche giorno prima e prenotate per tutto il gruppo alle 19:00."]]}
   ]},
-{ d:2, dow:"Lun", date:"Lunedì 2 novembre", title:"DUMBO, Brooklyn Bridge, Ghostbusters, Basquiat Way ed Empire State", zone:"DUMBO ➔ Brooklyn Bridge ➔ Chinatown ➔ Tribeca ➔ NoHo ➔ Koreatown", lvl:2, budget:[["Colazione da Russ & Daughters", 45], ["Nom Wah", 55], ["Taxi per DUMBO (facoltativo)", 20], ["Empire State, 2 adulti", 105], ["Shake Shack Herald Square", 45], ["Bimbo", 15]],
-  map:G+"5+Allen+St,+New+York/Russ+%26+Daughters,+179+E+Houston+St,+New+York/Washington+St+%26+Water+St,+Brooklyn/Pebble+Beach,+Brooklyn/Pier+1,+Brooklyn+Bridge+Park/Brooklyn+Heights+Promenade,+Brooklyn/Tillary+St+%26+Adams+St,+Brooklyn/City+Hall+Park,+New+York/Nom+Wah+Tea+Parlor,+New+York/6A+Elizabeth+St,+New+York/Hook+%26+Ladder+Company+8,+New+York/57+Great+Jones+St,+New+York/Macy's+Herald+Square,+New+York/Shake+Shack,+1333+Broadway,+New+York/Empire+State+Building/",
+{ d:2, dow:"Lun", date:"Lunedì 2 novembre", title:"DUMBO, Brooklyn Bridge, Ghostbusters, High Line al tramonto ed Empire State", zone:"DUMBO ➔ Brooklyn Bridge ➔ Chinatown ➔ Tribeca ➔ NoHo ➔ High Line ➔ Herald Square", lvl:2, budget:[["Colazione da Russ & Daughters", 45], ["Nom Wah", 55], ["Taxi per DUMBO (facoltativo)", 20], ["Empire State, 2 adulti", 105], ["Shake Shack Herald Square", 45], ["Bimbo", 15]],
+  map:G+"5+Allen+St,+New+York/Russ+%26+Daughters,+179+E+Houston+St,+New+York/Washington+St+%26+Water+St,+Brooklyn/Pebble+Beach,+Brooklyn/Pier+1,+Brooklyn+Bridge+Park/Brooklyn+Heights+Promenade,+Brooklyn/Tillary+St+%26+Adams+St,+Brooklyn/City+Hall+Park,+New+York/Nom+Wah+Tea+Parlor,+New+York/6A+Elizabeth+St,+New+York/Hook+%26+Ladder+Company+8,+New+York/57+Great+Jones+St,+New+York/High+Line+23rd+St+Entrance,+New+York/Vessel,+Hudson+Yards,+New+York/Shake+Shack,+1333+Broadway,+New+York/Empire+State+Building/",
   slots:[
   {a:"09:30",b:"11:45",t:"DUMBO, Pebble Beach e Pier 1",n:[
     ["food","Colazione da <b>Russ & Daughters</b> (179 E Houston St), il negozio storico del 1914, 12 minuti a piedi dall'hotel. Apre alle 8: bagel col salmone affumicato e cream cheese da asporto, più un <b>black & white cookie</b>, il biscotto glassato metà cioccolato e metà vaniglia che a New York è un classico. Il negozio non ha tavoli: lo mangiate su una panchina a DUMBO prima del ritrovo."],
@@ -675,16 +668,19 @@ const DAYS = [
     ["move","Da Chinatown 15–20 minuti a piedi verso ovest, lungo Canal St o Walker St."],
     ["info","<b>Hook & Ladder Company 8</b> (14 N Moore St, angolo Varick St), la caserma dei pompieri del film, ancora in servizio: la foto si fa dal marciapiede, con l'insegna dei Ghostbusters sul portone."],
     ["bimbo","Su Canal St i marciapiedi sono stretti e affollati: meglio Walker St, più tranquilla."]]},
-  {a:"15:45",b:"16:30",t:"Jean-Michel Basquiat Way, NoHo",n:[
+  {a:"15:45",b:"16:15",t:"Jean-Michel Basquiat Way, NoHo",n:[
     ["move","Circa 25 minuti a piedi verso nord-est attraversando SoHo (West Broadway, poi Prince St)."],
     ["info","Dall'ottobre 2025 il tratto di <b>Great Jones St tra Bowery e Lafayette</b> si chiama anche Jean-Michel Basquiat Way. Al <b>57 di Great Jones St</b> c'è lo studio dove Basquiat visse e lavorò dal 1983 al 1988: oggi ospita l'Atelier Jolie."],
-    ["info","Qui il programma resta aperto: varie ed eventuali tra NoHo e SoHo, secondo le gambe e il bimbo."]]},
-  {a:"16:45",b:"19:15",t:"Herald Square, Koreatown e cena da Shake Shack",n:[
-    ["move","Da <b>Broadway–Lafayette</b> (con ascensori, a 3 minuti da Great Jones St) metro <b>B, D, F o M fino a 34 St–Herald Sq</b>, diretta."],
-    ["info","Facoltativo, se avanza tempo: <b>Macy's Herald Square</b>, il grande magazzino storico, al caldo e con le vecchie scale mobili in legno ancora in funzione ai piani alti."],
-    ["info","Poi due passi su <b>W 32nd St (Koreatown)</b>, che col buio si accende di insegne, e su per la Broadway fino alla 36th per la cena."],
-    ["food","Cena verso le 18:15, tutti insieme, da <b>Shake Shack Herald Square</b> (1333 Broadway, angolo W 36th St): burger, hot dog e frozen custard, si ordina al banco e si mangia in fretta. Per il gruppo coi bimbi è la scelta più pratica prima dell'Empire. In due circa $45. Da lì all'Empire sono 7 minuti a piedi."],
-    ["bimbo","Da Macy's ci sono ascensori e bagni con fasciatoio."]]},
+    ["info","Mezz'ora e si riparte: il tempo libero tra NoHo e SoHo è andato alla High Line, recuperata da giovedì."]]},
+  {a:"16:15",b:"17:55",t:"The High Line al tramonto e il Vessel",n:[
+    ["move","Da <b>Broadway–Lafayette</b> (con ascensori, a 3 minuti da Great Jones St) metro <b>F o M fino a 23 St</b>, poi 12 minuti a piedi verso ovest sulla 23rd St fino all'ascensore della <b>23rd St & 10th Ave</b>."],
+    ["info","Recuperata da giovedì. Si cammina verso nord col sole che tramonta sull'Hudson alla vostra sinistra (16:47), poi si accendono le luci di Midtown: The Spur alla 30th St & 10th Ave e infine Hudson Yards. A novembre la High Line è aperta fino alle 22:00."],
+    ["info","In fondo il <b>Vessel</b>, la scala a nido d'ape, illuminato: col passeggino guardatelo da fuori, gratis."],
+    ["info","Col gruppo: se preferiscono altro, vi ritrovate da Shake Shack alle 18:15."],
+    ["bimbo","Percorso liscio. Si esce a livello strada nei giardini di Hudson Yards o dalla rampa della 34th St. Dopo il tramonto lassù tira vento: bimbo ben coperto."]]},
+  {a:"18:00",b:"19:15",t:"Cena da Shake Shack a Herald Square",n:[
+    ["move","Da Hudson Yards 20 minuti a piedi verso est sulla 34th St, passando davanti a Macy's, fino alla Broadway e alla 36th. Se le gambe non reggono: metro <b>7</b> da 34 St–Hudson Yards a Times Sq e 8 minuti a piedi."],
+    ["food","Cena verso le 18:15, tutti insieme, da <b>Shake Shack Herald Square</b> (1333 Broadway, angolo W 36th St): burger, hot dog e frozen custard, si ordina al banco e si mangia in fretta. Per il gruppo coi bimbi è la scelta più pratica prima dell'Empire. In due circa $45. Da lì all'Empire sono 7 minuti a piedi."]]},
   {a:"19:45",b:"21:00",t:"Empire State Building tutti insieme",n:[
     ["warn","<b>Un'unica prenotazione per tutto il gruppo</b>, fascia <b>19:30–20:00</b>: a novembre l'ultimo ascensore potrebbe essere alle 21:15."],
     ["bimbo","86° piano all'aperto: bimbo ben coperto, copertina sul passeggino."],
@@ -723,12 +719,13 @@ const DAYS = [
     ["food","Merenda da carretto: <b>hot dog</b> e <b>pretzel salato</b> ai carretti di Grand Army Plaza e della 5th Ave all'altezza della 59th–60th, proprio qui. Il dirty water dog newyorkese, con senape e cipolle o crauti. Circa $3–5 a pezzo, in due $10. Meglio avere contanti."],
     ["info","Lui ha il volo alle 21:50 (deve uscire entro le 18:00)."],
     ["info","Il volo di ritorno è <b>mercoledì 4 novembre alle 18:25</b> (AA 198)."]]},
-  {a:"16:15",b:"17:30",t:"FAO Schwarz e Rockefeller Center illuminato",n:[
+  {a:"16:15",b:"17:40",t:"FAO Schwarz, St. Patrick's e Rockefeller Center illuminato",n:[
     ["move","Circa 12 minuti a piedi lungo la 5th Ave fino alla 50th St."],
     ["info","<b>FAO Schwarz</b> (30 Rockefeller Plaza), il negozio di giocattoli storico di New York, con il pianoforte gigante da suonare coi piedi. Aperto 11–19 secondo il sito del Rockefeller Center."],
     ["info","Uscendo è già buio (tramonto alle 16:45): Channel Gardens e la pista di pattinaggio illuminati. La pista ha aperto il 10 ottobre, quindi la trovate; l'albero di Natale arriva solo il 7 novembre, dopo la vostra partenza."],
+    ["info","Recuperati da giovedì: <b>St. Patrick's</b>, proprio di fronte sulla 5th Ave (gratis, rampa sul lato nord, aperta fino a sera), e se vi va <b>Nintendo NY</b> (10 Rockefeller Plaza, aperto fino alle 20:00)."],
     ["bimbo","Al caldo, con ascensori."]]},
-  {a:"17:30",b:"18:00",t:"Verso cena",n:[
+  {a:"17:40",b:"18:00",t:"Verso cena",n:[
     ["move","Metro <b>F da 47–50 Sts–Rockefeller Ctr</b> a <b>Broadway–Lafayette</b>, diretta, poi 8 minuti a piedi fino a Thai Diner."],
     ["info","Le valigie si chiudono dopo cena: domattina il check-out è presto."]]},
   {a:"18:00",b:"19:30",t:"Ultima cena: Thai Diner",n:[
@@ -763,12 +760,12 @@ const DAYS = [
 /*METEO:START*/const METEO = {"upd":"2026-10-29T12:38","days":[{"date":"2026-10-28","src":"clim","tmax":16,"tmin":8,"pp":36,"clim":{"tmax":16,"tmin":8,"pp":36}},{"date":"2026-10-29","src":"prev","code":0,"tmax":20,"tmin":9,"pp":1,"mm":0.0,"wind":16,"parts":[0,1,1],"clim":{"tmax":16,"tmin":8,"pp":37}},{"date":"2026-10-30","src":"prev","code":3,"tmax":18,"tmin":9,"pp":5,"mm":0.0,"wind":26,"parts":[2,0,0],"clim":{"tmax":15,"tmin":7,"pp":35}},{"date":"2026-10-31","src":"prev","code":3,"tmax":15,"tmin":9,"pp":0,"mm":0.0,"wind":16,"parts":[0,0,0],"clim":{"tmax":15,"tmin":7,"pp":29}},{"date":"2026-11-01","src":"prev","code":3,"tmax":15,"tmin":10,"pp":1,"mm":0.0,"wind":10,"parts":[1,1,0],"clim":{"tmax":15,"tmin":7,"pp":26}},{"date":"2026-11-02","src":"prev","code":3,"tmax":19,"tmin":11,"pp":8,"mm":0.0,"wind":16,"parts":[1,4,8],"clim":{"tmax":15,"tmin":6,"pp":21}},{"date":"2026-11-03","src":"prev","code":3,"tmax":20,"tmin":13,"pp":9,"mm":0.0,"wind":17,"parts":[9,9,9],"clim":{"tmax":15,"tmin":6,"pp":20}},{"date":"2026-11-04","src":"prev","code":3,"tmax":15,"tmin":13,"pp":12,"mm":0.0,"wind":20,"parts":[12,12,8],"clim":{"tmax":15,"tmin":6,"pp":20}}]};/*METEO:END*/
 const RAINB = [
   "Cambia poco: il Target e Shu Jiao Fu Zhou sono al chiuso. Saltate il giro a piedi tra Chinatown e Little Italy e recuperatelo un'altra sera: è a 5–10 minuti dall'hotel.",
-  "St. Patrick's e Rockefeller restano. Al posto di High Line e Little Island: The Shops at Hudson Yards (al coperto, ascensori ovunque), pranzo lungo al Chelsea Market e poi il Whitney Museum, a due passi e con i passeggini ammessi. Il West Village solo se smette. Times Square di sera regge anche la pioggia, con i negozi M&M's e Hershey's come rifugio.",
+  "Al posto del tratto di High Line e di Little Island: pranzo lungo al Chelsea Market e poi il Whitney Museum, a 8 minuti a piedi e con i passeggini ammessi. Il West Village solo se smette. Times Square di sera regge anche la pioggia, con i negozi M&M's e Hershey's come rifugio.",
   "Il traghetto per Staten Island va bene lo stesso: si sta dentro. Al posto di Battery Park e Wall Street all'aperto, l'Oculus e il Winter Garden di Brookfield Place, al coperto e collegati tra loro, più il museo dell'11 settembre se ve la sentite. La foto al Seaport si sposta a mercoledì mattina (il piano B c'è già). Williamsburg e Domino Park si saltano: dritti all'Essex Market e poi da Katz's.",
   "Al posto di Central Park, l'American Museum of Natural History sul lato ovest del parco: dinosauri e balena blu, passeggini ammessi. Il Summit con le nuvole basse non vale il biglietto: guardate il cielo a pranzo e, se serve, chiedete di cambiare fascia. La parata si fa anche con la pioggia: parapioggia sul passeggino e cuffie.",
   "Il tifo sulla First Avenue si fa comunque: parapioggia e un posto sotto una tettoia. La funivia di Roosevelt Island è chiusa e vale anche con la pioggia, ma il Four Freedoms Park è esposto al vento: andata e ritorno in funivia, poi Bloomingdale's, proprio all'uscita della funivia sulla 59th, prima di andare verso Times Square.",
-  "DUMBO e il Brooklyn Bridge sono tutti all'aperto. Invertite la giornata: mattina da Macy's a Herald Square, pranzo da Nom Wah, poi DaShop e una foto veloce ai Ghostbusters e a Basquiat Way, sera a Koreatown come previsto. Il ponte a piedi lo recuperate mercoledì mattina se torna il sereno. Per l'Empire State controllate la visibilità prima di salire: con la nebbia non si vede nulla.",
-  "Biblioteca e MoMA sono già al chiuso. Al posto della passeggiata in Central Park con tuo fratello, il food hall sotto il Plaza Hotel o FAO Schwarz, e i saluti lì invece che al Gapstow Bridge. Bryant Park diventa un passaggio veloce.",
+  "DUMBO e il Brooklyn Bridge sono tutti all'aperto. Invertite la giornata: mattina da Macy's a Herald Square, pranzo da Nom Wah, poi DaShop e una foto veloce ai Ghostbusters e a Basquiat Way. La High Line sotto la pioggia non vale: al suo posto The Shops at Hudson Yards, al coperto, col Vessel visto da sotto, poi Shake Shack come previsto. Il ponte a piedi lo recuperate mercoledì mattina se torna il sereno. Per l'Empire State controllate la visibilità prima di salire: con la nebbia non si vede nulla.",
+  "Biblioteca e MoMA sono già al chiuso. Al posto della passeggiata in Central Park con tuo fratello, il food hall sotto il Plaza Hotel o FAO Schwarz, e i saluti lì invece che al Gapstow Bridge. St. Patrick's è al chiuso e resta. Bryant Park diventa un passaggio veloce.",
   "SoHo e Tribeca si saltano senza rimpianti: colazione lunga da Bubby's, al chiuso, e poi l'Oculus e Brookfield Place se venerdì non li avete visti. Le valigie restano in hotel come previsto."
 ];
 const WXI = {0:"☀️",1:"🌤",2:"⛅",3:"☁️",45:"🌫",48:"🌫"};
@@ -1109,9 +1106,8 @@ const PACK = [
 // Restaurants panel: [dayIndex, meal, time, name, address|"", info, warn|"", price, withBrother]
 const FOOD = [
   [0,"Cena","18:50","Shu Jiao Fu Zhou","295 Grand St","Ravioli fuzhounesi al vapore e noodles, sulla strada tra il Target e l'hotel.","Solo contanti, chiude alle 20:00: sedetevi entro le 19:15. Si è spostato da Eldridge St al 295 di Grand St: alcune mappe hanno ancora il vecchio indirizzo.","$15–20",false],
-  [1,"Colazione","08:45","Kossar's Bagels & Bialys","367 Grand St","Bagel e bialy sfornati dal 1936, a 7 minuti dall'hotel. Poi F da Delancey St–Essex St fino al Rockefeller Center.","","~$25",false],
-  [1,"Pranzo","12:30","Chelsea Market","75 9th Ave","Mercato coperto con tanti banchi, all'uscita della High Line alla 16th St.","","~$50",false],
-  [1,"Merenda","16:00","Joe's Pizza","7 Carmine St","La sede originale del 1975: la fetta newyorkese classica, nel West Village.","","~$10",false],
+  [1,"Pranzo","13:15","Chelsea Market","75 9th Ave","Mercato coperto con tanti banchi, a 5 minuti dalla metro 14 St–8 Av. Poi un tratto di High Line.","","~$50",false],
+  [1,"Merenda","16:15","Joe's Pizza","7 Carmine St","La sede originale del 1975: la fetta newyorkese classica, nel West Village.","","~$10",false],
   [1,"Cena","18:45","Bubba Gump Shrimp Co.","1501 Broadway","Ristorante a tema Forrest Gump in piena Times Square: gamberi in tutte le salse, servizio al tavolo. Più turistico che buono, ma l'esperienza è quella.","✅ Prenotato su OpenTable per le 18:45.","~$90",false],
   [1,"Dolce","20:00","Junior's","1515 Broadway","La cheesecake newyorkese, una fetta da asporto da mangiare in hotel. A un isolato da Bubba Gump.","Non prende prenotazioni. Aperto fino a tarda sera.","~$12",false],
   [2,"Colazione","08:30","Clinton St. Baking Company","4 Clinton St","Pancake ai mirtilli famosi in tutta la città. Nei feriali presto si aspetta poco. Poi J da Essex St.","Apre alle 8:30 nei feriali; forse solo contanti a colazione.","~$45",false],
@@ -1155,13 +1151,11 @@ const FOOD = [
 // Attractions panel: [dayIndex, time, name, address|"", info, warn|"", price, withBrother]
 const SIGHTS = [
   [0,"19:30","Chinatown e Little Italy","Doyers St, Pell St, Mott St, Mulberry St","Primo giro dopo cena: le stradine storiche di Chinatown, poi su per Mulberry St fino a Little Italy. Tutto a 5–10 minuti dall'hotel.","","Gratis",false],
-  [1,"09:30","St. Patrick's Cathedral","5th Ave & 50th St","La cattedrale neogotica di Midtown, di fronte al Rockefeller Center. Rampa sul lato nord.","","Gratis",false],
-  [1,"10:00","Rockefeller Center","Rockefeller Plaza","Rockefeller Plaza e il Channel Gardens. Opzionale il Nintendo NY (10 Rockefeller Plaza, apre alle 10:00).","","Gratis",false],
-  [1,"11:05","Vessel e The High Line","W 34th St & 12th Ave","Prima uno sguardo da fuori al Vessel di Hudson Yards, poi il parco sopraelevato sulla vecchia ferrovia, da nord a sud: The Spur alla 30th St, uscita alla 16th St davanti al Chelsea Market.","","Gratis",false],
-  [1,"13:30","Little Island","Pier 55, Hudson River Park","Il parco sospeso sull'Hudson all'altezza della W 13th St. Accanto c'è il Pier 51.","","Gratis",false],
-  [1,"14:30","West Village e la casa di Carrie","66 Perry St","Scalinate addobbate per Halloween, la foto al 66 di Perry St e Bleecker St, con calma.","","Gratis",false],
-  [1,"16:20","Case addobbate di W 11th e W 10th St","W 11th St & 5th Ave","Le due strade del Village più famose per gli addobbi di Halloween, sulla strada tra Joe's e Washington Square.","","Gratis",false],
-  [1,"16:50","Washington Square Park","Washington Square Park","L'arco con la luce calda del tardo pomeriggio.","","Gratis",false],
+  [1,"14:00","Un tratto di High Line","14th St & 10th Ave","Dal Chelsea Market verso sud fino alla Gansevoort St, una decina di minuti. La High Line intera col Vessel è lunedì.","","Gratis",false],
+  [1,"14:30","Little Island","Pier 55, Hudson River Park","Il parco sospeso sull'Hudson all'altezza della W 13th St. Accanto c'è il Pier 51.","","Gratis",false],
+  [1,"15:20","West Village e la casa di Carrie","66 Perry St","Scalinate addobbate per Halloween, la foto al 66 di Perry St e Bleecker St.","","Gratis",false],
+  [1,"16:40","Case addobbate di W 11th e W 10th St","W 11th St & 5th Ave","Le due strade del Village più famose per gli addobbi di Halloween, sulla strada tra Joe's e Washington Square.","","Gratis",false],
+  [1,"17:00","Washington Square Park","Washington Square Park","L'arco con la luce calda del tardo pomeriggio.","","Gratis",false],
   [1,"17:30","Times Square illuminata","Times Square","Si arriva mentre si accendono i maxischermi (tramonto 17:50). La scalinata rossa di Duffy Square per guardare la piazza dall'alto.","","Gratis",false],
   [2,"09:30","Staten Island Ferry e Statua della Libertà","Whitehall Terminal","Il traghetto gratuito, 25 minuti a tratta: all'andata state sul lato destro per la Statua. A Staten Island si scende e si riprende il primo traghetto di ritorno.","","Gratis",false],
   [2,"11:15","Battery Park, Charging Bull e Wall Street","Bowling Green","Tutto a piedi e in piano: Battery Park, il toro di Bowling Green, Wall Street e la facciata della Borsa, poi la Trinity Church con la tomba di Hamilton.","","Gratis",false],
@@ -1185,8 +1179,7 @@ const SIGHTS = [
   [5,"14:45","DaShop","6A Elizabeth St","Negozio di carte Pokémon e Yu-Gi-Oh, a 5 minuti da Nom Wah.","Forse solo contanti.","–",true],
   [5,"15:15","Tribeca e la caserma dei Ghostbusters","14 N Moore St","Hook & Ladder Company 8, la caserma del film, ancora in servizio: foto dal marciapiede.","","Gratis",true],
   [5,"15:45","Jean-Michel Basquiat Way","57 Great Jones St","Il tratto di Great Jones St tra Bowery e Lafayette intitolato a Basquiat nel 2025, con lo studio dove visse dal 1983 al 1988.","","Gratis",true],
-  [5,"17:00","Macy's Herald Square (facoltativo)","151 W 34th St","Il grande magazzino storico, con le vecchie scale mobili in legno ai piani alti.","","Gratis",false],
-  [5,"18:00","Koreatown","W 32nd St","Due passi tra le insegne accese prima di cena.","","Gratis",false],
+  [5,"16:45","The High Line al tramonto e il Vessel","23rd St & 10th Ave","Il parco sopraelevato sulla vecchia ferrovia, verso nord col sole che tramonta sull'Hudson (16:47), fino al Vessel illuminato di Hudson Yards. Recuperata da giovedì.","Aperta fino alle 22:00. Se il gruppo preferisce altro, ritrovo da Shake Shack alle 18:15.","Gratis",false],
   [5,"19:45","Empire State Building","20 W 34th St","Midtown di notte dall'osservatorio dell'86° piano.","Un'unica prenotazione per tutto il gruppo, fascia 19:30–20:00.","~$105",true],
   [6,"09:30","Bryant Park Winter Village","Bryant Park","Bancarelle e pista di pattinaggio, aperto dal 28 ottobre.","","~$20",false],
   [6,"10:00","New York Public Library","476 5th Ave","I leoni sulla scalinata e la Rose Main Reading Room col soffitto dipinto.","Ultimo ingresso in sala alle 10:50. Col passeggino, ingresso sulla 42nd St.","Gratis",false],
@@ -1194,6 +1187,7 @@ const SIGHTS = [
   [6,"14:00","Central Park sud","Friedsam Memorial Carousel, Central Park","Heckscher Playground, la giostra storica, Sheep Meadow e il Literary Walk.","La giostra è solo contanti ($3) e a novembre potrebbe essere chiusa. Con tuo fratello solo se è venuto al MoMA.","~$6",true],
   [6,"15:30","Gapstow Bridge e il Pond","Gapstow Bridge, Central Park","Lo scorcio classico col Plaza sullo sfondo. Qui salutate tuo fratello, se non vi siete salutati lunedì sera.","","Gratis",true],
   [6,"16:15","FAO Schwarz","30 Rockefeller Plaza","Il negozio di giocattoli storico, col pianoforte gigante da suonare coi piedi.","","Gratis",false],
+  [6,"16:45","St. Patrick's Cathedral e Nintendo NY","5th Ave & 50th St","La cattedrale neogotica di fronte al Rockefeller Center, rampa sul lato nord. Nintendo NY (10 Rockefeller Plaza) se vi va. Recuperati da giovedì.","","Gratis",false],
   [6,"17:00","Rockefeller Center illuminato","Rockefeller Plaza","Channel Gardens e pista di pattinaggio col buio (aperta dal 10 ottobre).","","Gratis",false],
   [7,"09:00","SoHo","Greene St & Prince St","Le facciate in ghisa con le scale antincendio di Greene St, poi Mercer St e Prince St, tranquille prima che aprano i negozi.","Piano B: se la foto di venerdì non vi convince, Seaport al posto di SoHo.","Gratis",false],
   [7,"10:30","Tribeca","Hudson St & N Moore St","Le strade di Tribeca verso Bubby's. La caserma dei Ghostbusters l'avete vista lunedì, è lì accanto.","","Gratis",false]
