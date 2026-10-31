@@ -560,11 +560,12 @@ const DAYS = [
     ["food","205 E Houston St, a 8 minuti a piedi dall'Essex Market risalendo Ludlow St. Un pastrami sandwich (circa $30) basta per due."],
     ["warn","All'ingresso danno un ticket a testa: non perdetelo. Un genitore tiene il tavolo, l'altro va al banco."]]}
   ]},
-{ d:31, dow:"Sab", date:"Sabato 31 ottobre", title:"Halloween: Central Park, Summit e Village Halloween Parade", zone:"Central Park ➔ Madison Sq ➔ LES ➔ Grand Central ➔ Village", lvl:3, budget:[["Colazione da Mei Lai Wah", 25], ["Metro (poi scatta il tetto settimanale)", 34], ["Shake Shack", 45], ["SUMMIT, 2 adulti al tramonto", 130], ["Tacombi", 60], ["Merenda a Grand Central e caffè", 20], ["Bimbo", 15]], halloween:true,
-  map:G+"Columbus+Circle,+New+York/Strawberry+Fields,+Central+Park/Bethesda+Terrace,+New+York/Bow+Bridge,+Central+Park/Alice+in+Wonderland,+Central+Park/Balto+Statue,+Central+Park/The+Plaza,+New+York/Shake+Shack,+Madison+Square+Park/Flatiron+Building/",
+{ d:31, dow:"Sab", date:"Sabato 31 ottobre", title:"Halloween: Central Park, Summit e Village Halloween Parade", zone:"Central Park ➔ Herald Sq ➔ Madison Sq ➔ Grand Central ➔ Village", lvl:3, budget:[["Colazione da Mei Lai Wah", 25], ["Metro (poi scatta il tetto settimanale)", 34], ["Shake Shack", 45], ["SUMMIT, 2 adulti al tramonto", 130], ["Tacombi", 60], ["Merenda a Grand Central e caffè", 20], ["Bimbo", 15]], halloween:true,
+  map:G+"Columbus+Circle,+New+York/Strawberry+Fields,+Central+Park/Bethesda+Terrace,+New+York/Bow+Bridge,+Central+Park/Alice+in+Wonderland,+Central+Park/Balto+Statue,+Central+Park/The+Plaza,+New+York/Target,+112+W+34th+St,+New+York/Shake+Shack,+Madison+Square+Park/Flatiron+Building/Grand+Central+Terminal/",
   map2:G+"SUMMIT+One+Vanderbilt/42+St-Bryant+Park+Station/Broadway-Lafayette+St+Station/6th+Ave+%26+W+Houston+St,+New+York/Tacombi,+267+Elizabeth+St,+New+York/5+Allen+St,+New+York/",
   slots:[
-  {a:"09:00",b:"11:00",t:"Central Park da ovest a est",n:[
+  {a:"09:00",b:"11:30",t:"Central Park da ovest a est, con calma",n:[
+    ["warn","Oggi non si rientra in hotel: uscite già col costume del bimbo e tutto il necessario per la sera nella borsa del passeggino."],
     ["food","Colazione veloce da <b>Mei Lai Wah</b> (41 Mott St), la bakery cinese dei baked pork buns e dei dolci, apre alle 8:30: siate lì all'apertura e prendete tutto da asporto, da mangiare in metro. A pochi dollari, e a 7 minuti dalla stazione di Grand St. Da fine 2024 è nella sede nuova e più grande al 41 di Mott St; quella vecchia di Bayard St ha chiuso. Al ritrovo arrivate verso le 9:10: avvisate il gruppo."],
     ["move","Metro <b>D da Grand St a 59 St–Columbus Circle</b> (il sabato <b>la B non circola</b>), si entra dal Merchants' Gate."],
     ["info","Prima tappa a nord lungo il lato ovest del parco: <b>Strawberry Fields</b> (W 72nd St), col mosaico \"Imagine\" dedicato a John Lennon, e di fronte, oltre Central Park West, il <b>Dakota</b>, il palazzo dove viveva. Poi verso est fino a Bethesda: circa 10–15 minuti in più rispetto al percorso diretto."],
@@ -573,15 +574,20 @@ const DAYS = [
     ["bimbo","Viali asfaltati e foglie autunnali: ideale col passeggino."],
     ["info","<b>Passeggiata tutti insieme col gruppo.</b> Ritrovo alle 9:00 al Merchants' Gate di Columbus Circle, davanti al Maine Monument (il gruppo dorato sulla colonna). Chi arriva tardi vi raggiunge a Bethesda Terrace verso le 10:00. Al Plaza vi separate: voi a pranzo da Shake Shack, gli altri per conto loro."],
     ["info","Tuo fratello, alla vigilia della maratona, cammina con calma e si ferma quando vuole."]]},
-  {a:"11:00",b:"12:15",t:"Shake Shack a Madison Square Park e Flatiron",n:[
-    ["move","Metro <b>R da 5 Av/59 St a 23 St</b> (diretta, 10 minuti). Il sabato la W non circola e la N salta la 23 St."],
-    ["food","Pranzo anticipato allo <b>Shake Shack</b> originale, un chiosco dentro il parco con il Flatiron di fronte: burger, hot dog e frozen custard. In due $40–45. Fino a cena c'è solo la merenda, quindi mangiate bene."]]},
-  {a:"12:30",b:"15:15",t:"Nanna lunga in hotel e preparazione costume",n:[
-    ["move","Metro <b>F da 23 St (6th Ave) a East Broadway</b>, diretta."],
-    ["bimbo","È il pezzo più importante della giornata: se il bimbo dorme bene adesso, la sera regge."]]},
-  {a:"15:15",b:"16:40",t:"Grand Central, Chrysler e merenda",n:[
-    ["move","F da East Broadway a 42 St–Bryant Park, poi 6 minuti a piedi."],
+  {a:"11:30",b:"12:15",t:"Target a Herald Square: il cucchiaino",n:[
+    ["move","Metro <b>R da 5 Av/59 St a 34 St–Herald Sq</b> (diretta, 8 minuti). Il sabato la W non circola."],
+    ["info","<b>Target</b>, 112 W 34th St, tra la 6th e la 7th Ave, a 2 minuti dall'uscita. Reparto bambini per il cucchiaino nuovo. Ascensori interni, si gira col passeggino."]]},
+  {a:"12:15",b:"13:45",t:"Shake Shack a Madison Square Park e Flatiron",n:[
+    ["move","Circa 15 minuti a piedi giù per Broadway, dalla 34th alla 23rd, marciapiedi larghi e in piano. In alternativa R da 34 St–Herald Sq a 23 St, una fermata."],
+    ["food","Pranzo con calma allo <b>Shake Shack</b> originale, un chiosco dentro il parco con il Flatiron di fronte: burger, hot dog e frozen custard. In due $40–45. Fino a cena c'è solo la merenda, quindi mangiate bene."]]},
+  {a:"13:45",b:"15:00",t:"Pisolino in passeggino a Madison Square Park",n:[
+    ["bimbo","Oggi niente rientro in hotel: il bimbo dorme nel passeggino. Voi su una panchina del parco, col Flatiron davanti. Se fa freddo, la sosta si sposta dentro Grand Central."],
+    ["info","È il pezzo più importante della giornata: se il bimbo dorme bene adesso, la sera regge. Non c'è niente da vedere, va bene così."]]},
+  {a:"15:00",b:"15:30",t:"A piedi fino a Grand Central",n:[
+    ["move","Circa 25 minuti su <b>Madison Ave</b>, dalla 23rd alla 42nd, tutto in piano: se dorme ancora, il pisolino continua. Se siete stanchi, taxi."]]},
+  {a:"15:30",b:"16:40",t:"Grand Central, Chrysler, merenda e costume",n:[
     ["info","Grand Central: il soffitto astronomico e la Whispering Gallery. Poi la guglia del <b>Chrysler Building</b> (Lexington & 42nd), a 3 minuti a piedi."],
+    ["bimbo","Costume da mettere qui, nei bagni del Dining Concourse al piano inferiore, prima di salire al Summit."],
     ["info","Alle 16:40 ritrovo col gruppo all'ingresso del Summit (42nd St & Vanderbilt Ave): avete tutti la stessa fascia delle 16:45."],
     ["food","<b>Merenda a Grand Central</b>, che è di fronte al Summit: <b>Magnolia Bakery</b> (banana pudding e cupcake), al Dining Concourse al piano inferiore. Il sabato è aperta fino alle 21. Fatela sostanziosa: si cena verso le 20."]]},
   {a:"16:45",b:"18:10",t:"SUMMIT One Vanderbilt al tramonto, con Ascent",n:[
@@ -771,7 +777,7 @@ const RAINB = [
   "Cambia poco: il Target e Shu Jiao Fu Zhou sono al chiuso. Saltate il giro a piedi tra Chinatown e Little Italy e recuperatelo un'altra sera: è a 5–10 minuti dall'hotel.",
   "Al posto del tratto di High Line e di Little Island: pranzo lungo al Chelsea Market e poi il Whitney Museum, a 8 minuti a piedi e con i passeggini ammessi. Il West Village solo se smette. Times Square di sera regge anche la pioggia, con i negozi M&M's e Hershey's come rifugio.",
   "Colazione e Target sono al chiuso, e il traghetto per Staten Island va bene lo stesso: si sta dentro. Al posto di Battery Park e Wall Street all'aperto, l'Oculus e il Winter Garden di Brookfield Place, al coperto e collegati tra loro, più il museo dell'11 settembre se ve la sentite. La foto al Seaport si sposta a mercoledì mattina (il piano B c'è già). Williamsburg e Domino Park si saltano: dritti all'Essex Market e poi da Katz's.",
-  "Al posto di Central Park, l'American Museum of Natural History sul lato ovest del parco: dinosauri e balena blu, passeggini ammessi. Il Summit con le nuvole basse non vale il biglietto: guardate il cielo a pranzo e, se serve, chiedete di cambiare fascia. La parata si fa anche con la pioggia: parapioggia sul passeggino e cuffie.",
+  "Al posto di Central Park, l'American Museum of Natural History sul lato ovest del parco: dinosauri e balena blu, passeggini ammessi. Il Summit con le nuvole basse non vale il biglietto: guardate il cielo a pranzo e, se serve, chiedete di cambiare fascia. Il pisolino del primo pomeriggio si fa in passeggino dentro Grand Central invece che a Madison Square Park. La parata si fa anche con la pioggia: parapioggia sul passeggino e cuffie.",
   "Il tifo sulla First Avenue si fa comunque: parapioggia e un posto sotto una tettoia. La funivia di Roosevelt Island è chiusa e vale anche con la pioggia, ma il Four Freedoms Park è esposto al vento: andata e ritorno in funivia, poi Bloomingdale's, proprio all'uscita della funivia sulla 59th, prima di andare verso Times Square.",
   "DUMBO e il Brooklyn Bridge sono tutti all'aperto. Invertite la giornata: mattina da Macy's a Herald Square, pranzo da Nom Wah, poi DaShop e una foto veloce ai Ghostbusters e a Basquiat Way. La High Line sotto la pioggia non vale: al suo posto The Shops at Hudson Yards, al coperto, col Vessel visto da sotto, poi Shake Shack come previsto. Il ponte a piedi lo recuperate mercoledì mattina se torna il sereno. Per l'Empire State controllate la visibilità prima di salire: con la nebbia non si vede nulla.",
   "Biblioteca e MoMA sono già al chiuso. Al posto della passeggiata in Central Park con tuo fratello, il food hall sotto il Plaza Hotel o FAO Schwarz, e i saluti lì invece che al Gapstow Bridge. St. Patrick's è al chiuso e resta. Bryant Park diventa un passaggio veloce.",
@@ -883,7 +889,7 @@ function hwHTML(){
   return `<div class="hw-card">
     <div class="hw-title"><span>🎃</span><div><h3>La serata di Halloween in quattro mosse</h3><p>Village Halloween Parade · 6th Avenue · 19:00–23:00</p></div></div>
     <ol class="hw-steps">
-      <li><b>Nanna lunga</b> 12:30–15:15, poi costume e cuffie antirumore.</li>
+      <li><b>Pisolino in passeggino</b> a Madison Square Park dalle 13:45, costume a Grand Central e cuffie antirumore.</li>
       <li><b>Summit al tramonto con l'Ascent</b> col gruppo alle 16:45, alle 18:10 tutti verso la parata.</li>
       <li><b>Arrivate da est</b>: F/M/D fino a Broadway–Lafayette, poi Houston St fino alla 6th Ave.</li>
       <li><b>Tratto sud, lato est</b>: tra King St e Houston St, con punto d'incontro a Houston & MacDougal.</li>
@@ -1123,7 +1129,7 @@ const FOOD = [
   [2,"Pranzo","13:00","Chick-fil-A","144 Fulton St","Il Chick-fil-A più grande, cinque piani, tra il Memoriale e il Seaport. Chicken sandwich e waffle fries. Non c'è in Italia.","Chiuso la domenica.","~$30",false],
   [2,"Cena","18:45","Katz's Delicatessen","205 E Houston St","Cena speciale 1, solo voi tre. Un pastrami sandwich (circa $30) basta per due. A 8 minuti dall'Essex Market.","All'ingresso danno un ticket a testa: non perdetelo.","~$50",false],
   [3,"Colazione","08:30","Mei Lai Wah","41 Mott St","Bakery cinese dei baked pork buns, veloce e a pochi dollari, a 7 minuti dalla stazione di Grand St.","Apre alle 8:30: da asporto, al ritrovo arrivate verso le 9:10. Da fine 2024 è al 41 di Mott St.","~$25",false],
-  [3,"Pranzo","11:00","Shake Shack","Madison Square Park","Lo Shake Shack originale, un chiosco nel parco col Flatiron di fronte. Pranzo anticipato: fino a cena c'è solo la merenda.","","~$45",false],
+  [3,"Pranzo","12:15","Shake Shack","Madison Square Park","Lo Shake Shack originale, un chiosco nel parco col Flatiron di fronte. Pranzo con calma: fino a cena c'è solo la merenda.","","~$45",false],
   [3,"Merenda","16:10","Magnolia Bakery","Grand Central Terminal","Banana pudding e cupcake prima del Summit, di fronte alla stazione. Sostanziosa: si cena alle 20.","","~$20",false],
   [3,"Cena","20:05","Tacombi","267 Elizabeth St","Taqueria messicana a Nolita in un vecchio garage, dopo i pupazzi della parata. Spaziosa, sulla strada di casa.","Sabato di Halloween c'è fila, e siete in gruppo: prenotate per tutti al (646) 397-6889 (Resy non prende gruppi grandi). Piano B: Café Habana, 17 Prince St.","~$60",true],
   [4,"Colazione","08:45","Kossar's Bagels & Bialys","367 Grand St","Da portar via prima della maratona: apre alle 6 o alle 7. Poi F da Delancey St–Essex St.","","~$25",false],
@@ -1175,7 +1181,7 @@ const SIGHTS = [
   [2,"16:30","Domino Park al tramonto","Domino Park, Brooklyn","Il lungofiume dell'ex raffineria Domino, col Williamsburg Bridge accanto. Il sole tramonta alle 17:50 dietro Manhattan.","","Gratis",false],
   [2,"18:15","Essex Market","88 Essex St","Il mercato coperto del Lower East Side, dal 1940: un giro veloce tra i banchi prima di Katz's.","","Gratis",false],
   [3,"09:00","Central Park da ovest a est","Bethesda Terrace, Central Park","Strawberry Fields e il Dakota, poi Bethesda Terrace, Bow Bridge, Alice e Conservatory Water, Balto, fino al Plaza Hotel. Foliage al massimo.","Ritrovo col gruppo alle 9:00 al Merchants' Gate di Columbus Circle.","Gratis",true],
-  [3,"11:00","Flatiron Building e Madison Square Park","Flatiron Building","Il palazzo a ferro da stiro, di fronte allo Shake Shack del pranzo.","","Gratis",false],
+  [3,"12:15","Flatiron Building e Madison Square Park","Flatiron Building","Il palazzo a ferro da stiro, di fronte allo Shake Shack del pranzo.","","Gratis",false],
   [3,"15:40","Grand Central Terminal","Grand Central Terminal","Il soffitto astronomico e la Whispering Gallery.","","Gratis",false],
   [3,"16:00","Chrysler Building","Lexington Ave & 42nd St","La guglia art déco, a 3 minuti a piedi da Grand Central.","","Gratis",false],
   [3,"16:45","SUMMIT One Vanderbilt al tramonto, con Ascent","One Vanderbilt","Prima l'ascensore di vetro sulla facciata, poi le stanze a specchio con la luce del tramonto (17:52). Bimbi fino a 5 anni gratis.","Stessa fascia per tutto il gruppo. Niente deposito passeggini: il YOYO va chiuso. Alle 18:10 si esce per la parata.","~$130",true],

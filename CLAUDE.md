@@ -20,7 +20,7 @@ Se in questa sessione è disponibile il tool Artifact, ripubblica anche l'artifa
 ## Regole sul contenuto
 
 - Si gira solo col passeggino (Babyzen YOYO). Mai suggerire il marsupio. Percorsi adatti a ruote piccole, meglio ascensori; se il passeggino non passa: bimbo in braccio e YOYO a spalla.
-- Niente rientri in hotel durante il giorno, tranne sabato 31/10 (pisolino lungo prima di Halloween). Il bimbo dorme nel passeggino. Niente buchi vuoti nelle giornate: riempili con passeggiate o soste al chiuso vicine al percorso. Niente Met.
+- Niente rientri in hotel durante il giorno, nemmeno sabato 31/10 (deciso quella mattina: pisolino in passeggino a Madison Square Park). Il bimbo dorme nel passeggino. Niente buchi vuoti nelle giornate: riempili con passeggiate o soste al chiuso vicine al percorso. Niente Met.
 - Ristoranti e pasti sono per gli adulti: non aggiungere note su cosa mangia il bimbo. Le note "bimbo" riguardano solo logistica (sonno, passeggino, fasciatoio).
 - Il repo è pubblico: non aggiungere dati personali oltre a quelli già presenti (niente numeri di prenotazione, telefoni, documenti).
 - Scrivi in italiano, tono asciutto, niente trattini lunghi.
